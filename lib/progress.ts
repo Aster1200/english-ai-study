@@ -6,6 +6,8 @@ export type StoredProgress = {
   knownLessonIds: number[];
   reviewLessonIds: number[];
   studiedLessonIds: number[];
+  completedCheckpointIds: number[];
+  checkpointMistakes: Record<number, number[]>;
   lessonQuestions: Record<number, string>;
   generalQuestion: string;
   teacherAnswer: string;
@@ -17,6 +19,8 @@ export const defaultProgress: StoredProgress = {
   knownLessonIds: [],
   reviewLessonIds: [],
   studiedLessonIds: [],
+  completedCheckpointIds: [],
+  checkpointMistakes: {},
   lessonQuestions: {},
   generalQuestion: "",
   teacherAnswer: "",
@@ -45,6 +49,13 @@ export function normalizeProgress(value: Partial<StoredProgress>): StoredProgres
     studiedLessonIds: Array.isArray(value.studiedLessonIds)
       ? value.studiedLessonIds
       : [],
+    completedCheckpointIds: Array.isArray(value.completedCheckpointIds)
+      ? value.completedCheckpointIds
+      : [],
+    checkpointMistakes:
+      value.checkpointMistakes && typeof value.checkpointMistakes === "object"
+        ? value.checkpointMistakes
+        : {},
     lessonQuestions:
       value.lessonQuestions && typeof value.lessonQuestions === "object"
         ? value.lessonQuestions

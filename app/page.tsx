@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { CheckpointPanel } from "@/components/CheckpointPanel";
 import { DayRoadmap } from "@/components/DayRoadmap";
 import { LessonCard } from "@/components/LessonCard";
 import { PatternPanel } from "@/components/PatternPanel";
@@ -8,7 +9,7 @@ import { ReviewPanel } from "@/components/ReviewPanel";
 import { StatCard } from "@/components/StatCard";
 import { TeacherNotebook } from "@/components/TeacherNotebook";
 import { WordsPanel } from "@/components/WordsPanel";
-import { lessons } from "@/data/lessons";
+import { checkpoints, lessons } from "@/data/lessons";
 import {
   defaultProgress,
   getProgressStats,
@@ -59,13 +60,27 @@ export default function Home() {
 
   const stats = useMemo(() => getProgressStats(progress), [progress]);
 
+  const pendingCheckpoint = useMemo(() => {
+    const studiedLessonIds = new Set(progress.studiedLessonIds);
+
+    return checkpoints.find((checkpoint) => {
+      const isCompleted = progress.completedCheckpointIds.includes(checkpoint.id);
+      const isReady = lessons
+        .filter((lesson) => lesson.id <= checkpoint.afterLessonId)
+        .every((lesson) => studiedLessonIds.has(lesson.id));
+
+      return isReady && !isCompleted;
+    });
+  }, [progress.completedCheckpointIds, progress.studiedLessonIds]);
+
   const nextLesson = useMemo(() => {
+    const studiedLessonIds = new Set(progress.studiedLessonIds);
     const nextLesson = lessons.find(
-      (lesson) => !progress.knownLessonIds.includes(lesson.id),
+      (lesson) => !studiedLessonIds.has(lesson.id),
     );
 
     return nextLesson ?? lessons[lessons.length - 1];
-  }, [progress.knownLessonIds]);
+  }, [progress.studiedLessonIds]);
 
   const activeLesson = useMemo(() => {
     return (
@@ -109,6 +124,33 @@ export default function Home() {
         [lessonId]: question,
       },
     }));
+  }
+
+  function completeCheckpoint(checkpointId: number, mistakeLessonIds: number[]) {
+    setProgress((current) => {
+      const uniqueMistakes = Array.from(new Set(mistakeLessonIds));
+      const completedCheckpointIds = Array.from(
+        new Set([...current.completedCheckpointIds, checkpointId]),
+      );
+      const reviewLessonIds = Array.from(
+        new Set([...current.reviewLessonIds, ...uniqueMistakes]),
+      );
+      const knownLessonIds =
+        uniqueMistakes.length === 0
+          ? current.knownLessonIds
+          : current.knownLessonIds.filter((id) => !uniqueMistakes.includes(id));
+
+      return {
+        ...current,
+        completedCheckpointIds,
+        checkpointMistakes: {
+          ...current.checkpointMistakes,
+          [checkpointId]: uniqueMistakes,
+        },
+        knownLessonIds,
+        reviewLessonIds,
+      };
+    });
   }
 
   function updateGeneralQuestion(question: string) {
@@ -215,6 +257,12 @@ export default function Home() {
         <div className="mt-5 space-y-5">
           {activeTab === "learn" && (
             <>
+              {pendingCheckpoint && (
+                <CheckpointPanel
+                  checkpoint={pendingCheckpoint}
+                  onComplete={completeCheckpoint}
+                />
+              )}
               <DayRoadmap
                 activeLessonId={activeLesson.id}
                 getStatus={getStatus}
