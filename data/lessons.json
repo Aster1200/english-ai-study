@@ -2,11 +2,46 @@
   "version": 1,
   "method": "minimal-cognitive-load",
   "stages": [
-    { "id": 1, "title": "Fundamentos personales y necesidades básicas", "range": [1, 20] },
-    { "id": 2, "title": "Inglés para IA y Tecnología", "range": [21, 40] },
-    { "id": 3, "title": "Trabajo y Productividad simple", "range": [41, 60] },
-    { "id": 4, "title": "Conversación diaria y respuestas rápidas", "range": [61, 80] },
-    { "id": 5, "title": "Refuerzo y combinación de patrones", "range": [81, 100] }
+    {
+      "id": 1,
+      "title": "Fundamentos personales y necesidades básicas",
+      "range": [
+        1,
+        20
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Inglés para IA y Tecnología",
+      "range": [
+        21,
+        40
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Trabajo y Productividad simple",
+      "range": [
+        41,
+        60
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Conversación diaria y respuestas rápidas",
+      "range": [
+        61,
+        80
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Refuerzo y combinación de patrones",
+      "range": [
+        81,
+        100
+      ]
+    }
   ],
   "lessons": [
     {
@@ -14,228 +49,4449 @@
       "day": 1,
       "stageId": 1,
       "title": "Herramientas que uso",
-      "tags": ["IA", "herramientas", "trabajo"],
+      "tags": [
+        "IA",
+        "herramientas",
+        "trabajo"
+      ],
       "phrase": "I use ChatGPT.",
       "translation": "Yo uso ChatGPT.",
       "pronunciation": "Ai ius ChatGPT.",
       "explanation": "Se usa para decir qué herramienta utilizas.",
-      "examples": ["I use ChatGPT to learn English.", "I use ChatGPT for my projects."],
-      "words": [
-        { "word": "use", "translation": "usar", "example": "I use this tool every day." },
-        { "word": "learn", "translation": "aprender", "example": "I learn English with examples." },
-        { "word": "English", "translation": "inglés", "example": "English helps me at work." },
-        { "word": "project", "translation": "proyecto", "example": "This is my AI project." },
-        { "word": "tool", "translation": "herramienta", "example": "ChatGPT is a useful tool." }
+      "examples": [
+        "I use ChatGPT to learn English.",
+        "I use ChatGPT for my projects."
       ],
-      "pattern": "I use + herramienta"
+      "words": [
+        {
+          "word": "use",
+          "translation": "usar",
+          "example": "I use this tool every day."
+        },
+        {
+          "word": "learn",
+          "translation": "aprender",
+          "example": "I learn English with examples."
+        },
+        {
+          "word": "English",
+          "translation": "inglés",
+          "example": "English helps me at work."
+        },
+        {
+          "word": "project",
+          "translation": "proyecto",
+          "example": "This is my AI project."
+        },
+        {
+          "word": "tool",
+          "translation": "herramienta",
+          "example": "ChatGPT is a useful tool."
+        }
+      ],
+      "pattern": "I use + herramienta",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Se usa para decir qué herramienta utilizas. Usala cuando quieras decir: \"Yo uso ChatGPT.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use ChatGPT.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
     },
     {
       "id": 2,
       "day": 2,
       "stageId": 1,
       "title": "En qué estoy trabajando",
-      "tags": ["IA", "proyectos", "trabajo"],
+      "tags": [
+        "IA",
+        "proyectos",
+        "trabajo"
+      ],
       "phrase": "I am working on an AI project.",
       "translation": "Estoy trabajando en un proyecto de IA.",
       "pronunciation": "Ai am working on an ei-ai project.",
       "explanation": "Sirve para explicar en qué estás trabajando.",
-      "examples": ["I am working on Baby Claude.", "I am working on a website."],
-      "words": [
-        { "word": "working", "translation": "trabajando", "example": "I am working on a new idea." },
-        { "word": "AI", "translation": "inteligencia artificial", "example": "AI can help me practice." },
-        { "word": "website", "translation": "página web", "example": "I am building a website." },
-        { "word": "create", "translation": "crear", "example": "I create digital projects." },
-        { "word": "improve", "translation": "mejorar", "example": "I improve my English daily." }
+      "examples": [
+        "I am working on Baby Claude.",
+        "I am working on a website."
       ],
-      "pattern": "I am working on + proyecto"
+      "words": [
+        {
+          "word": "working",
+          "translation": "trabajando",
+          "example": "I am working on a new idea."
+        },
+        {
+          "word": "AI",
+          "translation": "inteligencia artificial",
+          "example": "AI can help me practice."
+        },
+        {
+          "word": "website",
+          "translation": "página web",
+          "example": "I am building a website."
+        },
+        {
+          "word": "create",
+          "translation": "crear",
+          "example": "I create digital projects."
+        },
+        {
+          "word": "improve",
+          "translation": "mejorar",
+          "example": "I improve my English daily."
+        }
+      ],
+      "pattern": "I am working on + proyecto",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para explicar en qué estás trabajando. Usala cuando quieras decir: \"Estoy trabajando en un proyecto de IA.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am working on\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am working on an AI project.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
     },
     {
       "id": 3,
       "day": 3,
       "stageId": 1,
       "title": "Lo que quiero aprender",
-      "tags": ["aprendizaje", "metas", "inglés"],
+      "tags": [
+        "aprendizaje",
+        "metas",
+        "inglés"
+      ],
       "phrase": "I want to learn English for work.",
       "translation": "Quiero aprender inglés para el trabajo.",
       "pronunciation": "Ai want tu lern Inglish for work.",
       "explanation": "Se usa para expresar una meta o algo que quieres lograr.",
-      "examples": ["I want to learn English for interviews.", "I want to learn English for my projects.", "I want to learn English with simple examples."],
-      "words": [
-        { "word": "want", "translation": "querer", "example": "I want to improve." },
-        { "word": "for", "translation": "para", "example": "English is useful for work." },
-        { "word": "work", "translation": "trabajo", "example": "I use English at work." },
-        { "word": "interview", "translation": "entrevista", "example": "I have an interview." },
-        { "word": "simple", "translation": "sencillo", "example": "I need simple examples." }
+      "examples": [
+        "I want to learn English for interviews.",
+        "I want to learn English for my projects.",
+        "I want to learn English with simple examples."
       ],
-      "pattern": "I want to + verbo"
+      "words": [
+        {
+          "word": "want",
+          "translation": "querer",
+          "example": "I want to improve."
+        },
+        {
+          "word": "for",
+          "translation": "para",
+          "example": "English is useful for work."
+        },
+        {
+          "word": "work",
+          "translation": "trabajo",
+          "example": "I use English at work."
+        },
+        {
+          "word": "interview",
+          "translation": "entrevista",
+          "example": "I have an interview."
+        },
+        {
+          "word": "simple",
+          "translation": "sencillo",
+          "example": "I need simple examples."
+        }
+      ],
+      "pattern": "I want to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Se usa para expresar una meta o algo que quieres lograr. Usala cuando quieras decir: \"Quiero aprender inglés para el trabajo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I want to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I want to learn English for work.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
     },
     {
       "id": 4,
       "day": 4,
       "stageId": 1,
       "title": "Lo que necesito",
-      "tags": ["trabajo", "práctica", "proyectos"],
+      "tags": [
+        "trabajo",
+        "práctica",
+        "proyectos"
+      ],
       "phrase": "I need more practice.",
       "translation": "Necesito más práctica.",
       "pronunciation": "Ai nid mor praktis.",
       "explanation": "Sirve para decir que necesitas algo para mejorar o avanzar.",
-      "examples": ["I need more practice with pronunciation.", "I need more examples for my project.", "I need help with English at work."],
-      "words": [
-        { "word": "need", "translation": "necesitar", "example": "I need help." },
-        { "word": "more", "translation": "más", "example": "I need more time." },
-        { "word": "practice", "translation": "práctica", "example": "Practice helps me learn." },
-        { "word": "help", "translation": "ayuda", "example": "I need help with this phrase." },
-        { "word": "pronunciation", "translation": "pronunciación", "example": "Pronunciation is important." }
+      "examples": [
+        "I need more practice with pronunciation.",
+        "I need more examples for my project.",
+        "I need help with English at work."
       ],
-      "pattern": "I need + cosa"
+      "words": [
+        {
+          "word": "need",
+          "translation": "necesitar",
+          "example": "I need help."
+        },
+        {
+          "word": "more",
+          "translation": "más",
+          "example": "I need more time."
+        },
+        {
+          "word": "practice",
+          "translation": "práctica",
+          "example": "Practice helps me learn."
+        },
+        {
+          "word": "help",
+          "translation": "ayuda",
+          "example": "I need help with this phrase."
+        },
+        {
+          "word": "pronunciation",
+          "translation": "pronunciación",
+          "example": "Pronunciation is important."
+        }
+      ],
+      "pattern": "I need + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que necesitas algo para mejorar o avanzar. Usala cuando quieras decir: \"Necesito más práctica.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need more practice.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
     },
-    { "id": 5, "day": 5, "stageId": 1, "title": "Yo tengo una idea", "tags": ["ideas", "personal"], "phrase": "I have an idea.", "translation": "Tengo una idea.", "pronunciation": "Ai jav an aidía.", "explanation": "Úsala para decir que tienes una idea.", "examples": ["I have an idea for my project."], "words": [{ "word": "have", "translation": "tener", "example": "I have a project." }, { "word": "idea", "translation": "idea", "example": "This idea is simple." }], "pattern": "I have + cosa" },
-    { "id": 6, "day": 6, "stageId": 1, "title": "Mi meta", "tags": ["metas"], "phrase": "I have a goal.", "translation": "Tengo una meta.", "pronunciation": "Ai jav a gol.", "explanation": "Sirve para hablar de una meta personal.", "examples": ["I have a goal for English."], "words": [{ "word": "goal", "translation": "meta", "example": "My goal is simple." }], "pattern": "I have a + cosa" },
-    { "id": 7, "day": 7, "stageId": 1, "title": "Yo estudio cada día", "tags": ["rutina"], "phrase": "I study every day.", "translation": "Estudio todos los días.", "pronunciation": "Ai stadi evri dei.", "explanation": "Úsala para hablar de tu rutina.", "examples": ["I study English every day."], "words": [{ "word": "study", "translation": "estudiar", "example": "I study English." }, { "word": "every day", "translation": "cada día", "example": "I practice every day." }], "pattern": "I study + frecuencia" },
-    { "id": 8, "day": 8, "stageId": 1, "title": "Yo entiendo", "tags": ["aprendizaje"], "phrase": "I understand this phrase.", "translation": "Entiendo esta frase.", "pronunciation": "Ai onderstand dis freiz.", "explanation": "Sirve para decir que algo ya tiene sentido para ti.", "examples": ["I understand this example."], "words": [{ "word": "understand", "translation": "entender", "example": "I understand the phrase." }, { "word": "this", "translation": "esto/esta", "example": "This is useful." }], "pattern": "I understand + cosa" },
-    { "id": 9, "day": 9, "stageId": 1, "title": "No entiendo todavía", "tags": ["dudas"], "phrase": "I do not understand yet.", "translation": "Todavía no entiendo.", "pronunciation": "Ai du not onderstand iet.", "explanation": "Úsala cuando algo aún no está claro.", "examples": ["I do not understand this word yet."], "words": [{ "word": "not", "translation": "no", "example": "I do not know." }, { "word": "yet", "translation": "todavía", "example": "I need practice yet." }], "pattern": "I do not + verbo + yet" },
-    { "id": 10, "day": 10, "stageId": 1, "title": "Necesito ayuda", "tags": ["ayuda"], "phrase": "I need help with this.", "translation": "Necesito ayuda con esto.", "pronunciation": "Ai nid jelp wid dis.", "explanation": "Sirve para pedir ayuda de forma simple.", "examples": ["I need help with this phrase."], "words": [{ "word": "with", "translation": "con", "example": "I need help with English." }], "pattern": "I need help with + cosa" },
-    { "id": 11, "day": 11, "stageId": 1, "title": "Puedo aprender", "tags": ["confianza"], "phrase": "I can learn this.", "translation": "Puedo aprender esto.", "pronunciation": "Ai can lern dis.", "explanation": "Úsala para darte confianza con algo nuevo.", "examples": ["I can learn this phrase."], "words": [{ "word": "can", "translation": "poder", "example": "I can improve." }], "pattern": "I can + verbo" },
-    { "id": 12, "day": 12, "stageId": 1, "title": "No puedo hacerlo solo", "tags": ["ayuda"], "phrase": "I cannot do this alone.", "translation": "No puedo hacer esto solo.", "pronunciation": "Ai canot du dis aloun.", "explanation": "Sirve para decir que necesitas apoyo.", "examples": ["I cannot learn everything alone."], "words": [{ "word": "do", "translation": "hacer", "example": "I can do this." }, { "word": "alone", "translation": "solo", "example": "I study alone." }], "pattern": "I cannot + verbo + alone" },
-    { "id": 13, "day": 13, "stageId": 1, "title": "Es fácil", "tags": ["opinión"], "phrase": "It is easy.", "translation": "Es fácil.", "pronunciation": "It is izi.", "explanation": "Úsala para describir algo simple.", "examples": ["This phrase is easy."], "words": [{ "word": "easy", "translation": "fácil", "example": "English can be easy." }], "pattern": "It is + adjetivo" },
-    { "id": 14, "day": 14, "stageId": 1, "title": "Es difícil", "tags": ["opinión"], "phrase": "It is difficult.", "translation": "Es difícil.", "pronunciation": "It is díficolt.", "explanation": "Úsala para decir que algo cuesta trabajo.", "examples": ["Pronunciation is difficult."], "words": [{ "word": "difficult", "translation": "difícil", "example": "This word is difficult." }], "pattern": "It is + adjetivo" },
-    { "id": 15, "day": 15, "stageId": 1, "title": "Es útil", "tags": ["opinión"], "phrase": "It is useful.", "translation": "Es útil.", "pronunciation": "It is iusful.", "explanation": "Sirve para decir que algo te ayuda.", "examples": ["ChatGPT is useful."], "words": [{ "word": "useful", "translation": "útil", "example": "This example is useful." }], "pattern": "It is + adjetivo" },
-    { "id": 16, "day": 16, "stageId": 1, "title": "Quiero practicar", "tags": ["práctica"], "phrase": "I want to practice.", "translation": "Quiero practicar.", "pronunciation": "Ai want tu praktis.", "explanation": "Úsala para decir que quieres entrenar.", "examples": ["I want to practice today."], "words": [{ "word": "practice", "translation": "practicar", "example": "I practice every day." }], "pattern": "I want to + verbo" },
-    { "id": 17, "day": 17, "stageId": 1, "title": "Quiero mejorar", "tags": ["metas"], "phrase": "I want to improve.", "translation": "Quiero mejorar.", "pronunciation": "Ai want tu impruv.", "explanation": "Sirve para hablar de progreso personal.", "examples": ["I want to improve my English."], "words": [{ "word": "improve", "translation": "mejorar", "example": "I improve with practice." }], "pattern": "I want to + verbo" },
-    { "id": 18, "day": 18, "stageId": 1, "title": "Estoy listo", "tags": ["confianza"], "phrase": "I am ready.", "translation": "Estoy listo.", "pronunciation": "Ai am redi.", "explanation": "Úsala para decir que puedes empezar.", "examples": ["I am ready to study."], "words": [{ "word": "ready", "translation": "listo", "example": "I am ready now." }], "pattern": "I am + estado" },
-    { "id": 19, "day": 19, "stageId": 1, "title": "Estoy aprendiendo", "tags": ["aprendizaje"], "phrase": "I am learning English.", "translation": "Estoy aprendiendo inglés.", "pronunciation": "Ai am lerning Inglish.", "explanation": "Sirve para decir lo que estás haciendo ahora.", "examples": ["I am learning English with examples."], "words": [{ "word": "learning", "translation": "aprendiendo", "example": "I am learning slowly." }], "pattern": "I am + verbo-ing" },
-    { "id": 20, "day": 20, "stageId": 1, "title": "Voy poco a poco", "tags": ["progreso"], "phrase": "I am learning step by step.", "translation": "Estoy aprendiendo paso a paso.", "pronunciation": "Ai am lerning step bai step.", "explanation": "Úsala para hablar de avance con calma.", "examples": ["I am learning English step by step."], "words": [{ "word": "step by step", "translation": "paso a paso", "example": "I work step by step." }], "pattern": "I am learning + modo" },
-    { "id": 21, "day": 21, "stageId": 2, "title": "Uso IA", "tags": ["IA"], "phrase": "I use AI every day.", "translation": "Uso IA todos los días.", "pronunciation": "Ai ius ei-ai evri dei.", "explanation": "Sirve para hablar de una herramienta frecuente.", "examples": ["I use AI for my ideas."], "words": [{ "word": "AI", "translation": "IA", "example": "AI is useful." }], "pattern": "I use + herramienta + every day" },
-    { "id": 22, "day": 22, "stageId": 2, "title": "Uso una app", "tags": ["apps"], "phrase": "I use an app to study.", "translation": "Uso una app para estudiar.", "pronunciation": "Ai ius an ap tu stadi.", "explanation": "Úsala para decir para qué usas una app.", "examples": ["I use this app to study English."], "words": [{ "word": "app", "translation": "aplicación", "example": "This app helps me." }], "pattern": "I use + cosa + to + verbo" },
-    { "id": 23, "day": 23, "stageId": 2, "title": "Creo una app", "tags": ["apps", "crear"], "phrase": "I create an app.", "translation": "Creo una app.", "pronunciation": "Ai crieit an ap.", "explanation": "Sirve para decir que construyes una aplicación.", "examples": ["I create an app for English."], "words": [{ "word": "create", "translation": "crear", "example": "I create projects." }], "pattern": "I create + cosa" },
-    { "id": 24, "day": 24, "stageId": 2, "title": "Construyo una página", "tags": ["web"], "phrase": "I build a website.", "translation": "Construyo una página web.", "pronunciation": "Ai bild a web-sait.", "explanation": "Úsala para hablar de construir una web.", "examples": ["I build a website with AI."], "words": [{ "word": "build", "translation": "construir", "example": "I build simple apps." }], "pattern": "I build + cosa" },
-    { "id": 25, "day": 25, "stageId": 2, "title": "Pruebo mi app", "tags": ["apps"], "phrase": "I test my app.", "translation": "Pruebo mi app.", "pronunciation": "Ai test mai ap.", "explanation": "Sirve para decir que revisas si algo funciona.", "examples": ["I test my app on my phone."], "words": [{ "word": "test", "translation": "probar", "example": "I test this lesson." }, { "word": "my", "translation": "mi", "example": "This is my app." }], "pattern": "I test my + cosa" },
-    { "id": 26, "day": 26, "stageId": 2, "title": "Arreglo un error", "tags": ["errores"], "phrase": "I fix an error.", "translation": "Arreglo un error.", "pronunciation": "Ai fix an error.", "explanation": "Úsala cuando corriges algo que no funciona.", "examples": ["I fix an error in my app."], "words": [{ "word": "fix", "translation": "arreglar", "example": "I fix the problem." }, { "word": "error", "translation": "error", "example": "This error is simple." }], "pattern": "I fix + problema" },
-    { "id": 27, "day": 27, "stageId": 2, "title": "Tengo un problema", "tags": ["errores"], "phrase": "I have a problem.", "translation": "Tengo un problema.", "pronunciation": "Ai jav a problem.", "explanation": "Sirve para decir que algo no va bien.", "examples": ["I have a problem with my app."], "words": [{ "word": "problem", "translation": "problema", "example": "This problem is difficult." }], "pattern": "I have a + problema" },
-    { "id": 28, "day": 28, "stageId": 2, "title": "Necesito una solución", "tags": ["soluciones"], "phrase": "I need a solution.", "translation": "Necesito una solución.", "pronunciation": "Ai nid a solúshon.", "explanation": "Úsala cuando buscas resolver algo.", "examples": ["I need a solution for this error."], "words": [{ "word": "solution", "translation": "solución", "example": "This solution is useful." }], "pattern": "I need a + cosa" },
-    { "id": 29, "day": 29, "stageId": 2, "title": "La IA me ayuda", "tags": ["IA"], "phrase": "AI helps me learn.", "translation": "La IA me ayuda a aprender.", "pronunciation": "Ei-ai jelps mi lern.", "explanation": "Sirve para decir qué hace la IA por ti.", "examples": ["AI helps me practice English."], "words": [{ "word": "helps", "translation": "ayuda", "example": "ChatGPT helps me." }], "pattern": "AI helps me + verbo" },
-    { "id": 30, "day": 30, "stageId": 2, "title": "ChatGPT explica", "tags": ["IA"], "phrase": "ChatGPT explains the phrase.", "translation": "ChatGPT explica la frase.", "pronunciation": "ChatGPT expleins de freiz.", "explanation": "Úsala para decir que una herramienta explica algo.", "examples": ["ChatGPT explains this word."], "words": [{ "word": "explains", "translation": "explica", "example": "The app explains the phrase." }], "pattern": "Herramienta + explains + cosa" },
-    { "id": 31, "day": 31, "stageId": 2, "title": "Escribo una idea", "tags": ["ideas"], "phrase": "I write an idea.", "translation": "Escribo una idea.", "pronunciation": "Ai rait an aidía.", "explanation": "Sirve para capturar una idea en texto.", "examples": ["I write an idea for my app."], "words": [{ "word": "write", "translation": "escribir", "example": "I write a phrase." }], "pattern": "I write + cosa" },
-    { "id": 32, "day": 32, "stageId": 2, "title": "Guardo mi progreso", "tags": ["progreso"], "phrase": "I save my progress.", "translation": "Guardo mi progreso.", "pronunciation": "Ai seiv mai progres.", "explanation": "Úsala para hablar de guardar avances.", "examples": ["I save my progress in the app."], "words": [{ "word": "save", "translation": "guardar", "example": "I save my notes." }, { "word": "progress", "translation": "progreso", "example": "My progress is good." }], "pattern": "I save my + cosa" },
-    { "id": 33, "day": 33, "stageId": 2, "title": "Abro mi app", "tags": ["apps"], "phrase": "I open my app.", "translation": "Abro mi app.", "pronunciation": "Ai oupen mai ap.", "explanation": "Sirve para decir que entras a una aplicación.", "examples": ["I open my app every day."], "words": [{ "word": "open", "translation": "abrir", "example": "I open the lesson." }], "pattern": "I open my + cosa" },
-    { "id": 34, "day": 34, "stageId": 2, "title": "Cierro la app", "tags": ["apps"], "phrase": "I close the app.", "translation": "Cierro la app.", "pronunciation": "Ai clous de ap.", "explanation": "Úsala para decir que terminas de usarla.", "examples": ["I close the app after practice."], "words": [{ "word": "close", "translation": "cerrar", "example": "I close the tab." }], "pattern": "I close + cosa" },
-    { "id": 35, "day": 35, "stageId": 2, "title": "Uso mi teléfono", "tags": ["celular"], "phrase": "I use my phone.", "translation": "Uso mi teléfono.", "pronunciation": "Ai ius mai foun.", "explanation": "Sirve para decir con qué dispositivo trabajas.", "examples": ["I use my phone to study."], "words": [{ "word": "phone", "translation": "teléfono", "example": "My phone is useful." }], "pattern": "I use my + cosa" },
-    { "id": 36, "day": 36, "stageId": 2, "title": "Uso mi computadora", "tags": ["computadora"], "phrase": "I use my computer.", "translation": "Uso mi computadora.", "pronunciation": "Ai ius mai compiuter.", "explanation": "Úsala para hablar de tu equipo de trabajo.", "examples": ["I use my computer for projects."], "words": [{ "word": "computer", "translation": "computadora", "example": "My computer is ready." }], "pattern": "I use my + cosa" },
-    { "id": 37, "day": 37, "stageId": 2, "title": "Mi app funciona", "tags": ["apps"], "phrase": "My app works.", "translation": "Mi app funciona.", "pronunciation": "Mai ap works.", "explanation": "Sirve para decir que algo funciona bien.", "examples": ["My app works on my phone."], "words": [{ "word": "works", "translation": "funciona", "example": "This lesson works." }], "pattern": "My + cosa + works" },
-    { "id": 38, "day": 38, "stageId": 2, "title": "Mi app no funciona", "tags": ["errores"], "phrase": "My app does not work.", "translation": "Mi app no funciona.", "pronunciation": "Mai ap dos not work.", "explanation": "Úsala cuando algo falla.", "examples": ["My app does not work yet."], "words": [{ "word": "does not", "translation": "no", "example": "It does not work." }], "pattern": "My + cosa + does not work" },
-    { "id": 39, "day": 39, "stageId": 2, "title": "El código es simple", "tags": ["código"], "phrase": "The code is simple.", "translation": "El código es simple.", "pronunciation": "De coud is simpel.", "explanation": "Sirve para describir código fácil de entender.", "examples": ["The code is simple and useful."], "words": [{ "word": "code", "translation": "código", "example": "The code works." }], "pattern": "The + cosa + is + adjetivo" },
-    { "id": 40, "day": 40, "stageId": 2, "title": "El proyecto crece", "tags": ["proyectos"], "phrase": "The project is growing.", "translation": "El proyecto está creciendo.", "pronunciation": "De project is grouing.", "explanation": "Úsala para hablar de avance en un proyecto.", "examples": ["My English project is growing."], "words": [{ "word": "growing", "translation": "creciendo", "example": "My app is growing." }], "pattern": "The + cosa + is growing" },
-    { "id": 41, "day": 41, "stageId": 3, "title": "Trabajo hoy", "tags": ["trabajo"], "phrase": "I work today.", "translation": "Trabajo hoy.", "pronunciation": "Ai work tudei.", "explanation": "Sirve para hablar de tu día de trabajo.", "examples": ["I work today on my project."], "words": [{ "word": "today", "translation": "hoy", "example": "I study today." }], "pattern": "I work + tiempo" },
-    { "id": 42, "day": 42, "stageId": 3, "title": "Tengo una tarea", "tags": ["tareas"], "phrase": "I have a task.", "translation": "Tengo una tarea.", "pronunciation": "Ai jav a task.", "explanation": "Úsala para hablar de algo que debes hacer.", "examples": ["I have a task for today."], "words": [{ "word": "task", "translation": "tarea", "example": "This task is simple." }], "pattern": "I have a + tarea" },
-    { "id": 43, "day": 43, "stageId": 3, "title": "Termino una tarea", "tags": ["tareas"], "phrase": "I finish a task.", "translation": "Termino una tarea.", "pronunciation": "Ai finish a task.", "explanation": "Sirve para decir que completas algo.", "examples": ["I finish a task every day."], "words": [{ "word": "finish", "translation": "terminar", "example": "I finish the lesson." }], "pattern": "I finish + cosa" },
-    { "id": 44, "day": 44, "stageId": 3, "title": "Empiezo ahora", "tags": ["productividad"], "phrase": "I start now.", "translation": "Empiezo ahora.", "pronunciation": "Ai start nau.", "explanation": "Úsala para iniciar una acción.", "examples": ["I start my lesson now."], "words": [{ "word": "start", "translation": "empezar", "example": "I start today." }, { "word": "now", "translation": "ahora", "example": "I am ready now." }], "pattern": "I start + tiempo" },
-    { "id": 45, "day": 45, "stageId": 3, "title": "Necesito tiempo", "tags": ["tiempo"], "phrase": "I need more time.", "translation": "Necesito más tiempo.", "pronunciation": "Ai nid mor taim.", "explanation": "Sirve para pedir o reconocer que necesitas tiempo.", "examples": ["I need more time to practice."], "words": [{ "word": "time", "translation": "tiempo", "example": "I need time." }], "pattern": "I need more + cosa" },
-    { "id": 46, "day": 46, "stageId": 3, "title": "Necesito foco", "tags": ["productividad"], "phrase": "I need focus.", "translation": "Necesito concentración.", "pronunciation": "Ai nid foucos.", "explanation": "Úsala cuando necesitas concentrarte.", "examples": ["I need focus for work."], "words": [{ "word": "focus", "translation": "concentración", "example": "Focus helps me work." }], "pattern": "I need + cosa" },
-    { "id": 47, "day": 47, "stageId": 3, "title": "Estoy ocupado", "tags": ["trabajo"], "phrase": "I am busy.", "translation": "Estoy ocupado.", "pronunciation": "Ai am bizi.", "explanation": "Sirve para decir que tienes cosas que hacer.", "examples": ["I am busy today."], "words": [{ "word": "busy", "translation": "ocupado", "example": "I am busy with work." }], "pattern": "I am + estado" },
-    { "id": 48, "day": 48, "stageId": 3, "title": "Estoy libre", "tags": ["tiempo"], "phrase": "I am free now.", "translation": "Estoy libre ahora.", "pronunciation": "Ai am fri nau.", "explanation": "Úsala para decir que tienes tiempo.", "examples": ["I am free now to study."], "words": [{ "word": "free", "translation": "libre", "example": "I am free today." }], "pattern": "I am free + tiempo" },
-    { "id": 49, "day": 49, "stageId": 3, "title": "Tengo una reunión", "tags": ["reuniones"], "phrase": "I have a meeting.", "translation": "Tengo una reunión.", "pronunciation": "Ai jav a miring.", "explanation": "Sirve para hablar de una reunión.", "examples": ["I have a meeting today."], "words": [{ "word": "meeting", "translation": "reunión", "example": "The meeting is today." }], "pattern": "I have a + evento" },
-    { "id": 50, "day": 50, "stageId": 3, "title": "Necesito prepararme", "tags": ["reuniones"], "phrase": "I need to prepare.", "translation": "Necesito prepararme.", "pronunciation": "Ai nid tu priper.", "explanation": "Úsala antes de una tarea o reunión.", "examples": ["I need to prepare for a meeting."], "words": [{ "word": "prepare", "translation": "preparar", "example": "I prepare my work." }], "pattern": "I need to + verbo" },
-    { "id": 51, "day": 51, "stageId": 3, "title": "Estoy revisando", "tags": ["trabajo"], "phrase": "I am checking this.", "translation": "Estoy revisando esto.", "pronunciation": "Ai am cheking dis.", "explanation": "Sirve para decir que estás revisando algo.", "examples": ["I am checking this error."], "words": [{ "word": "checking", "translation": "revisando", "example": "I am checking my app." }], "pattern": "I am + verbo-ing + cosa" },
-    { "id": 52, "day": 52, "stageId": 3, "title": "Estoy buscando", "tags": ["soluciones"], "phrase": "I am looking for a solution.", "translation": "Estoy buscando una solución.", "pronunciation": "Ai am luking for a solúshon.", "explanation": "Úsala cuando buscas resolver algo.", "examples": ["I am looking for a simple solution."], "words": [{ "word": "looking for", "translation": "buscando", "example": "I am looking for help." }], "pattern": "I am looking for + cosa" },
-    { "id": 53, "day": 53, "stageId": 3, "title": "Encontré una solución", "tags": ["soluciones"], "phrase": "I found a solution.", "translation": "Encontré una solución.", "pronunciation": "Ai faund a solúshon.", "explanation": "Sirve para decir que ya encontraste cómo resolver algo.", "examples": ["I found a solution for the error."], "words": [{ "word": "found", "translation": "encontré", "example": "I found an idea." }], "pattern": "I found a + cosa" },
-    { "id": 54, "day": 54, "stageId": 3, "title": "Funciona bien", "tags": ["trabajo"], "phrase": "It works well.", "translation": "Funciona bien.", "pronunciation": "It works wel.", "explanation": "Úsala para decir que algo está correcto.", "examples": ["My app works well."], "words": [{ "word": "well", "translation": "bien", "example": "I study well." }], "pattern": "It works + modo" },
-    { "id": 55, "day": 55, "stageId": 3, "title": "No funciona todavía", "tags": ["errores"], "phrase": "It does not work yet.", "translation": "Todavía no funciona.", "pronunciation": "It dos not work iet.", "explanation": "Sirve cuando algo aún falla.", "examples": ["The app does not work yet."], "words": [{ "word": "yet", "translation": "todavía", "example": "I do not understand yet." }], "pattern": "It does not work yet" },
-    { "id": 56, "day": 56, "stageId": 3, "title": "Tengo avances", "tags": ["progreso"], "phrase": "I have progress.", "translation": "Tengo progreso.", "pronunciation": "Ai jav progres.", "explanation": "Úsala para hablar de avance.", "examples": ["I have progress in English."], "words": [{ "word": "progress", "translation": "progreso", "example": "Progress is important." }], "pattern": "I have + avance" },
-    { "id": 57, "day": 57, "stageId": 3, "title": "Hago una pausa", "tags": ["rutina"], "phrase": "I take a break.", "translation": "Tomo un descanso.", "pronunciation": "Ai teik a breik.", "explanation": "Sirve para decir que descansas un momento.", "examples": ["I take a break after work."], "words": [{ "word": "break", "translation": "descanso", "example": "I need a break." }], "pattern": "I take a + cosa" },
-    { "id": 58, "day": 58, "stageId": 3, "title": "Vuelvo al trabajo", "tags": ["trabajo"], "phrase": "I go back to work.", "translation": "Vuelvo al trabajo.", "pronunciation": "Ai gou bak tu work.", "explanation": "Úsala para decir que retomas.", "examples": ["I go back to my project."], "words": [{ "word": "go back", "translation": "volver", "example": "I go back to study." }], "pattern": "I go back to + cosa" },
-    { "id": 59, "day": 59, "stageId": 3, "title": "Lo hago hoy", "tags": ["productividad"], "phrase": "I do it today.", "translation": "Lo hago hoy.", "pronunciation": "Ai du it tudei.", "explanation": "Sirve para comprometerte con una acción.", "examples": ["I do my lesson today."], "words": [{ "word": "it", "translation": "lo/eso", "example": "I can do it." }], "pattern": "I do it + tiempo" },
-    { "id": 60, "day": 60, "stageId": 3, "title": "Lo termino mañana", "tags": ["productividad"], "phrase": "I finish it tomorrow.", "translation": "Lo termino mañana.", "pronunciation": "Ai finish it tumorou.", "explanation": "Úsala para hablar de un plan cercano.", "examples": ["I finish the task tomorrow."], "words": [{ "word": "tomorrow", "translation": "mañana", "example": "I study tomorrow." }], "pattern": "I finish it + tiempo" },
-    { "id": 61, "day": 61, "stageId": 4, "title": "Hola", "tags": ["conversación"], "phrase": "Hello, how are you?", "translation": "Hola, ¿cómo estás?", "pronunciation": "Jelou, jau ar iu?", "explanation": "Saludo básico para empezar una conversación.", "examples": ["Hello, how are you today?"], "words": [{ "word": "hello", "translation": "hola", "example": "Hello, I am ready." }], "pattern": "Hello, how are you?" },
-    { "id": 62, "day": 62, "stageId": 4, "title": "Estoy bien", "tags": ["conversación"], "phrase": "I am good.", "translation": "Estoy bien.", "pronunciation": "Ai am gud.", "explanation": "Respuesta simple para decir cómo estás.", "examples": ["I am good, thank you."], "words": [{ "word": "good", "translation": "bien/bueno", "example": "This is good." }], "pattern": "I am + estado" },
-    { "id": 63, "day": 63, "stageId": 4, "title": "Gracias", "tags": ["conversación"], "phrase": "Thank you.", "translation": "Gracias.", "pronunciation": "Zank iu.", "explanation": "Forma básica de agradecer.", "examples": ["Thank you for your help."], "words": [{ "word": "thank you", "translation": "gracias", "example": "Thank you, teacher." }], "pattern": "Thank you + complemento" },
-    { "id": 64, "day": 64, "stageId": 4, "title": "De nada", "tags": ["conversación"], "phrase": "You are welcome.", "translation": "De nada.", "pronunciation": "Iu ar welcom.", "explanation": "Respuesta común después de un gracias.", "examples": ["You are welcome, my friend."], "words": [{ "word": "welcome", "translation": "bienvenido/de nada", "example": "You are welcome." }], "pattern": "You are welcome" },
-    { "id": 65, "day": 65, "stageId": 4, "title": "Por favor", "tags": ["conversación"], "phrase": "Please help me.", "translation": "Por favor, ayúdame.", "pronunciation": "Plis jelp mi.", "explanation": "Sirve para pedir ayuda con cortesía.", "examples": ["Please help me with this phrase."], "words": [{ "word": "please", "translation": "por favor", "example": "Please explain this." }], "pattern": "Please + verbo + me" },
-    { "id": 66, "day": 66, "stageId": 4, "title": "¿Puedes repetir?", "tags": ["conversación"], "phrase": "Can you repeat that?", "translation": "¿Puedes repetir eso?", "pronunciation": "Can iu ripit dat?", "explanation": "Úsala cuando necesitas escuchar otra vez.", "examples": ["Can you repeat that slowly?"], "words": [{ "word": "repeat", "translation": "repetir", "example": "Repeat the phrase." }], "pattern": "Can you + verbo + that?" },
-    { "id": 67, "day": 67, "stageId": 4, "title": "Más despacio", "tags": ["conversación"], "phrase": "Please speak slowly.", "translation": "Por favor habla despacio.", "pronunciation": "Plis spik slouli.", "explanation": "Sirve para pedir que hablen más lento.", "examples": ["Please speak slowly in English."], "words": [{ "word": "speak", "translation": "hablar", "example": "I speak English." }, { "word": "slowly", "translation": "despacio", "example": "I learn slowly." }], "pattern": "Please + verbo + modo" },
-    { "id": 68, "day": 68, "stageId": 4, "title": "No sé", "tags": ["conversación"], "phrase": "I do not know.", "translation": "No sé.", "pronunciation": "Ai du not nou.", "explanation": "Respuesta simple cuando no sabes algo.", "examples": ["I do not know this word."], "words": [{ "word": "know", "translation": "saber", "example": "I know this phrase." }], "pattern": "I do not know + cosa" },
-    { "id": 69, "day": 69, "stageId": 4, "title": "Sí, entiendo", "tags": ["conversación"], "phrase": "Yes, I understand.", "translation": "Sí, entiendo.", "pronunciation": "Ies, Ai onderstand.", "explanation": "Úsala para confirmar que entendiste.", "examples": ["Yes, I understand this example."], "words": [{ "word": "yes", "translation": "sí", "example": "Yes, I can." }], "pattern": "Yes, I + verbo" },
-    { "id": 70, "day": 70, "stageId": 4, "title": "No, necesito ayuda", "tags": ["conversación"], "phrase": "No, I need help.", "translation": "No, necesito ayuda.", "pronunciation": "Nou, Ai nid jelp.", "explanation": "Respuesta simple cuando no entendiste.", "examples": ["No, I need help with this."], "words": [{ "word": "no", "translation": "no", "example": "No, not yet." }], "pattern": "No, I need + cosa" },
-    { "id": 71, "day": 71, "stageId": 4, "title": "Tengo una pregunta", "tags": ["conversación"], "phrase": "I have a question.", "translation": "Tengo una pregunta.", "pronunciation": "Ai jav a kwestchon.", "explanation": "Sirve para avisar que quieres preguntar algo.", "examples": ["I have a question about this phrase."], "words": [{ "word": "question", "translation": "pregunta", "example": "My question is simple." }], "pattern": "I have a + pregunta" },
-    { "id": 72, "day": 72, "stageId": 4, "title": "¿Qué significa?", "tags": ["conversación"], "phrase": "What does it mean?", "translation": "¿Qué significa?", "pronunciation": "Wat dos it min?", "explanation": "Úsala para preguntar el significado.", "examples": ["What does this word mean?"], "words": [{ "word": "mean", "translation": "significar", "example": "What does AI mean?" }], "pattern": "What does + cosa + mean?" },
-    { "id": 73, "day": 73, "stageId": 4, "title": "¿Cómo digo esto?", "tags": ["conversación"], "phrase": "How do I say this?", "translation": "¿Cómo digo esto?", "pronunciation": "Jau du Ai sei dis?", "explanation": "Sirve para preguntar cómo expresar una idea.", "examples": ["How do I say this in English?"], "words": [{ "word": "say", "translation": "decir", "example": "I say this phrase." }], "pattern": "How do I + verbo + this?" },
-    { "id": 74, "day": 74, "stageId": 4, "title": "No hay problema", "tags": ["conversación"], "phrase": "No problem.", "translation": "No hay problema.", "pronunciation": "Nou problem.", "explanation": "Respuesta corta para tranquilizar.", "examples": ["No problem, I can help."], "words": [{ "word": "problem", "translation": "problema", "example": "No problem." }], "pattern": "No + problema" },
-    { "id": 75, "day": 75, "stageId": 4, "title": "Está bien", "tags": ["conversación"], "phrase": "It is okay.", "translation": "Está bien.", "pronunciation": "It is oukei.", "explanation": "Sirve para decir que algo está bien.", "examples": ["It is okay, I understand."], "words": [{ "word": "okay", "translation": "bien/ok", "example": "I am okay." }], "pattern": "It is + estado" },
-    { "id": 76, "day": 76, "stageId": 4, "title": "Me gusta", "tags": ["conversación"], "phrase": "I like this.", "translation": "Me gusta esto.", "pronunciation": "Ai laik dis.", "explanation": "Úsala para decir que algo te agrada.", "examples": ["I like this app."], "words": [{ "word": "like", "translation": "gustar", "example": "I like English." }], "pattern": "I like + cosa" },
-    { "id": 77, "day": 77, "stageId": 4, "title": "No me gusta", "tags": ["conversación"], "phrase": "I do not like this.", "translation": "No me gusta esto.", "pronunciation": "Ai du not laik dis.", "explanation": "Sirve para expresar que algo no te agrada.", "examples": ["I do not like this error."], "words": [{ "word": "like", "translation": "gustar", "example": "I like simple examples." }], "pattern": "I do not like + cosa" },
-    { "id": 78, "day": 78, "stageId": 4, "title": "Suena bien", "tags": ["conversación"], "phrase": "That sounds good.", "translation": "Eso suena bien.", "pronunciation": "Dat saunds gud.", "explanation": "Úsala para aceptar una idea.", "examples": ["That sounds good for today."], "words": [{ "word": "sounds", "translation": "suena", "example": "This sounds useful." }], "pattern": "That sounds + adjetivo" },
-    { "id": 79, "day": 79, "stageId": 4, "title": "Estoy de acuerdo", "tags": ["conversación"], "phrase": "I agree.", "translation": "Estoy de acuerdo.", "pronunciation": "Ai agrí.", "explanation": "Respuesta simple para aceptar una opinión.", "examples": ["I agree with this idea."], "words": [{ "word": "agree", "translation": "estar de acuerdo", "example": "I agree with you." }], "pattern": "I agree + complemento" },
-    { "id": 80, "day": 80, "stageId": 4, "title": "No estoy seguro", "tags": ["conversación"], "phrase": "I am not sure.", "translation": "No estoy seguro.", "pronunciation": "Ai am not shur.", "explanation": "Sirve para expresar duda sin complicarte.", "examples": ["I am not sure yet."], "words": [{ "word": "sure", "translation": "seguro", "example": "I am sure now." }], "pattern": "I am not + estado" },
-    { "id": 81, "day": 81, "stageId": 5, "title": "Uso IA para aprender", "tags": ["refuerzo", "IA"], "phrase": "I use AI to learn English.", "translation": "Uso IA para aprender inglés.", "pronunciation": "Ai ius ei-ai tu lern Inglish.", "explanation": "Combina uso de herramienta con objetivo.", "examples": ["I use AI to practice English."], "words": [{ "word": "to learn", "translation": "para aprender", "example": "I use this app to learn." }], "pattern": "I use + herramienta + to + verbo" },
-    { "id": 82, "day": 82, "stageId": 5, "title": "Trabajo en mi app", "tags": ["refuerzo", "apps"], "phrase": "I am working on my app.", "translation": "Estoy trabajando en mi app.", "pronunciation": "Ai am working on mai ap.", "explanation": "Combina trabajo actual con proyecto propio.", "examples": ["I am working on my English app."], "words": [{ "word": "my app", "translation": "mi app", "example": "My app works." }], "pattern": "I am working on my + proyecto" },
-    { "id": 83, "day": 83, "stageId": 5, "title": "Quiero crear algo útil", "tags": ["refuerzo", "crear"], "phrase": "I want to create something useful.", "translation": "Quiero crear algo útil.", "pronunciation": "Ai want tu crieit somzing iusful.", "explanation": "Sirve para expresar una meta creativa.", "examples": ["I want to create something simple."], "words": [{ "word": "something", "translation": "algo", "example": "I need something useful." }], "pattern": "I want to create + cosa" },
-    { "id": 84, "day": 84, "stageId": 5, "title": "Necesito entender el problema", "tags": ["refuerzo", "problemas"], "phrase": "I need to understand the problem.", "translation": "Necesito entender el problema.", "pronunciation": "Ai nid tu onderstand de problem.", "explanation": "Combina necesidad con acción.", "examples": ["I need to understand this error."], "words": [{ "word": "the problem", "translation": "el problema", "example": "The problem is simple." }], "pattern": "I need to + verbo + cosa" },
-    { "id": 85, "day": 85, "stageId": 5, "title": "Puedo arreglarlo", "tags": ["refuerzo", "confianza"], "phrase": "I can fix it.", "translation": "Puedo arreglarlo.", "pronunciation": "Ai can fix it.", "explanation": "Frase corta para confianza técnica.", "examples": ["I can fix it with practice."], "words": [{ "word": "fix it", "translation": "arreglarlo", "example": "I want to fix it." }], "pattern": "I can + verbo + it" },
-    { "id": 86, "day": 86, "stageId": 5, "title": "Puedo explicarlo", "tags": ["refuerzo"], "phrase": "I can explain it.", "translation": "Puedo explicarlo.", "pronunciation": "Ai can explein it.", "explanation": "Sirve para decir que puedes explicar algo.", "examples": ["I can explain this phrase."], "words": [{ "word": "explain", "translation": "explicar", "example": "I explain my idea." }], "pattern": "I can + verbo + it" },
-    { "id": 87, "day": 87, "stageId": 5, "title": "Estoy mejorando poco a poco", "tags": ["refuerzo", "progreso"], "phrase": "I am improving step by step.", "translation": "Estoy mejorando paso a paso.", "pronunciation": "Ai am impruving step bai step.", "explanation": "Combina progreso con calma.", "examples": ["I am improving my English step by step."], "words": [{ "word": "improving", "translation": "mejorando", "example": "I am improving every day." }], "pattern": "I am + verbo-ing + modo" },
-    { "id": 88, "day": 88, "stageId": 5, "title": "Estoy aprendiendo con ejemplos", "tags": ["refuerzo"], "phrase": "I am learning with examples.", "translation": "Estoy aprendiendo con ejemplos.", "pronunciation": "Ai am lerning wid exampls.", "explanation": "Describe tu forma de aprender.", "examples": ["I am learning English with examples."], "words": [{ "word": "examples", "translation": "ejemplos", "example": "Examples help me." }], "pattern": "I am learning with + cosa" },
-    { "id": 89, "day": 89, "stageId": 5, "title": "Necesito practicar más", "tags": ["refuerzo"], "phrase": "I need to practice more.", "translation": "Necesito practicar más.", "pronunciation": "Ai nid tu praktis mor.", "explanation": "Combina necesidad con práctica.", "examples": ["I need to practice more today."], "words": [{ "word": "more", "translation": "más", "example": "I need more practice." }], "pattern": "I need to + verbo + more" },
-    { "id": 90, "day": 90, "stageId": 5, "title": "Quiero hablar mejor", "tags": ["refuerzo", "conversación"], "phrase": "I want to speak better.", "translation": "Quiero hablar mejor.", "pronunciation": "Ai want tu spik beder.", "explanation": "Sirve para expresar una meta de comunicación.", "examples": ["I want to speak English better."], "words": [{ "word": "better", "translation": "mejor", "example": "I want to learn better." }], "pattern": "I want to + verbo + better" },
-    { "id": 91, "day": 91, "stageId": 5, "title": "Esta frase me ayuda", "tags": ["refuerzo"], "phrase": "This phrase helps me.", "translation": "Esta frase me ayuda.", "pronunciation": "Dis freiz jelps mi.", "explanation": "Sirve para reconocer una frase útil.", "examples": ["This phrase helps me at work."], "words": [{ "word": "helps me", "translation": "me ayuda", "example": "Practice helps me." }], "pattern": "This + cosa + helps me" },
-    { "id": 92, "day": 92, "stageId": 5, "title": "Esta palabra es importante", "tags": ["refuerzo"], "phrase": "This word is important.", "translation": "Esta palabra es importante.", "pronunciation": "Dis word is important.", "explanation": "Úsala para marcar vocabulario clave.", "examples": ["This word is important for work."], "words": [{ "word": "important", "translation": "importante", "example": "English is important." }], "pattern": "This + cosa + is important" },
-    { "id": 93, "day": 93, "stageId": 5, "title": "Mi inglés está creciendo", "tags": ["refuerzo"], "phrase": "My English is growing.", "translation": "Mi inglés está creciendo.", "pronunciation": "Mai Inglish is grouing.", "explanation": "Sirve para hablar de progreso real.", "examples": ["My English is growing every day."], "words": [{ "word": "my English", "translation": "mi inglés", "example": "My English is improving." }], "pattern": "My + cosa + is growing" },
-    { "id": 94, "day": 94, "stageId": 5, "title": "Mi proyecto está creciendo", "tags": ["refuerzo", "proyectos"], "phrase": "My project is growing.", "translation": "Mi proyecto está creciendo.", "pronunciation": "Mai project is grouing.", "explanation": "Sirve para hablar de avance en un proyecto.", "examples": ["My app project is growing."], "words": [{ "word": "my project", "translation": "mi proyecto", "example": "My project works." }], "pattern": "My + proyecto + is growing" },
-    { "id": 95, "day": 95, "stageId": 5, "title": "Necesito una frase simple", "tags": ["refuerzo"], "phrase": "I need a simple phrase.", "translation": "Necesito una frase simple.", "pronunciation": "Ai nid a simpel freiz.", "explanation": "Resume tu estilo de aprendizaje.", "examples": ["I need a simple phrase to practice."], "words": [{ "word": "simple phrase", "translation": "frase simple", "example": "This is a simple phrase." }], "pattern": "I need a + descripción + cosa" },
-    { "id": 96, "day": 96, "stageId": 5, "title": "Puedo usar esta frase", "tags": ["refuerzo"], "phrase": "I can use this phrase.", "translation": "Puedo usar esta frase.", "pronunciation": "Ai can ius dis freiz.", "explanation": "Sirve para activar lo aprendido.", "examples": ["I can use this phrase at work."], "words": [{ "word": "use this", "translation": "usar esto", "example": "I can use this." }], "pattern": "I can use + cosa" },
-    { "id": 97, "day": 97, "stageId": 5, "title": "Puedo hacer una pregunta", "tags": ["refuerzo", "conversación"], "phrase": "I can ask a question.", "translation": "Puedo hacer una pregunta.", "pronunciation": "Ai can ask a kwestchon.", "explanation": "Combina habilidad con conversación.", "examples": ["I can ask a question in English."], "words": [{ "word": "ask", "translation": "preguntar", "example": "I ask a question." }], "pattern": "I can ask + cosa" },
-    { "id": 98, "day": 98, "stageId": 5, "title": "Puedo responder en inglés", "tags": ["refuerzo", "conversación"], "phrase": "I can answer in English.", "translation": "Puedo responder en inglés.", "pronunciation": "Ai can anser in Inglish.", "explanation": "Sirve para ganar confianza al responder.", "examples": ["I can answer simple questions in English."], "words": [{ "word": "answer", "translation": "responder", "example": "I answer the question." }], "pattern": "I can + verbo + in English" },
-    { "id": 99, "day": 99, "stageId": 5, "title": "Estoy listo para practicar", "tags": ["refuerzo"], "phrase": "I am ready to practice.", "translation": "Estoy listo para practicar.", "pronunciation": "Ai am redi tu praktis.", "explanation": "Frase de preparación para estudiar.", "examples": ["I am ready to practice today."], "words": [{ "word": "ready to", "translation": "listo para", "example": "I am ready to learn." }], "pattern": "I am ready to + verbo" },
-    { "id": 100, "day": 100, "stageId": 5, "title": "Sigo aprendiendo", "tags": ["refuerzo", "cierre"], "phrase": "I keep learning.", "translation": "Sigo aprendiendo.", "pronunciation": "Ai kip lerning.", "explanation": "Sirve para cerrar el camino con continuidad.", "examples": ["I keep learning English every day."], "words": [{ "word": "keep", "translation": "seguir/continuar", "example": "I keep practicing." }], "pattern": "I keep + verbo-ing" }
+    {
+      "id": 5,
+      "day": 5,
+      "stageId": 1,
+      "title": "Yo tengo una idea",
+      "tags": [
+        "ideas",
+        "personal"
+      ],
+      "phrase": "I have an idea.",
+      "translation": "Tengo una idea.",
+      "pronunciation": "Ai jav an aidía.",
+      "explanation": "Úsala para decir que tienes una idea.",
+      "examples": [
+        "I have an idea for my project."
+      ],
+      "words": [
+        {
+          "word": "have",
+          "translation": "tener",
+          "example": "I have a project."
+        },
+        {
+          "word": "idea",
+          "translation": "idea",
+          "example": "This idea is simple."
+        }
+      ],
+      "pattern": "I have + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que tienes una idea. Usala cuando quieras decir: \"Tengo una idea.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have an idea.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "day": 6,
+      "stageId": 1,
+      "title": "Mi meta",
+      "tags": [
+        "metas"
+      ],
+      "phrase": "I have a goal.",
+      "translation": "Tengo una meta.",
+      "pronunciation": "Ai jav a gol.",
+      "explanation": "Sirve para hablar de una meta personal.",
+      "examples": [
+        "I have a goal for English."
+      ],
+      "words": [
+        {
+          "word": "goal",
+          "translation": "meta",
+          "example": "My goal is simple."
+        }
+      ],
+      "pattern": "I have a + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de una meta personal. Usala cuando quieras decir: \"Tengo una meta.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have a goal.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "day": 7,
+      "stageId": 1,
+      "title": "Yo estudio cada día",
+      "tags": [
+        "rutina"
+      ],
+      "phrase": "I study every day.",
+      "translation": "Estudio todos los días.",
+      "pronunciation": "Ai stadi evri dei.",
+      "explanation": "Úsala para hablar de tu rutina.",
+      "examples": [
+        "I study English every day."
+      ],
+      "words": [
+        {
+          "word": "study",
+          "translation": "estudiar",
+          "example": "I study English."
+        },
+        {
+          "word": "every day",
+          "translation": "cada día",
+          "example": "I practice every day."
+        }
+      ],
+      "pattern": "I study + frecuencia",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de tu rutina. Usala cuando quieras decir: \"Estudio todos los días.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I study\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I study every day.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "day": 8,
+      "stageId": 1,
+      "title": "Yo entiendo",
+      "tags": [
+        "aprendizaje"
+      ],
+      "phrase": "I understand this phrase.",
+      "translation": "Entiendo esta frase.",
+      "pronunciation": "Ai onderstand dis freiz.",
+      "explanation": "Sirve para decir que algo ya tiene sentido para ti.",
+      "examples": [
+        "I understand this example."
+      ],
+      "words": [
+        {
+          "word": "understand",
+          "translation": "entender",
+          "example": "I understand the phrase."
+        },
+        {
+          "word": "this",
+          "translation": "esto/esta",
+          "example": "This is useful."
+        }
+      ],
+      "pattern": "I understand + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que algo ya tiene sentido para ti. Usala cuando quieras decir: \"Entiendo esta frase.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I understand\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I understand this phrase.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "day": 9,
+      "stageId": 1,
+      "title": "No entiendo todavía",
+      "tags": [
+        "dudas"
+      ],
+      "phrase": "I do not understand yet.",
+      "translation": "Todavía no entiendo.",
+      "pronunciation": "Ai du not onderstand iet.",
+      "explanation": "Úsala cuando algo aún no está claro.",
+      "examples": [
+        "I do not understand this word yet."
+      ],
+      "words": [
+        {
+          "word": "not",
+          "translation": "no",
+          "example": "I do not know."
+        },
+        {
+          "word": "yet",
+          "translation": "todavía",
+          "example": "I need practice yet."
+        }
+      ],
+      "pattern": "I do not + verbo + yet",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando algo aún no está claro. Usala cuando quieras decir: \"Todavía no entiendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I do not\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I do not understand yet.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "day": 10,
+      "stageId": 1,
+      "title": "Necesito ayuda",
+      "tags": [
+        "ayuda"
+      ],
+      "phrase": "I need help with this.",
+      "translation": "Necesito ayuda con esto.",
+      "pronunciation": "Ai nid jelp wid dis.",
+      "explanation": "Sirve para pedir ayuda de forma simple.",
+      "examples": [
+        "I need help with this phrase."
+      ],
+      "words": [
+        {
+          "word": "with",
+          "translation": "con",
+          "example": "I need help with English."
+        }
+      ],
+      "pattern": "I need help with + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para pedir ayuda de forma simple. Usala cuando quieras decir: \"Necesito ayuda con esto.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need help with\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need help with this.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "day": 11,
+      "stageId": 1,
+      "title": "Puedo aprender",
+      "tags": [
+        "confianza"
+      ],
+      "phrase": "I can learn this.",
+      "translation": "Puedo aprender esto.",
+      "pronunciation": "Ai can lern dis.",
+      "explanation": "Úsala para darte confianza con algo nuevo.",
+      "examples": [
+        "I can learn this phrase."
+      ],
+      "words": [
+        {
+          "word": "can",
+          "translation": "poder",
+          "example": "I can improve."
+        }
+      ],
+      "pattern": "I can + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para darte confianza con algo nuevo. Usala cuando quieras decir: \"Puedo aprender esto.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can learn this.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "day": 12,
+      "stageId": 1,
+      "title": "No puedo hacerlo solo",
+      "tags": [
+        "ayuda"
+      ],
+      "phrase": "I cannot do this alone.",
+      "translation": "No puedo hacer esto solo.",
+      "pronunciation": "Ai canot du dis aloun.",
+      "explanation": "Sirve para decir que necesitas apoyo.",
+      "examples": [
+        "I cannot learn everything alone."
+      ],
+      "words": [
+        {
+          "word": "do",
+          "translation": "hacer",
+          "example": "I can do this."
+        },
+        {
+          "word": "alone",
+          "translation": "solo",
+          "example": "I study alone."
+        }
+      ],
+      "pattern": "I cannot + verbo + alone",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que necesitas apoyo. Usala cuando quieras decir: \"No puedo hacer esto solo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I cannot\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I cannot do this alone.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "day": 13,
+      "stageId": 1,
+      "title": "Es fácil",
+      "tags": [
+        "opinión"
+      ],
+      "phrase": "It is easy.",
+      "translation": "Es fácil.",
+      "pronunciation": "It is izi.",
+      "explanation": "Úsala para describir algo simple.",
+      "examples": [
+        "This phrase is easy."
+      ],
+      "words": [
+        {
+          "word": "easy",
+          "translation": "fácil",
+          "example": "English can be easy."
+        }
+      ],
+      "pattern": "It is + adjetivo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para describir algo simple. Usala cuando quieras decir: \"Es fácil.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"It is\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It is easy.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "day": 14,
+      "stageId": 1,
+      "title": "Es difícil",
+      "tags": [
+        "opinión"
+      ],
+      "phrase": "It is difficult.",
+      "translation": "Es difícil.",
+      "pronunciation": "It is díficolt.",
+      "explanation": "Úsala para decir que algo cuesta trabajo.",
+      "examples": [
+        "Pronunciation is difficult."
+      ],
+      "words": [
+        {
+          "word": "difficult",
+          "translation": "difícil",
+          "example": "This word is difficult."
+        }
+      ],
+      "pattern": "It is + adjetivo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que algo cuesta trabajo. Usala cuando quieras decir: \"Es difícil.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"It is\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It is difficult.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "day": 15,
+      "stageId": 1,
+      "title": "Es útil",
+      "tags": [
+        "opinión"
+      ],
+      "phrase": "It is useful.",
+      "translation": "Es útil.",
+      "pronunciation": "It is iusful.",
+      "explanation": "Sirve para decir que algo te ayuda.",
+      "examples": [
+        "ChatGPT is useful."
+      ],
+      "words": [
+        {
+          "word": "useful",
+          "translation": "útil",
+          "example": "This example is useful."
+        }
+      ],
+      "pattern": "It is + adjetivo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que algo te ayuda. Usala cuando quieras decir: \"Es útil.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"It is\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It is useful.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "day": 16,
+      "stageId": 1,
+      "title": "Quiero practicar",
+      "tags": [
+        "práctica"
+      ],
+      "phrase": "I want to practice.",
+      "translation": "Quiero practicar.",
+      "pronunciation": "Ai want tu praktis.",
+      "explanation": "Úsala para decir que quieres entrenar.",
+      "examples": [
+        "I want to practice today."
+      ],
+      "words": [
+        {
+          "word": "practice",
+          "translation": "practicar",
+          "example": "I practice every day."
+        }
+      ],
+      "pattern": "I want to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que quieres entrenar. Usala cuando quieras decir: \"Quiero practicar.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I want to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I want to practice.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "day": 17,
+      "stageId": 1,
+      "title": "Quiero mejorar",
+      "tags": [
+        "metas"
+      ],
+      "phrase": "I want to improve.",
+      "translation": "Quiero mejorar.",
+      "pronunciation": "Ai want tu impruv.",
+      "explanation": "Sirve para hablar de progreso personal.",
+      "examples": [
+        "I want to improve my English."
+      ],
+      "words": [
+        {
+          "word": "improve",
+          "translation": "mejorar",
+          "example": "I improve with practice."
+        }
+      ],
+      "pattern": "I want to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de progreso personal. Usala cuando quieras decir: \"Quiero mejorar.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I want to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I want to improve.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "day": 18,
+      "stageId": 1,
+      "title": "Estoy listo",
+      "tags": [
+        "confianza"
+      ],
+      "phrase": "I am ready.",
+      "translation": "Estoy listo.",
+      "pronunciation": "Ai am redi.",
+      "explanation": "Úsala para decir que puedes empezar.",
+      "examples": [
+        "I am ready to study."
+      ],
+      "words": [
+        {
+          "word": "ready",
+          "translation": "listo",
+          "example": "I am ready now."
+        }
+      ],
+      "pattern": "I am + estado",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que puedes empezar. Usala cuando quieras decir: \"Estoy listo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am ready.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "day": 19,
+      "stageId": 1,
+      "title": "Estoy aprendiendo",
+      "tags": [
+        "aprendizaje"
+      ],
+      "phrase": "I am learning English.",
+      "translation": "Estoy aprendiendo inglés.",
+      "pronunciation": "Ai am lerning Inglish.",
+      "explanation": "Sirve para decir lo que estás haciendo ahora.",
+      "examples": [
+        "I am learning English with examples."
+      ],
+      "words": [
+        {
+          "word": "learning",
+          "translation": "aprendiendo",
+          "example": "I am learning slowly."
+        }
+      ],
+      "pattern": "I am + verbo-ing",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir lo que estás haciendo ahora. Usala cuando quieras decir: \"Estoy aprendiendo inglés.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am learning English.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "day": 20,
+      "stageId": 1,
+      "title": "Voy poco a poco",
+      "tags": [
+        "progreso"
+      ],
+      "phrase": "I am learning step by step.",
+      "translation": "Estoy aprendiendo paso a paso.",
+      "pronunciation": "Ai am lerning step bai step.",
+      "explanation": "Úsala para hablar de avance con calma.",
+      "examples": [
+        "I am learning English step by step."
+      ],
+      "words": [
+        {
+          "word": "step by step",
+          "translation": "paso a paso",
+          "example": "I work step by step."
+        }
+      ],
+      "pattern": "I am learning + modo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de avance con calma. Usala cuando quieras decir: \"Estoy aprendiendo paso a paso.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am learning\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am learning step by step.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "day": 21,
+      "stageId": 2,
+      "title": "Uso IA",
+      "tags": [
+        "IA"
+      ],
+      "phrase": "I use AI every day.",
+      "translation": "Uso IA todos los días.",
+      "pronunciation": "Ai ius ei-ai evri dei.",
+      "explanation": "Sirve para hablar de una herramienta frecuente.",
+      "examples": [
+        "I use AI for my ideas."
+      ],
+      "words": [
+        {
+          "word": "AI",
+          "translation": "IA",
+          "example": "AI is useful."
+        }
+      ],
+      "pattern": "I use + herramienta + every day",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de una herramienta frecuente. Usala cuando quieras decir: \"Uso IA todos los días.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use AI every day.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "day": 22,
+      "stageId": 2,
+      "title": "Uso una app",
+      "tags": [
+        "apps"
+      ],
+      "phrase": "I use an app to study.",
+      "translation": "Uso una app para estudiar.",
+      "pronunciation": "Ai ius an ap tu stadi.",
+      "explanation": "Úsala para decir para qué usas una app.",
+      "examples": [
+        "I use this app to study English."
+      ],
+      "words": [
+        {
+          "word": "app",
+          "translation": "aplicación",
+          "example": "This app helps me."
+        }
+      ],
+      "pattern": "I use + cosa + to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir para qué usas una app. Usala cuando quieras decir: \"Uso una app para estudiar.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use an app to study.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "day": 23,
+      "stageId": 2,
+      "title": "Creo una app",
+      "tags": [
+        "apps",
+        "crear"
+      ],
+      "phrase": "I create an app.",
+      "translation": "Creo una app.",
+      "pronunciation": "Ai crieit an ap.",
+      "explanation": "Sirve para decir que construyes una aplicación.",
+      "examples": [
+        "I create an app for English."
+      ],
+      "words": [
+        {
+          "word": "create",
+          "translation": "crear",
+          "example": "I create projects."
+        }
+      ],
+      "pattern": "I create + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que construyes una aplicación. Usala cuando quieras decir: \"Creo una app.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I create\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I create an app.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "day": 24,
+      "stageId": 2,
+      "title": "Construyo una página",
+      "tags": [
+        "web"
+      ],
+      "phrase": "I build a website.",
+      "translation": "Construyo una página web.",
+      "pronunciation": "Ai bild a web-sait.",
+      "explanation": "Úsala para hablar de construir una web.",
+      "examples": [
+        "I build a website with AI."
+      ],
+      "words": [
+        {
+          "word": "build",
+          "translation": "construir",
+          "example": "I build simple apps."
+        }
+      ],
+      "pattern": "I build + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de construir una web. Usala cuando quieras decir: \"Construyo una página web.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I build\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I build a website.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "day": 25,
+      "stageId": 2,
+      "title": "Pruebo mi app",
+      "tags": [
+        "apps"
+      ],
+      "phrase": "I test my app.",
+      "translation": "Pruebo mi app.",
+      "pronunciation": "Ai test mai ap.",
+      "explanation": "Sirve para decir que revisas si algo funciona.",
+      "examples": [
+        "I test my app on my phone."
+      ],
+      "words": [
+        {
+          "word": "test",
+          "translation": "probar",
+          "example": "I test this lesson."
+        },
+        {
+          "word": "my",
+          "translation": "mi",
+          "example": "This is my app."
+        }
+      ],
+      "pattern": "I test my + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que revisas si algo funciona. Usala cuando quieras decir: \"Pruebo mi app.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I test my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I test my app.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "day": 26,
+      "stageId": 2,
+      "title": "Arreglo un error",
+      "tags": [
+        "errores"
+      ],
+      "phrase": "I fix an error.",
+      "translation": "Arreglo un error.",
+      "pronunciation": "Ai fix an error.",
+      "explanation": "Úsala cuando corriges algo que no funciona.",
+      "examples": [
+        "I fix an error in my app."
+      ],
+      "words": [
+        {
+          "word": "fix",
+          "translation": "arreglar",
+          "example": "I fix the problem."
+        },
+        {
+          "word": "error",
+          "translation": "error",
+          "example": "This error is simple."
+        }
+      ],
+      "pattern": "I fix + problema",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando corriges algo que no funciona. Usala cuando quieras decir: \"Arreglo un error.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I fix\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I fix an error.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "day": 27,
+      "stageId": 2,
+      "title": "Tengo un problema",
+      "tags": [
+        "errores"
+      ],
+      "phrase": "I have a problem.",
+      "translation": "Tengo un problema.",
+      "pronunciation": "Ai jav a problem.",
+      "explanation": "Sirve para decir que algo no va bien.",
+      "examples": [
+        "I have a problem with my app."
+      ],
+      "words": [
+        {
+          "word": "problem",
+          "translation": "problema",
+          "example": "This problem is difficult."
+        }
+      ],
+      "pattern": "I have a + problema",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que algo no va bien. Usala cuando quieras decir: \"Tengo un problema.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have a problem.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "day": 28,
+      "stageId": 2,
+      "title": "Necesito una solución",
+      "tags": [
+        "soluciones"
+      ],
+      "phrase": "I need a solution.",
+      "translation": "Necesito una solución.",
+      "pronunciation": "Ai nid a solúshon.",
+      "explanation": "Úsala cuando buscas resolver algo.",
+      "examples": [
+        "I need a solution for this error."
+      ],
+      "words": [
+        {
+          "word": "solution",
+          "translation": "solución",
+          "example": "This solution is useful."
+        }
+      ],
+      "pattern": "I need a + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando buscas resolver algo. Usala cuando quieras decir: \"Necesito una solución.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need a solution.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "day": 29,
+      "stageId": 2,
+      "title": "La IA me ayuda",
+      "tags": [
+        "IA"
+      ],
+      "phrase": "AI helps me learn.",
+      "translation": "La IA me ayuda a aprender.",
+      "pronunciation": "Ei-ai jelps mi lern.",
+      "explanation": "Sirve para decir qué hace la IA por ti.",
+      "examples": [
+        "AI helps me practice English."
+      ],
+      "words": [
+        {
+          "word": "helps",
+          "translation": "ayuda",
+          "example": "ChatGPT helps me."
+        }
+      ],
+      "pattern": "AI helps me + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir qué hace la IA por ti. Usala cuando quieras decir: \"La IA me ayuda a aprender.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"AI helps me\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"AI helps me learn.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "day": 30,
+      "stageId": 2,
+      "title": "ChatGPT explica",
+      "tags": [
+        "IA"
+      ],
+      "phrase": "ChatGPT explains the phrase.",
+      "translation": "ChatGPT explica la frase.",
+      "pronunciation": "ChatGPT expleins de freiz.",
+      "explanation": "Úsala para decir que una herramienta explica algo.",
+      "examples": [
+        "ChatGPT explains this word."
+      ],
+      "words": [
+        {
+          "word": "explains",
+          "translation": "explica",
+          "example": "The app explains the phrase."
+        }
+      ],
+      "pattern": "Herramienta + explains + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que una herramienta explica algo. Usala cuando quieras decir: \"ChatGPT explica la frase.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Herramienta\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"ChatGPT explains the phrase.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "day": 31,
+      "stageId": 2,
+      "title": "Escribo una idea",
+      "tags": [
+        "ideas"
+      ],
+      "phrase": "I write an idea.",
+      "translation": "Escribo una idea.",
+      "pronunciation": "Ai rait an aidía.",
+      "explanation": "Sirve para capturar una idea en texto.",
+      "examples": [
+        "I write an idea for my app."
+      ],
+      "words": [
+        {
+          "word": "write",
+          "translation": "escribir",
+          "example": "I write a phrase."
+        }
+      ],
+      "pattern": "I write + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para capturar una idea en texto. Usala cuando quieras decir: \"Escribo una idea.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I write\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I write an idea.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "day": 32,
+      "stageId": 2,
+      "title": "Guardo mi progreso",
+      "tags": [
+        "progreso"
+      ],
+      "phrase": "I save my progress.",
+      "translation": "Guardo mi progreso.",
+      "pronunciation": "Ai seiv mai progres.",
+      "explanation": "Úsala para hablar de guardar avances.",
+      "examples": [
+        "I save my progress in the app."
+      ],
+      "words": [
+        {
+          "word": "save",
+          "translation": "guardar",
+          "example": "I save my notes."
+        },
+        {
+          "word": "progress",
+          "translation": "progreso",
+          "example": "My progress is good."
+        }
+      ],
+      "pattern": "I save my + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de guardar avances. Usala cuando quieras decir: \"Guardo mi progreso.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I save my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I save my progress.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "day": 33,
+      "stageId": 2,
+      "title": "Abro mi app",
+      "tags": [
+        "apps"
+      ],
+      "phrase": "I open my app.",
+      "translation": "Abro mi app.",
+      "pronunciation": "Ai oupen mai ap.",
+      "explanation": "Sirve para decir que entras a una aplicación.",
+      "examples": [
+        "I open my app every day."
+      ],
+      "words": [
+        {
+          "word": "open",
+          "translation": "abrir",
+          "example": "I open the lesson."
+        }
+      ],
+      "pattern": "I open my + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que entras a una aplicación. Usala cuando quieras decir: \"Abro mi app.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I open my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I open my app.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "day": 34,
+      "stageId": 2,
+      "title": "Cierro la app",
+      "tags": [
+        "apps"
+      ],
+      "phrase": "I close the app.",
+      "translation": "Cierro la app.",
+      "pronunciation": "Ai clous de ap.",
+      "explanation": "Úsala para decir que terminas de usarla.",
+      "examples": [
+        "I close the app after practice."
+      ],
+      "words": [
+        {
+          "word": "close",
+          "translation": "cerrar",
+          "example": "I close the tab."
+        }
+      ],
+      "pattern": "I close + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que terminas de usarla. Usala cuando quieras decir: \"Cierro la app.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I close\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I close the app.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "day": 35,
+      "stageId": 2,
+      "title": "Uso mi teléfono",
+      "tags": [
+        "celular"
+      ],
+      "phrase": "I use my phone.",
+      "translation": "Uso mi teléfono.",
+      "pronunciation": "Ai ius mai foun.",
+      "explanation": "Sirve para decir con qué dispositivo trabajas.",
+      "examples": [
+        "I use my phone to study."
+      ],
+      "words": [
+        {
+          "word": "phone",
+          "translation": "teléfono",
+          "example": "My phone is useful."
+        }
+      ],
+      "pattern": "I use my + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir con qué dispositivo trabajas. Usala cuando quieras decir: \"Uso mi teléfono.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use my phone.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "day": 36,
+      "stageId": 2,
+      "title": "Uso mi computadora",
+      "tags": [
+        "computadora"
+      ],
+      "phrase": "I use my computer.",
+      "translation": "Uso mi computadora.",
+      "pronunciation": "Ai ius mai compiuter.",
+      "explanation": "Úsala para hablar de tu equipo de trabajo.",
+      "examples": [
+        "I use my computer for projects."
+      ],
+      "words": [
+        {
+          "word": "computer",
+          "translation": "computadora",
+          "example": "My computer is ready."
+        }
+      ],
+      "pattern": "I use my + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de tu equipo de trabajo. Usala cuando quieras decir: \"Uso mi computadora.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use my computer.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "day": 37,
+      "stageId": 2,
+      "title": "Mi app funciona",
+      "tags": [
+        "apps"
+      ],
+      "phrase": "My app works.",
+      "translation": "Mi app funciona.",
+      "pronunciation": "Mai ap works.",
+      "explanation": "Sirve para decir que algo funciona bien.",
+      "examples": [
+        "My app works on my phone."
+      ],
+      "words": [
+        {
+          "word": "works",
+          "translation": "funciona",
+          "example": "This lesson works."
+        }
+      ],
+      "pattern": "My + cosa + works",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que algo funciona bien. Usala cuando quieras decir: \"Mi app funciona.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"My\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"My app works.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "day": 38,
+      "stageId": 2,
+      "title": "Mi app no funciona",
+      "tags": [
+        "errores"
+      ],
+      "phrase": "My app does not work.",
+      "translation": "Mi app no funciona.",
+      "pronunciation": "Mai ap dos not work.",
+      "explanation": "Úsala cuando algo falla.",
+      "examples": [
+        "My app does not work yet."
+      ],
+      "words": [
+        {
+          "word": "does not",
+          "translation": "no",
+          "example": "It does not work."
+        }
+      ],
+      "pattern": "My + cosa + does not work",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando algo falla. Usala cuando quieras decir: \"Mi app no funciona.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"My\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"My app does not work.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "day": 39,
+      "stageId": 2,
+      "title": "El código es simple",
+      "tags": [
+        "código"
+      ],
+      "phrase": "The code is simple.",
+      "translation": "El código es simple.",
+      "pronunciation": "De coud is simpel.",
+      "explanation": "Sirve para describir código fácil de entender.",
+      "examples": [
+        "The code is simple and useful."
+      ],
+      "words": [
+        {
+          "word": "code",
+          "translation": "código",
+          "example": "The code works."
+        }
+      ],
+      "pattern": "The + cosa + is + adjetivo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para describir código fácil de entender. Usala cuando quieras decir: \"El código es simple.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"The\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"The code is simple.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "day": 40,
+      "stageId": 2,
+      "title": "El proyecto crece",
+      "tags": [
+        "proyectos"
+      ],
+      "phrase": "The project is growing.",
+      "translation": "El proyecto está creciendo.",
+      "pronunciation": "De project is grouing.",
+      "explanation": "Úsala para hablar de avance en un proyecto.",
+      "examples": [
+        "My English project is growing."
+      ],
+      "words": [
+        {
+          "word": "growing",
+          "translation": "creciendo",
+          "example": "My app is growing."
+        }
+      ],
+      "pattern": "The + cosa + is growing",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de avance en un proyecto. Usala cuando quieras decir: \"El proyecto está creciendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"The\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"The project is growing.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "day": 41,
+      "stageId": 3,
+      "title": "Trabajo hoy",
+      "tags": [
+        "trabajo"
+      ],
+      "phrase": "I work today.",
+      "translation": "Trabajo hoy.",
+      "pronunciation": "Ai work tudei.",
+      "explanation": "Sirve para hablar de tu día de trabajo.",
+      "examples": [
+        "I work today on my project."
+      ],
+      "words": [
+        {
+          "word": "today",
+          "translation": "hoy",
+          "example": "I study today."
+        }
+      ],
+      "pattern": "I work + tiempo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de tu día de trabajo. Usala cuando quieras decir: \"Trabajo hoy.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I work\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I work today.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "day": 42,
+      "stageId": 3,
+      "title": "Tengo una tarea",
+      "tags": [
+        "tareas"
+      ],
+      "phrase": "I have a task.",
+      "translation": "Tengo una tarea.",
+      "pronunciation": "Ai jav a task.",
+      "explanation": "Úsala para hablar de algo que debes hacer.",
+      "examples": [
+        "I have a task for today."
+      ],
+      "words": [
+        {
+          "word": "task",
+          "translation": "tarea",
+          "example": "This task is simple."
+        }
+      ],
+      "pattern": "I have a + tarea",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de algo que debes hacer. Usala cuando quieras decir: \"Tengo una tarea.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have a task.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "day": 43,
+      "stageId": 3,
+      "title": "Termino una tarea",
+      "tags": [
+        "tareas"
+      ],
+      "phrase": "I finish a task.",
+      "translation": "Termino una tarea.",
+      "pronunciation": "Ai finish a task.",
+      "explanation": "Sirve para decir que completas algo.",
+      "examples": [
+        "I finish a task every day."
+      ],
+      "words": [
+        {
+          "word": "finish",
+          "translation": "terminar",
+          "example": "I finish the lesson."
+        }
+      ],
+      "pattern": "I finish + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que completas algo. Usala cuando quieras decir: \"Termino una tarea.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I finish\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I finish a task.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "day": 44,
+      "stageId": 3,
+      "title": "Empiezo ahora",
+      "tags": [
+        "productividad"
+      ],
+      "phrase": "I start now.",
+      "translation": "Empiezo ahora.",
+      "pronunciation": "Ai start nau.",
+      "explanation": "Úsala para iniciar una acción.",
+      "examples": [
+        "I start my lesson now."
+      ],
+      "words": [
+        {
+          "word": "start",
+          "translation": "empezar",
+          "example": "I start today."
+        },
+        {
+          "word": "now",
+          "translation": "ahora",
+          "example": "I am ready now."
+        }
+      ],
+      "pattern": "I start + tiempo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para iniciar una acción. Usala cuando quieras decir: \"Empiezo ahora.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I start\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I start now.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "day": 45,
+      "stageId": 3,
+      "title": "Necesito tiempo",
+      "tags": [
+        "tiempo"
+      ],
+      "phrase": "I need more time.",
+      "translation": "Necesito más tiempo.",
+      "pronunciation": "Ai nid mor taim.",
+      "explanation": "Sirve para pedir o reconocer que necesitas tiempo.",
+      "examples": [
+        "I need more time to practice."
+      ],
+      "words": [
+        {
+          "word": "time",
+          "translation": "tiempo",
+          "example": "I need time."
+        }
+      ],
+      "pattern": "I need more + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para pedir o reconocer que necesitas tiempo. Usala cuando quieras decir: \"Necesito más tiempo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need more\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need more time.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "day": 46,
+      "stageId": 3,
+      "title": "Necesito foco",
+      "tags": [
+        "productividad"
+      ],
+      "phrase": "I need focus.",
+      "translation": "Necesito concentración.",
+      "pronunciation": "Ai nid foucos.",
+      "explanation": "Úsala cuando necesitas concentrarte.",
+      "examples": [
+        "I need focus for work."
+      ],
+      "words": [
+        {
+          "word": "focus",
+          "translation": "concentración",
+          "example": "Focus helps me work."
+        }
+      ],
+      "pattern": "I need + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando necesitas concentrarte. Usala cuando quieras decir: \"Necesito concentración.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need focus.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "day": 47,
+      "stageId": 3,
+      "title": "Estoy ocupado",
+      "tags": [
+        "trabajo"
+      ],
+      "phrase": "I am busy.",
+      "translation": "Estoy ocupado.",
+      "pronunciation": "Ai am bizi.",
+      "explanation": "Sirve para decir que tienes cosas que hacer.",
+      "examples": [
+        "I am busy today."
+      ],
+      "words": [
+        {
+          "word": "busy",
+          "translation": "ocupado",
+          "example": "I am busy with work."
+        }
+      ],
+      "pattern": "I am + estado",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que tienes cosas que hacer. Usala cuando quieras decir: \"Estoy ocupado.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am busy.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "day": 48,
+      "stageId": 3,
+      "title": "Estoy libre",
+      "tags": [
+        "tiempo"
+      ],
+      "phrase": "I am free now.",
+      "translation": "Estoy libre ahora.",
+      "pronunciation": "Ai am fri nau.",
+      "explanation": "Úsala para decir que tienes tiempo.",
+      "examples": [
+        "I am free now to study."
+      ],
+      "words": [
+        {
+          "word": "free",
+          "translation": "libre",
+          "example": "I am free today."
+        }
+      ],
+      "pattern": "I am free + tiempo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que tienes tiempo. Usala cuando quieras decir: \"Estoy libre ahora.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am free\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am free now.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "day": 49,
+      "stageId": 3,
+      "title": "Tengo una reunión",
+      "tags": [
+        "reuniones"
+      ],
+      "phrase": "I have a meeting.",
+      "translation": "Tengo una reunión.",
+      "pronunciation": "Ai jav a miring.",
+      "explanation": "Sirve para hablar de una reunión.",
+      "examples": [
+        "I have a meeting today."
+      ],
+      "words": [
+        {
+          "word": "meeting",
+          "translation": "reunión",
+          "example": "The meeting is today."
+        }
+      ],
+      "pattern": "I have a + evento",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de una reunión. Usala cuando quieras decir: \"Tengo una reunión.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have a meeting.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "day": 50,
+      "stageId": 3,
+      "title": "Necesito prepararme",
+      "tags": [
+        "reuniones"
+      ],
+      "phrase": "I need to prepare.",
+      "translation": "Necesito prepararme.",
+      "pronunciation": "Ai nid tu priper.",
+      "explanation": "Úsala antes de una tarea o reunión.",
+      "examples": [
+        "I need to prepare for a meeting."
+      ],
+      "words": [
+        {
+          "word": "prepare",
+          "translation": "preparar",
+          "example": "I prepare my work."
+        }
+      ],
+      "pattern": "I need to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala antes de una tarea o reunión. Usala cuando quieras decir: \"Necesito prepararme.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need to prepare.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "day": 51,
+      "stageId": 3,
+      "title": "Estoy revisando",
+      "tags": [
+        "trabajo"
+      ],
+      "phrase": "I am checking this.",
+      "translation": "Estoy revisando esto.",
+      "pronunciation": "Ai am cheking dis.",
+      "explanation": "Sirve para decir que estás revisando algo.",
+      "examples": [
+        "I am checking this error."
+      ],
+      "words": [
+        {
+          "word": "checking",
+          "translation": "revisando",
+          "example": "I am checking my app."
+        }
+      ],
+      "pattern": "I am + verbo-ing + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que estás revisando algo. Usala cuando quieras decir: \"Estoy revisando esto.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am checking this.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "day": 52,
+      "stageId": 3,
+      "title": "Estoy buscando",
+      "tags": [
+        "soluciones"
+      ],
+      "phrase": "I am looking for a solution.",
+      "translation": "Estoy buscando una solución.",
+      "pronunciation": "Ai am luking for a solúshon.",
+      "explanation": "Úsala cuando buscas resolver algo.",
+      "examples": [
+        "I am looking for a simple solution."
+      ],
+      "words": [
+        {
+          "word": "looking for",
+          "translation": "buscando",
+          "example": "I am looking for help."
+        }
+      ],
+      "pattern": "I am looking for + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando buscas resolver algo. Usala cuando quieras decir: \"Estoy buscando una solución.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am looking for\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am looking for a solution.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "day": 53,
+      "stageId": 3,
+      "title": "Encontré una solución",
+      "tags": [
+        "soluciones"
+      ],
+      "phrase": "I found a solution.",
+      "translation": "Encontré una solución.",
+      "pronunciation": "Ai faund a solúshon.",
+      "explanation": "Sirve para decir que ya encontraste cómo resolver algo.",
+      "examples": [
+        "I found a solution for the error."
+      ],
+      "words": [
+        {
+          "word": "found",
+          "translation": "encontré",
+          "example": "I found an idea."
+        }
+      ],
+      "pattern": "I found a + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que ya encontraste cómo resolver algo. Usala cuando quieras decir: \"Encontré una solución.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I found a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I found a solution.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "day": 54,
+      "stageId": 3,
+      "title": "Funciona bien",
+      "tags": [
+        "trabajo"
+      ],
+      "phrase": "It works well.",
+      "translation": "Funciona bien.",
+      "pronunciation": "It works wel.",
+      "explanation": "Úsala para decir que algo está correcto.",
+      "examples": [
+        "My app works well."
+      ],
+      "words": [
+        {
+          "word": "well",
+          "translation": "bien",
+          "example": "I study well."
+        }
+      ],
+      "pattern": "It works + modo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que algo está correcto. Usala cuando quieras decir: \"Funciona bien.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"It works\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It works well.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "day": 55,
+      "stageId": 3,
+      "title": "No funciona todavía",
+      "tags": [
+        "errores"
+      ],
+      "phrase": "It does not work yet.",
+      "translation": "Todavía no funciona.",
+      "pronunciation": "It dos not work iet.",
+      "explanation": "Sirve cuando algo aún falla.",
+      "examples": [
+        "The app does not work yet."
+      ],
+      "words": [
+        {
+          "word": "yet",
+          "translation": "todavía",
+          "example": "I do not understand yet."
+        }
+      ],
+      "pattern": "It does not work yet",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve cuando algo aún falla. Usala cuando quieras decir: \"Todavía no funciona.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Usa el patron \"It does not work yet\" como frase completa y cambia solo una palabra cuando tengas mas confianza."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It does not work yet.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "day": 56,
+      "stageId": 3,
+      "title": "Tengo avances",
+      "tags": [
+        "progreso"
+      ],
+      "phrase": "I have progress.",
+      "translation": "Tengo progreso.",
+      "pronunciation": "Ai jav progres.",
+      "explanation": "Úsala para hablar de avance.",
+      "examples": [
+        "I have progress in English."
+      ],
+      "words": [
+        {
+          "word": "progress",
+          "translation": "progreso",
+          "example": "Progress is important."
+        }
+      ],
+      "pattern": "I have + avance",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de avance. Usala cuando quieras decir: \"Tengo progreso.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have progress.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "day": 57,
+      "stageId": 3,
+      "title": "Hago una pausa",
+      "tags": [
+        "rutina"
+      ],
+      "phrase": "I take a break.",
+      "translation": "Tomo un descanso.",
+      "pronunciation": "Ai teik a breik.",
+      "explanation": "Sirve para decir que descansas un momento.",
+      "examples": [
+        "I take a break after work."
+      ],
+      "words": [
+        {
+          "word": "break",
+          "translation": "descanso",
+          "example": "I need a break."
+        }
+      ],
+      "pattern": "I take a + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que descansas un momento. Usala cuando quieras decir: \"Tomo un descanso.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I take a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I take a break.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "day": 58,
+      "stageId": 3,
+      "title": "Vuelvo al trabajo",
+      "tags": [
+        "trabajo"
+      ],
+      "phrase": "I go back to work.",
+      "translation": "Vuelvo al trabajo.",
+      "pronunciation": "Ai gou bak tu work.",
+      "explanation": "Úsala para decir que retomas.",
+      "examples": [
+        "I go back to my project."
+      ],
+      "words": [
+        {
+          "word": "go back",
+          "translation": "volver",
+          "example": "I go back to study."
+        }
+      ],
+      "pattern": "I go back to + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que retomas. Usala cuando quieras decir: \"Vuelvo al trabajo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I go back to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I go back to work.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "day": 59,
+      "stageId": 3,
+      "title": "Lo hago hoy",
+      "tags": [
+        "productividad"
+      ],
+      "phrase": "I do it today.",
+      "translation": "Lo hago hoy.",
+      "pronunciation": "Ai du it tudei.",
+      "explanation": "Sirve para comprometerte con una acción.",
+      "examples": [
+        "I do my lesson today."
+      ],
+      "words": [
+        {
+          "word": "it",
+          "translation": "lo/eso",
+          "example": "I can do it."
+        }
+      ],
+      "pattern": "I do it + tiempo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para comprometerte con una acción. Usala cuando quieras decir: \"Lo hago hoy.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I do it\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I do it today.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "day": 60,
+      "stageId": 3,
+      "title": "Lo termino mañana",
+      "tags": [
+        "productividad"
+      ],
+      "phrase": "I finish it tomorrow.",
+      "translation": "Lo termino mañana.",
+      "pronunciation": "Ai finish it tumorou.",
+      "explanation": "Úsala para hablar de un plan cercano.",
+      "examples": [
+        "I finish the task tomorrow."
+      ],
+      "words": [
+        {
+          "word": "tomorrow",
+          "translation": "mañana",
+          "example": "I study tomorrow."
+        }
+      ],
+      "pattern": "I finish it + tiempo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para hablar de un plan cercano. Usala cuando quieras decir: \"Lo termino mañana.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I finish it\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I finish it tomorrow.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "day": 61,
+      "stageId": 4,
+      "title": "Hola",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Hello, how are you?",
+      "translation": "Hola, ¿cómo estás?",
+      "pronunciation": "Jelou, jau ar iu?",
+      "explanation": "Saludo básico para empezar una conversación.",
+      "examples": [
+        "Hello, how are you today?"
+      ],
+      "words": [
+        {
+          "word": "hello",
+          "translation": "hola",
+          "example": "Hello, I am ready."
+        }
+      ],
+      "pattern": "Hello, how are you?",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Saludo básico para empezar una conversación. Usala cuando quieras decir: \"Hola, ¿cómo estás?\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Usa el patron \"Hello, how are you?\" como frase completa y cambia solo una palabra cuando tengas mas confianza."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Hello, how are you?\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "day": 62,
+      "stageId": 4,
+      "title": "Estoy bien",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I am good.",
+      "translation": "Estoy bien.",
+      "pronunciation": "Ai am gud.",
+      "explanation": "Respuesta simple para decir cómo estás.",
+      "examples": [
+        "I am good, thank you."
+      ],
+      "words": [
+        {
+          "word": "good",
+          "translation": "bien/bueno",
+          "example": "This is good."
+        }
+      ],
+      "pattern": "I am + estado",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta simple para decir cómo estás. Usala cuando quieras decir: \"Estoy bien.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am good.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "day": 63,
+      "stageId": 4,
+      "title": "Gracias",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Thank you.",
+      "translation": "Gracias.",
+      "pronunciation": "Zank iu.",
+      "explanation": "Forma básica de agradecer.",
+      "examples": [
+        "Thank you for your help."
+      ],
+      "words": [
+        {
+          "word": "thank you",
+          "translation": "gracias",
+          "example": "Thank you, teacher."
+        }
+      ],
+      "pattern": "Thank you + complemento",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Forma básica de agradecer. Usala cuando quieras decir: \"Gracias.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Thank you\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Thank you.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "day": 64,
+      "stageId": 4,
+      "title": "De nada",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "You are welcome.",
+      "translation": "De nada.",
+      "pronunciation": "Iu ar welcom.",
+      "explanation": "Respuesta común después de un gracias.",
+      "examples": [
+        "You are welcome, my friend."
+      ],
+      "words": [
+        {
+          "word": "welcome",
+          "translation": "bienvenido/de nada",
+          "example": "You are welcome."
+        }
+      ],
+      "pattern": "You are welcome",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta común después de un gracias. Usala cuando quieras decir: \"De nada.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Usa el patron \"You are welcome\" como frase completa y cambia solo una palabra cuando tengas mas confianza."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"You are welcome.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "day": 65,
+      "stageId": 4,
+      "title": "Por favor",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Please help me.",
+      "translation": "Por favor, ayúdame.",
+      "pronunciation": "Plis jelp mi.",
+      "explanation": "Sirve para pedir ayuda con cortesía.",
+      "examples": [
+        "Please help me with this phrase."
+      ],
+      "words": [
+        {
+          "word": "please",
+          "translation": "por favor",
+          "example": "Please explain this."
+        }
+      ],
+      "pattern": "Please + verbo + me",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para pedir ayuda con cortesía. Usala cuando quieras decir: \"Por favor, ayúdame.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Please\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Please help me.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "day": 66,
+      "stageId": 4,
+      "title": "¿Puedes repetir?",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Can you repeat that?",
+      "translation": "¿Puedes repetir eso?",
+      "pronunciation": "Can iu ripit dat?",
+      "explanation": "Úsala cuando necesitas escuchar otra vez.",
+      "examples": [
+        "Can you repeat that slowly?"
+      ],
+      "words": [
+        {
+          "word": "repeat",
+          "translation": "repetir",
+          "example": "Repeat the phrase."
+        }
+      ],
+      "pattern": "Can you + verbo + that?",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala cuando necesitas escuchar otra vez. Usala cuando quieras decir: \"¿Puedes repetir eso?\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Can you\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Can you repeat that?\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "day": 67,
+      "stageId": 4,
+      "title": "Más despacio",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Please speak slowly.",
+      "translation": "Por favor habla despacio.",
+      "pronunciation": "Plis spik slouli.",
+      "explanation": "Sirve para pedir que hablen más lento.",
+      "examples": [
+        "Please speak slowly in English."
+      ],
+      "words": [
+        {
+          "word": "speak",
+          "translation": "hablar",
+          "example": "I speak English."
+        },
+        {
+          "word": "slowly",
+          "translation": "despacio",
+          "example": "I learn slowly."
+        }
+      ],
+      "pattern": "Please + verbo + modo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para pedir que hablen más lento. Usala cuando quieras decir: \"Por favor habla despacio.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Please\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Please speak slowly.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "day": 68,
+      "stageId": 4,
+      "title": "No sé",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I do not know.",
+      "translation": "No sé.",
+      "pronunciation": "Ai du not nou.",
+      "explanation": "Respuesta simple cuando no sabes algo.",
+      "examples": [
+        "I do not know this word."
+      ],
+      "words": [
+        {
+          "word": "know",
+          "translation": "saber",
+          "example": "I know this phrase."
+        }
+      ],
+      "pattern": "I do not know + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta simple cuando no sabes algo. Usala cuando quieras decir: \"No sé.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I do not know\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I do not know.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "day": 69,
+      "stageId": 4,
+      "title": "Sí, entiendo",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "Yes, I understand.",
+      "translation": "Sí, entiendo.",
+      "pronunciation": "Ies, Ai onderstand.",
+      "explanation": "Úsala para confirmar que entendiste.",
+      "examples": [
+        "Yes, I understand this example."
+      ],
+      "words": [
+        {
+          "word": "yes",
+          "translation": "sí",
+          "example": "Yes, I can."
+        }
+      ],
+      "pattern": "Yes, I + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para confirmar que entendiste. Usala cuando quieras decir: \"Sí, entiendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"Yes, I\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"Yes, I understand.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "day": 70,
+      "stageId": 4,
+      "title": "No, necesito ayuda",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "No, I need help.",
+      "translation": "No, necesito ayuda.",
+      "pronunciation": "Nou, Ai nid jelp.",
+      "explanation": "Respuesta simple cuando no entendiste.",
+      "examples": [
+        "No, I need help with this."
+      ],
+      "words": [
+        {
+          "word": "no",
+          "translation": "no",
+          "example": "No, not yet."
+        }
+      ],
+      "pattern": "No, I need + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta simple cuando no entendiste. Usala cuando quieras decir: \"No, necesito ayuda.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"No, I need\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"No, I need help.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "day": 71,
+      "stageId": 4,
+      "title": "Tengo una pregunta",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I have a question.",
+      "translation": "Tengo una pregunta.",
+      "pronunciation": "Ai jav a kwestchon.",
+      "explanation": "Sirve para avisar que quieres preguntar algo.",
+      "examples": [
+        "I have a question about this phrase."
+      ],
+      "words": [
+        {
+          "word": "question",
+          "translation": "pregunta",
+          "example": "My question is simple."
+        }
+      ],
+      "pattern": "I have a + pregunta",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para avisar que quieres preguntar algo. Usala cuando quieras decir: \"Tengo una pregunta.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I have a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I have a question.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "day": 72,
+      "stageId": 4,
+      "title": "¿Qué significa?",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "What does it mean?",
+      "translation": "¿Qué significa?",
+      "pronunciation": "Wat dos it min?",
+      "explanation": "Úsala para preguntar el significado.",
+      "examples": [
+        "What does this word mean?"
+      ],
+      "words": [
+        {
+          "word": "mean",
+          "translation": "significar",
+          "example": "What does AI mean?"
+        }
+      ],
+      "pattern": "What does + cosa + mean?",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para preguntar el significado. Usala cuando quieras decir: \"¿Qué significa?\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"What does\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"What does it mean?\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "day": 73,
+      "stageId": 4,
+      "title": "¿Cómo digo esto?",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "How do I say this?",
+      "translation": "¿Cómo digo esto?",
+      "pronunciation": "Jau du Ai sei dis?",
+      "explanation": "Sirve para preguntar cómo expresar una idea.",
+      "examples": [
+        "How do I say this in English?"
+      ],
+      "words": [
+        {
+          "word": "say",
+          "translation": "decir",
+          "example": "I say this phrase."
+        }
+      ],
+      "pattern": "How do I + verbo + this?",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para preguntar cómo expresar una idea. Usala cuando quieras decir: \"¿Cómo digo esto?\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"How do I\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"How do I say this?\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "day": 74,
+      "stageId": 4,
+      "title": "No hay problema",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "No problem.",
+      "translation": "No hay problema.",
+      "pronunciation": "Nou problem.",
+      "explanation": "Respuesta corta para tranquilizar.",
+      "examples": [
+        "No problem, I can help."
+      ],
+      "words": [
+        {
+          "word": "problem",
+          "translation": "problema",
+          "example": "No problem."
+        }
+      ],
+      "pattern": "No + problema",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta corta para tranquilizar. Usala cuando quieras decir: \"No hay problema.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"No\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"No problem.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "day": 75,
+      "stageId": 4,
+      "title": "Está bien",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "It is okay.",
+      "translation": "Está bien.",
+      "pronunciation": "It is oukei.",
+      "explanation": "Sirve para decir que algo está bien.",
+      "examples": [
+        "It is okay, I understand."
+      ],
+      "words": [
+        {
+          "word": "okay",
+          "translation": "bien/ok",
+          "example": "I am okay."
+        }
+      ],
+      "pattern": "It is + estado",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que algo está bien. Usala cuando quieras decir: \"Está bien.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"It is\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"It is okay.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "day": 76,
+      "stageId": 4,
+      "title": "Me gusta",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I like this.",
+      "translation": "Me gusta esto.",
+      "pronunciation": "Ai laik dis.",
+      "explanation": "Úsala para decir que algo te agrada.",
+      "examples": [
+        "I like this app."
+      ],
+      "words": [
+        {
+          "word": "like",
+          "translation": "gustar",
+          "example": "I like English."
+        }
+      ],
+      "pattern": "I like + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para decir que algo te agrada. Usala cuando quieras decir: \"Me gusta esto.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I like\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I like this.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "day": 77,
+      "stageId": 4,
+      "title": "No me gusta",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I do not like this.",
+      "translation": "No me gusta esto.",
+      "pronunciation": "Ai du not laik dis.",
+      "explanation": "Sirve para expresar que algo no te agrada.",
+      "examples": [
+        "I do not like this error."
+      ],
+      "words": [
+        {
+          "word": "like",
+          "translation": "gustar",
+          "example": "I like simple examples."
+        }
+      ],
+      "pattern": "I do not like + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para expresar que algo no te agrada. Usala cuando quieras decir: \"No me gusta esto.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I do not like\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I do not like this.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "day": 78,
+      "stageId": 4,
+      "title": "Suena bien",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "That sounds good.",
+      "translation": "Eso suena bien.",
+      "pronunciation": "Dat saunds gud.",
+      "explanation": "Úsala para aceptar una idea.",
+      "examples": [
+        "That sounds good for today."
+      ],
+      "words": [
+        {
+          "word": "sounds",
+          "translation": "suena",
+          "example": "This sounds useful."
+        }
+      ],
+      "pattern": "That sounds + adjetivo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para aceptar una idea. Usala cuando quieras decir: \"Eso suena bien.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"That sounds\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"That sounds good.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "day": 79,
+      "stageId": 4,
+      "title": "Estoy de acuerdo",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I agree.",
+      "translation": "Estoy de acuerdo.",
+      "pronunciation": "Ai agrí.",
+      "explanation": "Respuesta simple para aceptar una opinión.",
+      "examples": [
+        "I agree with this idea."
+      ],
+      "words": [
+        {
+          "word": "agree",
+          "translation": "estar de acuerdo",
+          "example": "I agree with you."
+        }
+      ],
+      "pattern": "I agree + complemento",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Respuesta simple para aceptar una opinión. Usala cuando quieras decir: \"Estoy de acuerdo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I agree\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I agree.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "day": 80,
+      "stageId": 4,
+      "title": "No estoy seguro",
+      "tags": [
+        "conversación"
+      ],
+      "phrase": "I am not sure.",
+      "translation": "No estoy seguro.",
+      "pronunciation": "Ai am not shur.",
+      "explanation": "Sirve para expresar duda sin complicarte.",
+      "examples": [
+        "I am not sure yet."
+      ],
+      "words": [
+        {
+          "word": "sure",
+          "translation": "seguro",
+          "example": "I am sure now."
+        }
+      ],
+      "pattern": "I am not + estado",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para expresar duda sin complicarte. Usala cuando quieras decir: \"No estoy seguro.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am not\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am not sure.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "day": 81,
+      "stageId": 5,
+      "title": "Uso IA para aprender",
+      "tags": [
+        "refuerzo",
+        "IA"
+      ],
+      "phrase": "I use AI to learn English.",
+      "translation": "Uso IA para aprender inglés.",
+      "pronunciation": "Ai ius ei-ai tu lern Inglish.",
+      "explanation": "Combina uso de herramienta con objetivo.",
+      "examples": [
+        "I use AI to practice English."
+      ],
+      "words": [
+        {
+          "word": "to learn",
+          "translation": "para aprender",
+          "example": "I use this app to learn."
+        }
+      ],
+      "pattern": "I use + herramienta + to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina uso de herramienta con objetivo. Usala cuando quieras decir: \"Uso IA para aprender inglés.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I use\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I use AI to learn English.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "day": 82,
+      "stageId": 5,
+      "title": "Trabajo en mi app",
+      "tags": [
+        "refuerzo",
+        "apps"
+      ],
+      "phrase": "I am working on my app.",
+      "translation": "Estoy trabajando en mi app.",
+      "pronunciation": "Ai am working on mai ap.",
+      "explanation": "Combina trabajo actual con proyecto propio.",
+      "examples": [
+        "I am working on my English app."
+      ],
+      "words": [
+        {
+          "word": "my app",
+          "translation": "mi app",
+          "example": "My app works."
+        }
+      ],
+      "pattern": "I am working on my + proyecto",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina trabajo actual con proyecto propio. Usala cuando quieras decir: \"Estoy trabajando en mi app.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am working on my\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am working on my app.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "day": 83,
+      "stageId": 5,
+      "title": "Quiero crear algo útil",
+      "tags": [
+        "refuerzo",
+        "crear"
+      ],
+      "phrase": "I want to create something useful.",
+      "translation": "Quiero crear algo útil.",
+      "pronunciation": "Ai want tu crieit somzing iusful.",
+      "explanation": "Sirve para expresar una meta creativa.",
+      "examples": [
+        "I want to create something simple."
+      ],
+      "words": [
+        {
+          "word": "something",
+          "translation": "algo",
+          "example": "I need something useful."
+        }
+      ],
+      "pattern": "I want to create + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para expresar una meta creativa. Usala cuando quieras decir: \"Quiero crear algo útil.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I want to create\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I want to create something useful.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "day": 84,
+      "stageId": 5,
+      "title": "Necesito entender el problema",
+      "tags": [
+        "refuerzo",
+        "problemas"
+      ],
+      "phrase": "I need to understand the problem.",
+      "translation": "Necesito entender el problema.",
+      "pronunciation": "Ai nid tu onderstand de problem.",
+      "explanation": "Combina necesidad con acción.",
+      "examples": [
+        "I need to understand this error."
+      ],
+      "words": [
+        {
+          "word": "the problem",
+          "translation": "el problema",
+          "example": "The problem is simple."
+        }
+      ],
+      "pattern": "I need to + verbo + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina necesidad con acción. Usala cuando quieras decir: \"Necesito entender el problema.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need to understand the problem.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "day": 85,
+      "stageId": 5,
+      "title": "Puedo arreglarlo",
+      "tags": [
+        "refuerzo",
+        "confianza"
+      ],
+      "phrase": "I can fix it.",
+      "translation": "Puedo arreglarlo.",
+      "pronunciation": "Ai can fix it.",
+      "explanation": "Frase corta para confianza técnica.",
+      "examples": [
+        "I can fix it with practice."
+      ],
+      "words": [
+        {
+          "word": "fix it",
+          "translation": "arreglarlo",
+          "example": "I want to fix it."
+        }
+      ],
+      "pattern": "I can + verbo + it",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Frase corta para confianza técnica. Usala cuando quieras decir: \"Puedo arreglarlo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can fix it.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "day": 86,
+      "stageId": 5,
+      "title": "Puedo explicarlo",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I can explain it.",
+      "translation": "Puedo explicarlo.",
+      "pronunciation": "Ai can explein it.",
+      "explanation": "Sirve para decir que puedes explicar algo.",
+      "examples": [
+        "I can explain this phrase."
+      ],
+      "words": [
+        {
+          "word": "explain",
+          "translation": "explicar",
+          "example": "I explain my idea."
+        }
+      ],
+      "pattern": "I can + verbo + it",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para decir que puedes explicar algo. Usala cuando quieras decir: \"Puedo explicarlo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can explain it.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "day": 87,
+      "stageId": 5,
+      "title": "Estoy mejorando poco a poco",
+      "tags": [
+        "refuerzo",
+        "progreso"
+      ],
+      "phrase": "I am improving step by step.",
+      "translation": "Estoy mejorando paso a paso.",
+      "pronunciation": "Ai am impruving step bai step.",
+      "explanation": "Combina progreso con calma.",
+      "examples": [
+        "I am improving my English step by step."
+      ],
+      "words": [
+        {
+          "word": "improving",
+          "translation": "mejorando",
+          "example": "I am improving every day."
+        }
+      ],
+      "pattern": "I am + verbo-ing + modo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina progreso con calma. Usala cuando quieras decir: \"Estoy mejorando paso a paso.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am improving step by step.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "day": 88,
+      "stageId": 5,
+      "title": "Estoy aprendiendo con ejemplos",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I am learning with examples.",
+      "translation": "Estoy aprendiendo con ejemplos.",
+      "pronunciation": "Ai am lerning wid exampls.",
+      "explanation": "Describe tu forma de aprender.",
+      "examples": [
+        "I am learning English with examples."
+      ],
+      "words": [
+        {
+          "word": "examples",
+          "translation": "ejemplos",
+          "example": "Examples help me."
+        }
+      ],
+      "pattern": "I am learning with + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Describe tu forma de aprender. Usala cuando quieras decir: \"Estoy aprendiendo con ejemplos.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am learning with\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am learning with examples.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "day": 89,
+      "stageId": 5,
+      "title": "Necesito practicar más",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I need to practice more.",
+      "translation": "Necesito practicar más.",
+      "pronunciation": "Ai nid tu praktis mor.",
+      "explanation": "Combina necesidad con práctica.",
+      "examples": [
+        "I need to practice more today."
+      ],
+      "words": [
+        {
+          "word": "more",
+          "translation": "más",
+          "example": "I need more practice."
+        }
+      ],
+      "pattern": "I need to + verbo + more",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina necesidad con práctica. Usala cuando quieras decir: \"Necesito practicar más.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need to practice more.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "day": 90,
+      "stageId": 5,
+      "title": "Quiero hablar mejor",
+      "tags": [
+        "refuerzo",
+        "conversación"
+      ],
+      "phrase": "I want to speak better.",
+      "translation": "Quiero hablar mejor.",
+      "pronunciation": "Ai want tu spik beder.",
+      "explanation": "Sirve para expresar una meta de comunicación.",
+      "examples": [
+        "I want to speak English better."
+      ],
+      "words": [
+        {
+          "word": "better",
+          "translation": "mejor",
+          "example": "I want to learn better."
+        }
+      ],
+      "pattern": "I want to + verbo + better",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para expresar una meta de comunicación. Usala cuando quieras decir: \"Quiero hablar mejor.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I want to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I want to speak better.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "day": 91,
+      "stageId": 5,
+      "title": "Esta frase me ayuda",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "This phrase helps me.",
+      "translation": "Esta frase me ayuda.",
+      "pronunciation": "Dis freiz jelps mi.",
+      "explanation": "Sirve para reconocer una frase útil.",
+      "examples": [
+        "This phrase helps me at work."
+      ],
+      "words": [
+        {
+          "word": "helps me",
+          "translation": "me ayuda",
+          "example": "Practice helps me."
+        }
+      ],
+      "pattern": "This + cosa + helps me",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para reconocer una frase útil. Usala cuando quieras decir: \"Esta frase me ayuda.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"This\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"This phrase helps me.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "day": 92,
+      "stageId": 5,
+      "title": "Esta palabra es importante",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "This word is important.",
+      "translation": "Esta palabra es importante.",
+      "pronunciation": "Dis word is important.",
+      "explanation": "Úsala para marcar vocabulario clave.",
+      "examples": [
+        "This word is important for work."
+      ],
+      "words": [
+        {
+          "word": "important",
+          "translation": "importante",
+          "example": "English is important."
+        }
+      ],
+      "pattern": "This + cosa + is important",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Úsala para marcar vocabulario clave. Usala cuando quieras decir: \"Esta palabra es importante.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"This\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"This word is important.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "day": 93,
+      "stageId": 5,
+      "title": "Mi inglés está creciendo",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "My English is growing.",
+      "translation": "Mi inglés está creciendo.",
+      "pronunciation": "Mai Inglish is grouing.",
+      "explanation": "Sirve para hablar de progreso real.",
+      "examples": [
+        "My English is growing every day."
+      ],
+      "words": [
+        {
+          "word": "my English",
+          "translation": "mi inglés",
+          "example": "My English is improving."
+        }
+      ],
+      "pattern": "My + cosa + is growing",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de progreso real. Usala cuando quieras decir: \"Mi inglés está creciendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"My\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"My English is growing.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "day": 94,
+      "stageId": 5,
+      "title": "Mi proyecto está creciendo",
+      "tags": [
+        "refuerzo",
+        "proyectos"
+      ],
+      "phrase": "My project is growing.",
+      "translation": "Mi proyecto está creciendo.",
+      "pronunciation": "Mai project is grouing.",
+      "explanation": "Sirve para hablar de avance en un proyecto.",
+      "examples": [
+        "My app project is growing."
+      ],
+      "words": [
+        {
+          "word": "my project",
+          "translation": "mi proyecto",
+          "example": "My project works."
+        }
+      ],
+      "pattern": "My + proyecto + is growing",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para hablar de avance en un proyecto. Usala cuando quieras decir: \"Mi proyecto está creciendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"My\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"My project is growing.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "day": 95,
+      "stageId": 5,
+      "title": "Necesito una frase simple",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I need a simple phrase.",
+      "translation": "Necesito una frase simple.",
+      "pronunciation": "Ai nid a simpel freiz.",
+      "explanation": "Resume tu estilo de aprendizaje.",
+      "examples": [
+        "I need a simple phrase to practice."
+      ],
+      "words": [
+        {
+          "word": "simple phrase",
+          "translation": "frase simple",
+          "example": "This is a simple phrase."
+        }
+      ],
+      "pattern": "I need a + descripción + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Resume tu estilo de aprendizaje. Usala cuando quieras decir: \"Necesito una frase simple.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I need a\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I need a simple phrase.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "day": 96,
+      "stageId": 5,
+      "title": "Puedo usar esta frase",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I can use this phrase.",
+      "translation": "Puedo usar esta frase.",
+      "pronunciation": "Ai can ius dis freiz.",
+      "explanation": "Sirve para activar lo aprendido.",
+      "examples": [
+        "I can use this phrase at work."
+      ],
+      "words": [
+        {
+          "word": "use this",
+          "translation": "usar esto",
+          "example": "I can use this."
+        }
+      ],
+      "pattern": "I can use + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para activar lo aprendido. Usala cuando quieras decir: \"Puedo usar esta frase.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can use\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can use this phrase.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "day": 97,
+      "stageId": 5,
+      "title": "Puedo hacer una pregunta",
+      "tags": [
+        "refuerzo",
+        "conversación"
+      ],
+      "phrase": "I can ask a question.",
+      "translation": "Puedo hacer una pregunta.",
+      "pronunciation": "Ai can ask a kwestchon.",
+      "explanation": "Combina habilidad con conversación.",
+      "examples": [
+        "I can ask a question in English."
+      ],
+      "words": [
+        {
+          "word": "ask",
+          "translation": "preguntar",
+          "example": "I ask a question."
+        }
+      ],
+      "pattern": "I can ask + cosa",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Combina habilidad con conversación. Usala cuando quieras decir: \"Puedo hacer una pregunta.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can ask\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can ask a question.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "day": 98,
+      "stageId": 5,
+      "title": "Puedo responder en inglés",
+      "tags": [
+        "refuerzo",
+        "conversación"
+      ],
+      "phrase": "I can answer in English.",
+      "translation": "Puedo responder en inglés.",
+      "pronunciation": "Ai can anser in Inglish.",
+      "explanation": "Sirve para ganar confianza al responder.",
+      "examples": [
+        "I can answer simple questions in English."
+      ],
+      "words": [
+        {
+          "word": "answer",
+          "translation": "responder",
+          "example": "I answer the question."
+        }
+      ],
+      "pattern": "I can + verbo + in English",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para ganar confianza al responder. Usala cuando quieras decir: \"Puedo responder en inglés.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I can\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I can answer in English.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "day": 99,
+      "stageId": 5,
+      "title": "Estoy listo para practicar",
+      "tags": [
+        "refuerzo"
+      ],
+      "phrase": "I am ready to practice.",
+      "translation": "Estoy listo para practicar.",
+      "pronunciation": "Ai am redi tu praktis.",
+      "explanation": "Frase de preparación para estudiar.",
+      "examples": [
+        "I am ready to practice today."
+      ],
+      "words": [
+        {
+          "word": "ready to",
+          "translation": "listo para",
+          "example": "I am ready to learn."
+        }
+      ],
+      "pattern": "I am ready to + verbo",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Frase de preparación para estudiar. Usala cuando quieras decir: \"Estoy listo para practicar.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I am ready to\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I am ready to practice.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "day": 100,
+      "stageId": 5,
+      "title": "Sigo aprendiendo",
+      "tags": [
+        "refuerzo",
+        "cierre"
+      ],
+      "phrase": "I keep learning.",
+      "translation": "Sigo aprendiendo.",
+      "pronunciation": "Ai kip lerning.",
+      "explanation": "Sirve para cerrar el camino con continuidad.",
+      "examples": [
+        "I keep learning English every day."
+      ],
+      "words": [
+        {
+          "word": "keep",
+          "translation": "seguir/continuar",
+          "example": "I keep practicing."
+        }
+      ],
+      "pattern": "I keep + verbo-ing",
+      "common_doubts": [
+        {
+          "question": "Cuando uso esta frase?",
+          "answer": "Sirve para cerrar el camino con continuidad. Usala cuando quieras decir: \"Sigo aprendiendo.\""
+        },
+        {
+          "question": "Que parte puedo cambiar?",
+          "answer": "Manten la base \"I keep\" y cambia la parte despues del signo + con tu propia idea."
+        },
+        {
+          "question": "Como la practico sin confundirme?",
+          "answer": "Repite primero \"I keep learning.\" en voz alta. Luego cambia una sola palabra y conserva el mismo patron."
+        }
+      ]
+    }
   ],
   "checkpoints": [
-    { "id": 10, "afterLessonId": 10, "title": "Repaso ligero 1", "questions": [
-      { "id": "cp10-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Yo uso ChatGPT”?", "options": ["I use ChatGPT.", "I need ChatGPT.", "I want ChatGPT."], "answer": "I use ChatGPT.", "reviewLessonIds": [1] },
-      { "id": "cp10-q2", "type": "multiple-choice", "prompt": "¿Cómo dices “Necesito ayuda con esto”?", "options": ["I need help with this.", "I have help with this.", "I use help with this."], "answer": "I need help with this.", "reviewLessonIds": [10] },
-      { "id": "cp10-q3", "type": "multiple-choice", "prompt": "¿Qué frase expresa “Todavía no entiendo”?", "options": ["I do not understand yet.", "I am ready.", "I study every day."], "answer": "I do not understand yet.", "reviewLessonIds": [9] }
-    ] },
-    { "id": 20, "afterLessonId": 20, "title": "Repaso ligero 2", "questions": [
-      { "id": "cp20-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Puedo aprender esto”?", "options": ["I can learn this.", "I need more time.", "I am busy."], "answer": "I can learn this.", "reviewLessonIds": [11] },
-      { "id": "cp20-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Estoy aprendiendo inglés”?", "options": ["I am learning English.", "I want to practice.", "It is useful."], "answer": "I am learning English.", "reviewLessonIds": [19] },
-      { "id": "cp20-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “paso a paso”?", "options": ["step by step", "every day", "more time"], "answer": "step by step", "reviewLessonIds": [20] }
-    ] },
-    { "id": 30, "afterLessonId": 30, "title": "Repaso ligero 3", "questions": [
-      { "id": "cp30-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Uso una app para estudiar”?", "options": ["I use an app to study.", "I test my app.", "I close the app."], "answer": "I use an app to study.", "reviewLessonIds": [22] },
-      { "id": "cp30-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Arreglo un error”?", "options": ["I fix an error.", "I found a solution.", "I need focus."], "answer": "I fix an error.", "reviewLessonIds": [26] },
-      { "id": "cp30-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “La IA me ayuda a aprender”?", "options": ["AI helps me learn.", "AI needs my app.", "AI does not work."], "answer": "AI helps me learn.", "reviewLessonIds": [29] }
-    ] },
-    { "id": 40, "afterLessonId": 40, "title": "Repaso ligero 4", "questions": [
-      { "id": "cp40-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Mi app funciona”?", "options": ["My app works.", "My app does not work.", "I open my app."], "answer": "My app works.", "reviewLessonIds": [37] },
-      { "id": "cp40-q2", "type": "multiple-choice", "prompt": "¿Qué significa “The code is simple”?", "options": ["El código es simple.", "El código no funciona.", "La app es útil."], "answer": "El código es simple.", "reviewLessonIds": [39] },
-      { "id": "cp40-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “El proyecto está creciendo”?", "options": ["The project is growing.", "The project is difficult.", "The project is ready."], "answer": "The project is growing.", "reviewLessonIds": [40] }
-    ] },
-    { "id": 50, "afterLessonId": 50, "title": "Repaso ligero 5", "questions": [
-      { "id": "cp50-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Tengo una tarea”?", "options": ["I have a task.", "I finish a task.", "I take a break."], "answer": "I have a task.", "reviewLessonIds": [42] },
-      { "id": "cp50-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Estoy ocupado”?", "options": ["I am busy.", "I am free now.", "I start now."], "answer": "I am busy.", "reviewLessonIds": [47] },
-      { "id": "cp50-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “Necesito prepararme”?", "options": ["I need to prepare.", "I need focus.", "I need more time."], "answer": "I need to prepare.", "reviewLessonIds": [50] }
-    ] },
-    { "id": 60, "afterLessonId": 60, "title": "Repaso ligero 6", "questions": [
-      { "id": "cp60-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Estoy buscando una solución”?", "options": ["I am looking for a solution.", "I found a solution.", "I have progress."], "answer": "I am looking for a solution.", "reviewLessonIds": [52] },
-      { "id": "cp60-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Funciona bien”?", "options": ["It works well.", "It does not work yet.", "I do it today."], "answer": "It works well.", "reviewLessonIds": [54] },
-      { "id": "cp60-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “Lo termino mañana”?", "options": ["I finish it tomorrow.", "I start now.", "I go back to work."], "answer": "I finish it tomorrow.", "reviewLessonIds": [60] }
-    ] },
-    { "id": 70, "afterLessonId": 70, "title": "Repaso ligero 7", "questions": [
-      { "id": "cp70-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Gracias”?", "options": ["Thank you.", "You are welcome.", "No problem."], "answer": "Thank you.", "reviewLessonIds": [63] },
-      { "id": "cp70-q2", "type": "multiple-choice", "prompt": "¿Qué frase sirve para pedir que repitan?", "options": ["Can you repeat that?", "Please speak slowly.", "I do not know."], "answer": "Can you repeat that?", "reviewLessonIds": [66] },
-      { "id": "cp70-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “No, necesito ayuda”?", "options": ["No, I need help.", "Yes, I understand.", "I am good."], "answer": "No, I need help.", "reviewLessonIds": [70] }
-    ] },
-    { "id": 80, "afterLessonId": 80, "title": "Repaso ligero 8", "questions": [
-      { "id": "cp80-q1", "type": "multiple-choice", "prompt": "¿Cómo preguntas “Qué significa”?", "options": ["What does it mean?", "How do I say this?", "Can you repeat that?"], "answer": "What does it mean?", "reviewLessonIds": [72] },
-      { "id": "cp80-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Eso suena bien”?", "options": ["That sounds good.", "It is okay.", "I agree."], "answer": "That sounds good.", "reviewLessonIds": [78] },
-      { "id": "cp80-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “No estoy seguro”?", "options": ["I am not sure.", "I do not like this.", "I do not know."], "answer": "I am not sure.", "reviewLessonIds": [80] }
-    ] },
-    { "id": 90, "afterLessonId": 90, "title": "Repaso ligero 9", "questions": [
-      { "id": "cp90-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Estoy trabajando en mi app”?", "options": ["I am working on my app.", "I am checking this.", "I use my phone."], "answer": "I am working on my app.", "reviewLessonIds": [82] },
-      { "id": "cp90-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Puedo arreglarlo”?", "options": ["I can fix it.", "I can explain it.", "I can ask a question."], "answer": "I can fix it.", "reviewLessonIds": [85] },
-      { "id": "cp90-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “Quiero hablar mejor”?", "options": ["I want to speak better.", "I want to create something useful.", "I need to practice more."], "answer": "I want to speak better.", "reviewLessonIds": [90] }
-    ] },
-    { "id": 100, "afterLessonId": 100, "title": "Repaso ligero final", "questions": [
-      { "id": "cp100-q1", "type": "multiple-choice", "prompt": "¿Cómo dices “Mi inglés está creciendo”?", "options": ["My English is growing.", "My project is growing.", "This phrase helps me."], "answer": "My English is growing.", "reviewLessonIds": [93] },
-      { "id": "cp100-q2", "type": "multiple-choice", "prompt": "¿Qué frase significa “Puedo responder en inglés”?", "options": ["I can answer in English.", "I can ask a question.", "I can use this phrase."], "answer": "I can answer in English.", "reviewLessonIds": [98] },
-      { "id": "cp100-q3", "type": "multiple-choice", "prompt": "¿Cómo dices “Sigo aprendiendo”?", "options": ["I keep learning.", "I am ready to practice.", "I need a simple phrase."], "answer": "I keep learning.", "reviewLessonIds": [100] }
-    ] }
+    {
+      "id": 10,
+      "afterLessonId": 10,
+      "title": "Repaso ligero 1",
+      "questions": [
+        {
+          "id": "cp10-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Yo uso ChatGPT”?",
+          "options": [
+            "I use ChatGPT.",
+            "I need ChatGPT.",
+            "I want ChatGPT."
+          ],
+          "answer": "I use ChatGPT.",
+          "reviewLessonIds": [
+            1
+          ]
+        },
+        {
+          "id": "cp10-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Necesito ayuda con esto”?",
+          "options": [
+            "I need help with this.",
+            "I have help with this.",
+            "I use help with this."
+          ],
+          "answer": "I need help with this.",
+          "reviewLessonIds": [
+            10
+          ]
+        },
+        {
+          "id": "cp10-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase expresa “Todavía no entiendo”?",
+          "options": [
+            "I do not understand yet.",
+            "I am ready.",
+            "I study every day."
+          ],
+          "answer": "I do not understand yet.",
+          "reviewLessonIds": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "afterLessonId": 20,
+      "title": "Repaso ligero 2",
+      "questions": [
+        {
+          "id": "cp20-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Puedo aprender esto”?",
+          "options": [
+            "I can learn this.",
+            "I need more time.",
+            "I am busy."
+          ],
+          "answer": "I can learn this.",
+          "reviewLessonIds": [
+            11
+          ]
+        },
+        {
+          "id": "cp20-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Estoy aprendiendo inglés”?",
+          "options": [
+            "I am learning English.",
+            "I want to practice.",
+            "It is useful."
+          ],
+          "answer": "I am learning English.",
+          "reviewLessonIds": [
+            19
+          ]
+        },
+        {
+          "id": "cp20-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “paso a paso”?",
+          "options": [
+            "step by step",
+            "every day",
+            "more time"
+          ],
+          "answer": "step by step",
+          "reviewLessonIds": [
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "afterLessonId": 30,
+      "title": "Repaso ligero 3",
+      "questions": [
+        {
+          "id": "cp30-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Uso una app para estudiar”?",
+          "options": [
+            "I use an app to study.",
+            "I test my app.",
+            "I close the app."
+          ],
+          "answer": "I use an app to study.",
+          "reviewLessonIds": [
+            22
+          ]
+        },
+        {
+          "id": "cp30-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Arreglo un error”?",
+          "options": [
+            "I fix an error.",
+            "I found a solution.",
+            "I need focus."
+          ],
+          "answer": "I fix an error.",
+          "reviewLessonIds": [
+            26
+          ]
+        },
+        {
+          "id": "cp30-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “La IA me ayuda a aprender”?",
+          "options": [
+            "AI helps me learn.",
+            "AI needs my app.",
+            "AI does not work."
+          ],
+          "answer": "AI helps me learn.",
+          "reviewLessonIds": [
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "afterLessonId": 40,
+      "title": "Repaso ligero 4",
+      "questions": [
+        {
+          "id": "cp40-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Mi app funciona”?",
+          "options": [
+            "My app works.",
+            "My app does not work.",
+            "I open my app."
+          ],
+          "answer": "My app works.",
+          "reviewLessonIds": [
+            37
+          ]
+        },
+        {
+          "id": "cp40-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué significa “The code is simple”?",
+          "options": [
+            "El código es simple.",
+            "El código no funciona.",
+            "La app es útil."
+          ],
+          "answer": "El código es simple.",
+          "reviewLessonIds": [
+            39
+          ]
+        },
+        {
+          "id": "cp40-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “El proyecto está creciendo”?",
+          "options": [
+            "The project is growing.",
+            "The project is difficult.",
+            "The project is ready."
+          ],
+          "answer": "The project is growing.",
+          "reviewLessonIds": [
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "afterLessonId": 50,
+      "title": "Repaso ligero 5",
+      "questions": [
+        {
+          "id": "cp50-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Tengo una tarea”?",
+          "options": [
+            "I have a task.",
+            "I finish a task.",
+            "I take a break."
+          ],
+          "answer": "I have a task.",
+          "reviewLessonIds": [
+            42
+          ]
+        },
+        {
+          "id": "cp50-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Estoy ocupado”?",
+          "options": [
+            "I am busy.",
+            "I am free now.",
+            "I start now."
+          ],
+          "answer": "I am busy.",
+          "reviewLessonIds": [
+            47
+          ]
+        },
+        {
+          "id": "cp50-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Necesito prepararme”?",
+          "options": [
+            "I need to prepare.",
+            "I need focus.",
+            "I need more time."
+          ],
+          "answer": "I need to prepare.",
+          "reviewLessonIds": [
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "afterLessonId": 60,
+      "title": "Repaso ligero 6",
+      "questions": [
+        {
+          "id": "cp60-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Estoy buscando una solución”?",
+          "options": [
+            "I am looking for a solution.",
+            "I found a solution.",
+            "I have progress."
+          ],
+          "answer": "I am looking for a solution.",
+          "reviewLessonIds": [
+            52
+          ]
+        },
+        {
+          "id": "cp60-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Funciona bien”?",
+          "options": [
+            "It works well.",
+            "It does not work yet.",
+            "I do it today."
+          ],
+          "answer": "It works well.",
+          "reviewLessonIds": [
+            54
+          ]
+        },
+        {
+          "id": "cp60-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Lo termino mañana”?",
+          "options": [
+            "I finish it tomorrow.",
+            "I start now.",
+            "I go back to work."
+          ],
+          "answer": "I finish it tomorrow.",
+          "reviewLessonIds": [
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "afterLessonId": 70,
+      "title": "Repaso ligero 7",
+      "questions": [
+        {
+          "id": "cp70-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Gracias”?",
+          "options": [
+            "Thank you.",
+            "You are welcome.",
+            "No problem."
+          ],
+          "answer": "Thank you.",
+          "reviewLessonIds": [
+            63
+          ]
+        },
+        {
+          "id": "cp70-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase sirve para pedir que repitan?",
+          "options": [
+            "Can you repeat that?",
+            "Please speak slowly.",
+            "I do not know."
+          ],
+          "answer": "Can you repeat that?",
+          "reviewLessonIds": [
+            66
+          ]
+        },
+        {
+          "id": "cp70-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “No, necesito ayuda”?",
+          "options": [
+            "No, I need help.",
+            "Yes, I understand.",
+            "I am good."
+          ],
+          "answer": "No, I need help.",
+          "reviewLessonIds": [
+            70
+          ]
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "afterLessonId": 80,
+      "title": "Repaso ligero 8",
+      "questions": [
+        {
+          "id": "cp80-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo preguntas “Qué significa”?",
+          "options": [
+            "What does it mean?",
+            "How do I say this?",
+            "Can you repeat that?"
+          ],
+          "answer": "What does it mean?",
+          "reviewLessonIds": [
+            72
+          ]
+        },
+        {
+          "id": "cp80-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Eso suena bien”?",
+          "options": [
+            "That sounds good.",
+            "It is okay.",
+            "I agree."
+          ],
+          "answer": "That sounds good.",
+          "reviewLessonIds": [
+            78
+          ]
+        },
+        {
+          "id": "cp80-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “No estoy seguro”?",
+          "options": [
+            "I am not sure.",
+            "I do not like this.",
+            "I do not know."
+          ],
+          "answer": "I am not sure.",
+          "reviewLessonIds": [
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "afterLessonId": 90,
+      "title": "Repaso ligero 9",
+      "questions": [
+        {
+          "id": "cp90-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Estoy trabajando en mi app”?",
+          "options": [
+            "I am working on my app.",
+            "I am checking this.",
+            "I use my phone."
+          ],
+          "answer": "I am working on my app.",
+          "reviewLessonIds": [
+            82
+          ]
+        },
+        {
+          "id": "cp90-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Puedo arreglarlo”?",
+          "options": [
+            "I can fix it.",
+            "I can explain it.",
+            "I can ask a question."
+          ],
+          "answer": "I can fix it.",
+          "reviewLessonIds": [
+            85
+          ]
+        },
+        {
+          "id": "cp90-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Quiero hablar mejor”?",
+          "options": [
+            "I want to speak better.",
+            "I want to create something useful.",
+            "I need to practice more."
+          ],
+          "answer": "I want to speak better.",
+          "reviewLessonIds": [
+            90
+          ]
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "afterLessonId": 100,
+      "title": "Repaso ligero final",
+      "questions": [
+        {
+          "id": "cp100-q1",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Mi inglés está creciendo”?",
+          "options": [
+            "My English is growing.",
+            "My project is growing.",
+            "This phrase helps me."
+          ],
+          "answer": "My English is growing.",
+          "reviewLessonIds": [
+            93
+          ]
+        },
+        {
+          "id": "cp100-q2",
+          "type": "multiple-choice",
+          "prompt": "¿Qué frase significa “Puedo responder en inglés”?",
+          "options": [
+            "I can answer in English.",
+            "I can ask a question.",
+            "I can use this phrase."
+          ],
+          "answer": "I can answer in English.",
+          "reviewLessonIds": [
+            98
+          ]
+        },
+        {
+          "id": "cp100-q3",
+          "type": "multiple-choice",
+          "prompt": "¿Cómo dices “Sigo aprendiendo”?",
+          "options": [
+            "I keep learning.",
+            "I am ready to practice.",
+            "I need a simple phrase."
+          ],
+          "answer": "I keep learning.",
+          "reviewLessonIds": [
+            100
+          ]
+        }
+      ]
+    }
   ]
 }

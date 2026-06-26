@@ -6,6 +6,11 @@ export type LessonWord = {
   example: string;
 };
 
+export type CommonDoubt = {
+  question: string;
+  answer: string;
+};
+
 export type Stage = {
   id: number;
   title: string;
@@ -25,6 +30,7 @@ export type Lesson = {
   examples: string[];
   words: LessonWord[];
   pattern: string;
+  common_doubts: CommonDoubt[];
 };
 
 export type CheckpointQuestion = {
