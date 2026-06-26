@@ -77,22 +77,8 @@ export function LessonCard({
       </div>
 
       <section className="mt-6 rounded-lg border border-white/10 bg-white/[0.04] p-5">
-        <div>
-          <p className="text-sm font-semibold text-white">
-            Mi duda para copiar a ChatGPT
-          </p>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
-            Escribe tu duda o usa una sugerencia. La app arma el contexto sin usar
-            API, para que puedas resolverla gratis.
-          </p>
-        </div>
-
         {lesson.common_doubts.length > 0 && (
-          <div className="mt-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyanGlow">
-              Sugerencias
-            </p>
-            <div className="mt-3 space-y-3">
+          <div className="space-y-3">
               {lesson.common_doubts.map((doubt) => (
                 <article
                   className="rounded-lg border border-cyanGlow/10 bg-cyanGlow/10 p-4"
@@ -113,7 +99,6 @@ export function LessonCard({
                   </button>
                 </article>
               ))}
-            </div>
           </div>
         )}
 
