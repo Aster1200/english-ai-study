@@ -28,6 +28,22 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "notebook", label: "Libreta" },
 ];
 
+function getNextUnstudiedLesson(studiedLessonIds: number[], currentLessonId?: number) {
+  const studiedIds = new Set(studiedLessonIds);
+  const nextAfterCurrent =
+    typeof currentLessonId === "number"
+      ? lessons.find(
+          (lesson) => lesson.id > currentLessonId && !studiedIds.has(lesson.id),
+        )
+      : undefined;
+
+  return (
+    nextAfterCurrent ??
+    lessons.find((lesson) => !studiedIds.has(lesson.id)) ??
+    lessons[lessons.length - 1]
+  );
+}
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>("learn");
   const [activeLessonId, setActiveLessonId] = useState(lessons[0]?.id ?? 1);
@@ -74,12 +90,7 @@ export default function Home() {
   }, [progress.completedCheckpointIds, progress.studiedLessonIds]);
 
   const nextLesson = useMemo(() => {
-    const studiedLessonIds = new Set(progress.studiedLessonIds);
-    const nextLesson = lessons.find(
-      (lesson) => !studiedLessonIds.has(lesson.id),
-    );
-
-    return nextLesson ?? lessons[lessons.length - 1];
+    return getNextUnstudiedLesson(progress.studiedLessonIds);
   }, [progress.studiedLessonIds]);
 
   const activeLesson = useMemo(() => {
@@ -97,23 +108,38 @@ export default function Home() {
   }, [isReady, nextLesson]);
 
   function updateLessonStatus(lessonId: number, status: ReviewStatus) {
+    const numericLessonId = Number(lessonId);
+
     setProgress((current) => {
       const studiedLessonIds = Array.from(
-        new Set([...current.studiedLessonIds, lessonId]),
+        new Set([...current.studiedLessonIds, numericLessonId]),
       );
-      const withoutKnown = current.knownLessonIds.filter((id) => id !== lessonId);
-      const withoutReview = current.reviewLessonIds.filter((id) => id !== lessonId);
+      const withoutKnown = current.knownLessonIds.filter(
+        (id) => id !== numericLessonId,
+      );
+      const withoutReview = current.reviewLessonIds.filter(
+        (id) => id !== numericLessonId,
+      );
       const nextProgress = markStudyDay({
         ...current,
         studiedLessonIds,
         knownLessonIds:
-          status === "known" ? [...withoutKnown, lessonId] : withoutKnown,
+          status === "known" ? [...withoutKnown, numericLessonId] : withoutKnown,
         reviewLessonIds:
-          status === "review" ? [...withoutReview, lessonId] : withoutReview,
+          status === "review" ? [...withoutReview, numericLessonId] : withoutReview,
       });
 
       return nextProgress;
     });
+
+    if (numericLessonId === activeLesson.id) {
+      setActiveLessonId(
+        getNextUnstudiedLesson(
+          Array.from(new Set([...progress.studiedLessonIds, numericLessonId])),
+          numericLessonId,
+        ).id,
+      );
+    }
   }
 
   function updateLessonQuestion(lessonId: number, question: string) {

@@ -30,6 +30,20 @@ export const defaultProgress: StoredProgress = {
 
 export const progressStorageKey = "english-ai-study-progress";
 
+function normalizeIdArray(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return Array.from(
+    new Set(
+      value
+        .map((id) => Number(id))
+        .filter((id) => Number.isInteger(id) && id > 0),
+    ),
+  );
+}
+
 export function getTodayKey(date = new Date()) {
   return date.toISOString().slice(0, 10);
 }
@@ -42,16 +56,10 @@ function getPreviousDayKey(date = new Date()) {
 
 export function normalizeProgress(value: Partial<StoredProgress>): StoredProgress {
   return {
-    knownLessonIds: Array.isArray(value.knownLessonIds) ? value.knownLessonIds : [],
-    reviewLessonIds: Array.isArray(value.reviewLessonIds)
-      ? value.reviewLessonIds
-      : [],
-    studiedLessonIds: Array.isArray(value.studiedLessonIds)
-      ? value.studiedLessonIds
-      : [],
-    completedCheckpointIds: Array.isArray(value.completedCheckpointIds)
-      ? value.completedCheckpointIds
-      : [],
+    knownLessonIds: normalizeIdArray(value.knownLessonIds),
+    reviewLessonIds: normalizeIdArray(value.reviewLessonIds),
+    studiedLessonIds: normalizeIdArray(value.studiedLessonIds),
+    completedCheckpointIds: normalizeIdArray(value.completedCheckpointIds),
     checkpointMistakes:
       value.checkpointMistakes && typeof value.checkpointMistakes === "object"
         ? value.checkpointMistakes
