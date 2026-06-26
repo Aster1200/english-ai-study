@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { Lesson } from "@/data/lessons";
 
 type LessonCardProps = {
@@ -20,17 +19,7 @@ export function LessonCard({
   onMarkReview,
   onQuestionChange,
 }: LessonCardProps) {
-  const [copyStatus, setCopyStatus] = useState("");
   const prompt = buildChatGptPrompt(lesson, question);
-
-  async function copyPrompt() {
-    try {
-      await navigator.clipboard.writeText(prompt);
-      setCopyStatus("Copiado");
-    } catch {
-      setCopyStatus("No se pudo copiar. Selecciona el texto manualmente.");
-    }
-  }
 
   function consultWithGpt() {
     const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
@@ -94,7 +83,7 @@ export function LessonCard({
           </p>
           <p className="mt-2 text-sm leading-6 text-slate-400">
             Escribe tu duda o usa una sugerencia. La app arma el contexto sin usar
-            API, para que puedas consultarlo gratis.
+            API, para que puedas resolverla gratis.
           </p>
         </div>
 
@@ -138,26 +127,15 @@ export function LessonCard({
           />
         </label>
 
-        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mt-4">
           <button
-            className="min-h-12 rounded-lg border border-cyanGlow/30 bg-cyanGlow/10 px-4 py-3 font-bold text-cyanGlow transition hover:bg-cyanGlow/15"
-            onClick={copyPrompt}
-            type="button"
-          >
-            Copiar pregunta completa
-          </button>
-          <button
-            className="min-h-12 rounded-lg bg-cyanGlow px-4 py-3 font-black text-slate-950 transition hover:brightness-105"
+            className="min-h-12 w-full rounded-lg bg-cyanGlow px-4 py-3 font-black text-slate-950 transition hover:brightness-105"
             onClick={consultWithGpt}
             type="button"
           >
-            Consultar con GPT
+            Resolver
           </button>
         </div>
-
-        {copyStatus && (
-          <p className="mt-3 text-sm font-semibold text-calm">{copyStatus}</p>
-        )}
       </section>
 
       <p className="mt-5 text-sm text-slate-400">Mañana repasamos.</p>
