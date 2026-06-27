@@ -6,12 +6,12 @@ type WordsPanelProps = {
 
 export function WordsPanel({ words }: WordsPanelProps) {
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow">
+    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
       <h2 className="text-xl font-bold text-white">Palabras clave</h2>
       <div className="mt-4 space-y-3">
         {words.map((word) => (
           <article
-            className="rounded-lg border border-white/10 bg-ink/70 p-5"
+            className="rounded-2xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-md"
             key={word.word}
           >
             <div className="flex items-baseline justify-between gap-3">

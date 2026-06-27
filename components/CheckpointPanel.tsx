@@ -36,7 +36,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
   }
 
   return (
-    <section className="rounded-lg border border-warm/20 bg-warm/10 p-6 shadow-glow">
+    <section className="rounded-2xl border border-warm/20 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-warm">
         Checkpoint suave
       </p>
@@ -48,7 +48,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       <div className="mt-5 space-y-4">
         {checkpoint.questions.map((question) => (
           <article
-            className="rounded-lg border border-white/10 bg-ink/70 p-5"
+            className="rounded-2xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-md"
             key={question.id}
           >
             <p className="font-bold text-white">{question.prompt}</p>
@@ -57,7 +57,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
                 const isSelected = answers[question.id] === option;
                 return (
                   <button
-                    className={`min-h-12 rounded-lg border px-4 py-2 text-left text-sm font-semibold transition ${
+                    className={`min-h-12 rounded-2xl border px-4 py-2 text-left text-sm font-semibold transition ${
                       isSelected
                         ? "border-cyanGlow/70 bg-cyanGlow text-slate-950"
                         : "border-white/10 bg-white/[0.04] text-slate-200 hover:border-cyanGlow/40"
@@ -81,7 +81,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       </div>
 
       {result && (
-        <div className="mt-5 rounded-lg border border-white/10 bg-white/[0.06] p-4">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
           <p className="font-bold text-white">
             Resultado: {result.correct}/{result.total}
           </p>
@@ -94,7 +94,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       )}
 
       <button
-        className="mt-5 min-h-14 w-full rounded-lg bg-warm px-4 py-3 font-black text-slate-950 transition enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+        className="mt-5 min-h-14 w-full rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-3 font-black text-slate-950 transition enabled:hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         disabled={!allAnswered || Boolean(result)}
         onClick={finishCheckpoint}
         type="button"

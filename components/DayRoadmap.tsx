@@ -30,7 +30,7 @@ export function DayRoadmap({
         : "Pendiente";
 
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-glow">
+    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 shadow-glow backdrop-blur-md">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-bold text-white">Mi Camino de Ingles</h2>
@@ -38,13 +38,13 @@ export function DayRoadmap({
             Ruta de {lessons.length} dias. Aqui solo ves la frase activa.
           </p>
         </div>
-        <span className="rounded-full border border-white/10 bg-ink/70 px-3 py-1 text-sm font-bold text-cyanGlow">
+        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm font-bold text-cyanGlow">
           Dia {activeLesson?.day ?? 1} de {lessons.length}
         </span>
       </div>
 
       {activeLesson && (
-        <div className="mt-5 rounded-lg border border-warm/30 bg-ink/70 p-4">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/50 p-4 backdrop-blur-md">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-warm">
@@ -61,7 +61,7 @@ export function DayRoadmap({
 
           <div className="mt-4 grid grid-cols-2 gap-2">
             <button
-              className="min-h-12 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition enabled:hover:border-cyanGlow/40 disabled:cursor-not-allowed disabled:opacity-40"
+              className="min-h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition enabled:hover:border-cyanGlow/40 disabled:cursor-not-allowed disabled:opacity-40"
               disabled={!previousLesson}
               onClick={() => previousLesson && onSelectLesson(previousLesson.id)}
               type="button"
@@ -69,7 +69,7 @@ export function DayRoadmap({
               Anterior
             </button>
             <button
-              className="min-h-12 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition enabled:hover:border-cyanGlow/40 disabled:cursor-not-allowed disabled:opacity-40"
+              className="min-h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition enabled:hover:border-cyanGlow/40 disabled:cursor-not-allowed disabled:opacity-40"
               disabled={!nextLesson}
               onClick={() => nextLesson && onSelectLesson(nextLesson.id)}
               type="button"

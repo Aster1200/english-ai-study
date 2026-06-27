@@ -71,7 +71,7 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
   }
 
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow">
+    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyanGlow">
         Toolbox
       </p>
@@ -87,7 +87,7 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
 
           return (
             <article
-              className="overflow-hidden rounded-lg border border-white/10 bg-ink/70"
+              className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 backdrop-blur-md"
               key={category.stageId}
             >
               <button
@@ -110,7 +110,7 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
                 <div className="space-y-3 border-t border-white/10 p-5">
                   {category.patterns.map((item) => (
                     <div
-                      className="rounded-lg border border-cyanGlow/10 bg-cyanGlow/10 p-4"
+                      className="rounded-2xl border border-cyanGlow/10 bg-cyanGlow/10 p-4"
                       key={item.pattern}
                     >
                       <p className="font-bold text-cyanGlow">{item.pattern}</p>

@@ -207,9 +207,10 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen px-4 pb-28 pt-5 sm:px-6 sm:pb-10">
+    <main className="min-h-screen px-4 pb-32 pt-5 sm:px-6 sm:pb-12">
       <div className="mx-auto max-w-5xl">
-        <header className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] p-6 shadow-glow sm:p-8">
+        <header className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 p-7 shadow-glow backdrop-blur-md sm:p-9">
+          <div className="absolute -right-20 -top-24 h-60 w-60 rounded-full bg-cyanGlow/10 blur-3xl" />
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyanGlow/70 to-transparent" />
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyanGlow sm:text-sm">
@@ -227,7 +228,7 @@ export default function Home() {
             </p>
           </div>
           <button
-            className="mt-7 min-h-14 w-full rounded-xl bg-warm px-6 py-4 text-base font-black text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:brightness-105 sm:w-auto"
+            className="relative mt-7 min-h-14 w-full rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-6 py-4 text-base font-black text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] sm:w-auto"
             onClick={() => {
               setActiveTab("learn");
               setActiveLessonId(nextLesson.id);
@@ -249,14 +250,14 @@ export default function Home() {
           />
         </section>
 
-        <section className="mt-4 rounded-lg border border-white/10 bg-white/[0.055] p-5">
+        <section className="mt-4 rounded-2xl border border-white/10 bg-slate-900/50 p-5 shadow-glow backdrop-blur-md">
           <div className="flex items-center justify-between gap-4">
             <p className="text-sm font-bold text-white">Avance del camino</p>
             <p className="text-sm font-bold text-calm">{stats.totalProgress}%</p>
           </div>
           <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10">
             <div
-              className="h-full rounded-full bg-calm transition-all"
+              className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-cyan-300 transition-all"
               style={{ width: `${stats.totalProgress}%` }}
             />
           </div>
@@ -265,14 +266,14 @@ export default function Home() {
           </p>
         </section>
 
-        <nav className="fixed inset-x-4 bottom-4 z-20 rounded-lg border border-white/10 bg-ink/95 p-1 shadow-glow backdrop-blur sm:sticky sm:top-3 sm:mt-5">
+        <nav className="fixed bottom-4 left-4 right-4 z-20 rounded-full border border-white/10 bg-white/5 p-1.5 shadow-glow backdrop-blur-lg sm:sticky sm:top-3 sm:mt-5">
           <div className="grid grid-cols-4 gap-1">
             {tabs.map((tab) => (
               <button
-                className={`min-h-14 rounded-md px-3 py-2 text-sm font-bold transition ${
+                className={`min-h-12 rounded-full px-3 py-2 text-sm font-bold transition ${
                   activeTab === tab.key
-                    ? "bg-cyanGlow text-slate-950"
-                    : "text-slate-300 hover:bg-white/[0.06]"
+                    ? "bg-cyanGlow text-slate-950 shadow-[0_0_18px_rgba(94,216,255,0.45)]"
+                    : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
                 }`}
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
@@ -335,7 +336,7 @@ export default function Home() {
         </div>
 
         <footer className="py-10 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
+          <p className="text-xs font-medium uppercase tracking-widest text-slate-500">
             Built by Aster
           </p>
         </footer>

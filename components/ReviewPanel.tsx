@@ -15,7 +15,7 @@ export function ReviewPanel({
   onMarkReview,
 }: ReviewPanelProps) {
   return (
-    <section className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow">
+    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-review">
@@ -33,7 +33,7 @@ export function ReviewPanel({
           const status = getStatus(lesson.id);
           return (
             <article
-              className="rounded-lg border border-white/10 bg-ink/70 p-5"
+              className="rounded-2xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-md"
               key={lesson.id}
             >
               <div className="flex items-start justify-between gap-3">
@@ -47,14 +47,14 @@ export function ReviewPanel({
               </div>
               <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <button
-                  className="min-h-12 rounded-lg bg-calm px-4 py-2 font-bold text-slate-950"
+                  className="min-h-12 rounded-2xl bg-calm px-4 py-2 font-bold text-slate-950"
                   onClick={() => onMarkKnown(lesson.id)}
                   type="button"
                 >
                   Lo se
                 </button>
                 <button
-                  className="min-h-12 rounded-lg border border-review/40 bg-review/10 px-4 py-2 font-bold text-review"
+                  className="min-h-12 rounded-2xl border border-review/40 bg-review/10 px-4 py-2 font-bold text-review"
                   onClick={() => onMarkReview(lesson.id)}
                   type="button"
                 >
