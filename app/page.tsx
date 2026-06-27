@@ -1,53 +1,39 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { CheckpointPanel } from "@/components/CheckpointPanel";
-import { DayRoadmap } from "@/components/DayRoadmap";
-import { LessonCard } from "@/components/LessonCard";
 import { PatternPanel } from "@/components/PatternPanel";
-import { ReviewPanel } from "@/components/ReviewPanel";
 import { StatCard } from "@/components/StatCard";
 import { TeacherNotebook } from "@/components/TeacherNotebook";
-import { WordsPanel } from "@/components/WordsPanel";
-import { checkpoints, lessons } from "@/data/lessons";
+import { lessons } from "@/data/lessons";
 import {
+  buildTrainingSession,
+  completeTrainingSession,
   defaultProgress,
   getProgressStats,
-  markStudyDay,
+  markLessonNeedsPractice,
+  markLessonRemembered,
   normalizeProgress,
   progressStorageKey,
-  type ReviewStatus,
   type StoredProgress,
+  type TrainingSession,
 } from "@/lib/progress";
 
-type TabKey = "learn" | "review" | "patterns" | "notebook";
+type TabKey = "learn" | "library" | "progress" | "settings";
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: "learn", label: "Camino" },
-  { key: "review", label: "Repaso" },
-  { key: "patterns", label: "Moldes" },
-  { key: "notebook", label: "Libreta" },
+  { key: "library", label: "Biblioteca" },
+  { key: "progress", label: "Progreso" },
+  { key: "settings", label: "Ajustes" },
 ];
-
-function getNextUnstudiedLesson(studiedLessonIds: number[], currentLessonId?: number) {
-  const studiedIds = new Set(studiedLessonIds);
-  const nextAfterCurrent =
-    typeof currentLessonId === "number"
-      ? lessons.find(
-          (lesson) => lesson.id > currentLessonId && !studiedIds.has(lesson.id),
-        )
-      : undefined;
-
-  return (
-    nextAfterCurrent ??
-    lessons.find((lesson) => !studiedIds.has(lesson.id)) ??
-    lessons[lessons.length - 1]
-  );
-}
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>("learn");
-  const [activeLessonId, setActiveLessonId] = useState(lessons[0]?.id ?? 1);
+  const [libraryQuery, setLibraryQuery] = useState("");
+  const [currentSession, setCurrentSession] = useState<TrainingSession | null>(
+    null,
+  );
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [progress, setProgress] = useState<StoredProgress>(defaultProgress);
   const [isReady, setIsReady] = useState(false);
 
@@ -76,109 +62,14 @@ export default function Home() {
   }, [isReady, progress]);
 
   const stats = useMemo(() => getProgressStats(progress), [progress]);
-
-  const pendingCheckpoint = useMemo(() => {
-    const studiedLessonIds = new Set(progress.studiedLessonIds);
-
-    return checkpoints.find((checkpoint) => {
-      const isCompleted = progress.completedCheckpointIds.includes(checkpoint.id);
-      const isReady = lessons
-        .filter((lesson) => lesson.id <= checkpoint.afterLessonId)
-        .every((lesson) => studiedLessonIds.has(lesson.id));
-
-      return isReady && !isCompleted;
-    });
-  }, [progress.completedCheckpointIds, progress.studiedLessonIds]);
-
-  const nextLesson = useMemo(() => {
-    return getNextUnstudiedLesson(progress.studiedLessonIds);
-  }, [progress.studiedLessonIds]);
-
-  const activeLesson = useMemo(() => {
-    return (
-      lessons.find((lesson) => lesson.id === activeLessonId) ??
-      nextLesson ??
-      lessons[0]
-    );
-  }, [activeLessonId, nextLesson]);
-
-  useEffect(() => {
-    if (isReady && nextLesson) {
-      setActiveLessonId(nextLesson.id);
-    }
-  }, [isReady, nextLesson]);
-
-  function updateLessonStatus(lessonId: number, status: ReviewStatus) {
-    const numericLessonId = Number(lessonId);
-
-    setProgress((current) => {
-      const studiedLessonIds = Array.from(
-        new Set([...current.studiedLessonIds, numericLessonId]),
-      );
-      const withoutKnown = current.knownLessonIds.filter(
-        (id) => id !== numericLessonId,
-      );
-      const withoutReview = current.reviewLessonIds.filter(
-        (id) => id !== numericLessonId,
-      );
-      const nextProgress = markStudyDay({
-        ...current,
-        studiedLessonIds,
-        knownLessonIds:
-          status === "known" ? [...withoutKnown, numericLessonId] : withoutKnown,
-        reviewLessonIds:
-          status === "review" ? [...withoutReview, numericLessonId] : withoutReview,
-      });
-
-      return nextProgress;
-    });
-
-    if (numericLessonId === activeLesson.id) {
-      setActiveLessonId(
-        getNextUnstudiedLesson(
-          Array.from(new Set([...progress.studiedLessonIds, numericLessonId])),
-          numericLessonId,
-        ).id,
-      );
-    }
-  }
-
-  function updateLessonQuestion(lessonId: number, question: string) {
-    setProgress((current) => ({
-      ...current,
-      lessonQuestions: {
-        ...current.lessonQuestions,
-        [lessonId]: question,
-      },
-    }));
-  }
-
-  function completeCheckpoint(checkpointId: number, mistakeLessonIds: number[]) {
-    setProgress((current) => {
-      const uniqueMistakes = Array.from(new Set(mistakeLessonIds));
-      const completedCheckpointIds = Array.from(
-        new Set([...current.completedCheckpointIds, checkpointId]),
-      );
-      const reviewLessonIds = Array.from(
-        new Set([...current.reviewLessonIds, ...uniqueMistakes]),
-      );
-      const knownLessonIds =
-        uniqueMistakes.length === 0
-          ? current.knownLessonIds
-          : current.knownLessonIds.filter((id) => !uniqueMistakes.includes(id));
-
-      return {
-        ...current,
-        completedCheckpointIds,
-        checkpointMistakes: {
-          ...current.checkpointMistakes,
-          [checkpointId]: uniqueMistakes,
-        },
-        knownLessonIds,
-        reviewLessonIds,
-      };
-    });
-  }
+  const reinforcementCount = useMemo(
+    () => new Set(progress.reviewLessonIds).size,
+    [progress.reviewLessonIds],
+  );
+  const currentStep = currentSession?.steps[currentStepIndex] ?? null;
+  const currentSessionLesson = currentStep?.lessonId
+    ? lessons.find((lesson) => lesson.id === currentStep.lessonId) ?? null
+    : null;
 
   function updateGeneralQuestion(question: string) {
     setProgress((current) => ({
@@ -206,6 +97,41 @@ export default function Home() {
     return "new";
   }
 
+  function startTrainingSession() {
+    setCurrentSession(buildTrainingSession(progress, lessons));
+    setCurrentStepIndex(0);
+    setActiveTab("learn");
+  }
+
+  function finishCurrentSessionStep(outcome: "remembered" | "needsPractice") {
+    if (!currentSession || !currentSessionLesson) {
+      return;
+    }
+
+    const nextStep = currentSession.steps[currentStepIndex + 1];
+    const shouldCompleteSession = nextStep?.type === "closing";
+
+    setProgress((current) => {
+      const updatedProgress =
+        outcome === "remembered"
+          ? markLessonRemembered(current, currentSessionLesson.id)
+          : markLessonNeedsPractice(current, currentSessionLesson.id);
+
+      return shouldCompleteSession
+        ? completeTrainingSession(updatedProgress, currentSession)
+        : updatedProgress;
+    });
+
+    setCurrentStepIndex((index) =>
+      Math.min(index + 1, currentSession.steps.length - 1),
+    );
+  }
+
+  function resetTrainingSession() {
+    setCurrentSession(null);
+    setCurrentStepIndex(0);
+  }
+
   return (
     <main className="min-h-screen bg-[#050505] px-4 pb-36 pt-6 sm:px-6 sm:pb-14 sm:pt-8">
       <div className="mx-auto max-w-5xl">
@@ -218,25 +144,22 @@ export default function Home() {
               English AI Study
             </p>
             <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">
-              Mi Camino de Ingles
+              Tu coach de ingles diario
             </h1>
             <p className="mt-4 text-base font-semibold text-yellow-300">
-              Un paso diario. Sin presion. Con direccion.
+              Entra, presiona un boton y deja que la app te guie.
             </p>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400">
-              Una ruta diaria y ordenada para estudiar sin saturarte: abre la
-              app, entra a tu frase del dia y guarda tus dudas.
+              No tienes que decidir que estudiar. Camino mezcla una frase facil,
+              una de refuerzo y una nueva cuando esten disponibles.
             </p>
           </div>
           <button
             className="relative mt-9 min-h-16 w-full rounded-[1.35rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-4 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
-            onClick={() => {
-              setActiveTab("learn");
-              setActiveLessonId(nextLesson.id);
-            }}
+            onClick={startTrainingSession}
             type="button"
           >
-            Estudiar leccion de hoy
+            Continuar mi camino
           </button>
         </header>
 
@@ -288,45 +211,78 @@ export default function Home() {
 
         <div className="mt-8 space-y-8">
           {activeTab === "learn" && (
-            <>
-              {pendingCheckpoint && (
-                <CheckpointPanel
-                  checkpoint={pendingCheckpoint}
-                  onComplete={completeCheckpoint}
+            <section className="space-y-8">
+              {!currentSession && (
+                <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+                    Camino
+                  </p>
+                  <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
+                    Tu coach de ingles diario
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+                    La app decide el orden por ti. Tu solo respondes si lo
+                    recuerdas o si aun te cuesta.
+                  </p>
+
+                  <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    <CoachMetric
+                      label="Dominadas"
+                      value={stats.learnedPhraseCount}
+                    />
+                    <CoachMetric label="Por reforzar" value={reinforcementCount} />
+                    <CoachMetric label="Racha" value={`${stats.streak} dias`} />
+                  </div>
+
+                  <button
+                    className="mt-8 min-h-16 w-full rounded-[1.35rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-4 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
+                    onClick={startTrainingSession}
+                    type="button"
+                  >
+                    Continuar mi camino
+                  </button>
+                </div>
+              )}
+
+              {currentSession && currentStep && currentStep.type !== "closing" && currentSessionLesson && (
+                <SessionLessonCard
+                  currentStepNumber={currentStepIndex + 1}
+                  lesson={currentSessionLesson}
+                  onNeedsPractice={() =>
+                    finishCurrentSessionStep("needsPractice")
+                  }
+                  onRemembered={() => finishCurrentSessionStep("remembered")}
+                  stepTitle={currentStep.title}
+                  totalSteps={currentSession.steps.length - 1}
                 />
               )}
-              <DayRoadmap
-                activeLessonId={activeLesson.id}
-                getStatus={getStatus}
-                lessons={lessons}
-                onSelectLesson={setActiveLessonId}
-              />
-              <LessonCard
-                isKnown={getStatus(activeLesson.id) === "known"}
-                lesson={activeLesson}
-                onMarkKnown={(lessonId) => updateLessonStatus(lessonId, "known")}
-                onMarkReview={(lessonId) =>
-                  updateLessonStatus(lessonId, "review")
-                }
-                onQuestionChange={updateLessonQuestion}
-                question={progress.lessonQuestions[activeLesson.id] ?? ""}
-              />
-              <WordsPanel words={activeLesson.words} />
-            </>
+
+              {currentSession && currentStep && currentStep.type === "closing" && (
+                <SessionClosingCard
+                  onClose={resetTrainingSession}
+                  session={currentSession}
+                />
+              )}
+            </section>
           )}
 
-          {activeTab === "review" && (
-            <ReviewPanel
+          {activeTab === "library" && (
+            <LibraryPanel
               getStatus={getStatus}
               lessons={lessons}
-              onMarkKnown={(lessonId) => updateLessonStatus(lessonId, "known")}
-              onMarkReview={(lessonId) => updateLessonStatus(lessonId, "review")}
+              query={libraryQuery}
+              setQuery={setLibraryQuery}
             />
           )}
 
-          {activeTab === "patterns" && <PatternPanel lessons={lessons} />}
+          {activeTab === "progress" && (
+            <ProgressPanel
+              reinforcementCount={reinforcementCount}
+              stats={stats}
+            />
+          )}
 
-          {activeTab === "notebook" && (
+          {activeTab === "settings" && (
             <TeacherNotebook
               generalQuestion={progress.generalQuestion}
               onGeneralQuestionChange={updateGeneralQuestion}
@@ -343,5 +299,328 @@ export default function Home() {
         </footer>
       </div>
     </main>
+  );
+}
+
+function CoachMetric({
+  label,
+  value,
+}: {
+  label: string;
+  value: number | string;
+}) {
+  return (
+    <div className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 text-3xl font-black tracking-tight text-[#00f2ff]">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function SessionLessonCard({
+  currentStepNumber,
+  lesson,
+  onNeedsPractice,
+  onRemembered,
+  stepTitle,
+  totalSteps,
+}: {
+  currentStepNumber: number;
+  lesson: (typeof lessons)[number];
+  onNeedsPractice: () => void;
+  onRemembered: () => void;
+  stepTitle: string;
+  totalSteps: number;
+}) {
+  return (
+    <article className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
+      <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#00f2ff]/10 blur-[80px]" />
+      <div className="relative">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-yellow-300">
+            {stepTitle}
+          </p>
+          <span className="w-fit rounded-full border border-white/5 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-400">
+            {currentStepNumber} de {totalSteps}
+          </span>
+        </div>
+
+        <h2 className="mt-7 text-4xl font-black tracking-tight text-white sm:text-5xl">
+          {lesson.phrase}
+        </h2>
+        <p className="mt-4 text-lg leading-7 text-slate-400">
+          {lesson.translation}
+        </p>
+
+        <div className="mt-7 w-fit rounded-full border border-[#00f2ff]/20 bg-[#00f2ff]/10 px-5 py-3">
+          <p className="text-sm font-bold text-[#00f2ff]">
+            Hoy solo recuerda esta idea
+          </p>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <InfoBlock label="Pronunciacion" value={lesson.pronunciation} />
+          <InfoBlock label="Patron" value={lesson.pattern} />
+        </div>
+
+        <div className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Explicacion simple
+          </p>
+          <p className="mt-2 text-sm leading-7 text-slate-300">
+            {lesson.explanation}
+          </p>
+        </div>
+
+        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <button
+            className="min-h-14 rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)]"
+            onClick={onRemembered}
+            type="button"
+          >
+            Lo recuerdo
+          </button>
+          <button
+            className="min-h-14 rounded-[1.25rem] border border-orange-300/25 bg-orange-500/10 px-4 py-3 font-bold text-orange-200 transition hover:bg-orange-500/15"
+            onClick={onNeedsPractice}
+            type="button"
+          >
+            Aún me cuesta
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function SessionClosingCard({
+  onClose,
+  session,
+}: {
+  onClose: () => void;
+  session: TrainingSession;
+}) {
+  const lessonStepCount = session.steps.filter((step) => step.lessonId).length;
+
+  return (
+    <section className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 text-center shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+        Sesion completa
+      </p>
+      <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        Buen trabajo. Hoy avanzaste sin saturarte.
+      </h2>
+      <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
+        La app eligio por ti y guardo tu respuesta. Las frases que aun cuestan
+        volveran a aparecer dentro de Camino.
+      </p>
+      <div className="mx-auto mt-7 max-w-sm rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+          Frases vistas
+        </p>
+        <p className="mt-2 text-4xl font-black text-[#00f2ff]">
+          {lessonStepCount}
+        </p>
+      </div>
+      <button
+        className="mt-8 min-h-14 w-full rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)] sm:w-auto"
+        onClick={onClose}
+        type="button"
+      >
+        Volver al camino
+      </button>
+    </section>
+  );
+}
+
+function LibraryPanel({
+  getStatus,
+  lessons,
+  query,
+  setQuery,
+}: {
+  getStatus: (lessonId: number) => "known" | "review" | "new";
+  lessons: (typeof import("@/data/lessons").lessons);
+  query: string;
+  setQuery: (query: string) => void;
+}) {
+  const cleanQuery = query.trim().toLowerCase();
+  const filteredLessons = cleanQuery
+    ? lessons.filter((lesson) => {
+        const searchableText = [
+          lesson.phrase,
+          lesson.translation,
+          lesson.pattern,
+          lesson.tags.join(" "),
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(cleanQuery);
+      })
+    : lessons;
+
+  return (
+    <section className="space-y-8">
+      <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+          Biblioteca
+        </p>
+        <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
+          Consulta sin presion
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+          Este espacio es solo para mirar frases y moldes. El estudio real sigue
+          viviendo en Camino.
+        </p>
+
+        <label className="mt-7 block">
+          <span className="text-sm font-semibold text-white">Buscar frase</span>
+          <input
+            className="mt-3 min-h-14 w-full rounded-[1.25rem] border border-white/5 bg-[#050505] px-5 text-base text-white outline-none transition placeholder:text-slate-600 focus:border-[#00f2ff]/60 focus:shadow-[0_0_24px_rgba(0,242,255,0.12)]"
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Ejemplo: project, idea, necesito..."
+            value={query}
+          />
+        </label>
+      </div>
+
+      <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-8">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+              Frases
+            </p>
+            <h3 className="mt-2 text-xl font-bold text-white">
+              {filteredLessons.length} disponibles
+            </h3>
+          </div>
+          <p className="text-sm text-slate-500">
+            Solo consulta. Camino decide que estudiar.
+          </p>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-3">
+          {filteredLessons.slice(0, 24).map((lesson) => (
+            <article
+              className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5"
+              key={lesson.id}
+            >
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-yellow-300">
+                    Dia {lesson.day}
+                  </p>
+                  <p className="mt-2 font-bold text-white">{lesson.phrase}</p>
+                  <p className="mt-1 text-sm text-slate-400">
+                    {lesson.translation}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-[#00f2ff]">
+                    {lesson.pattern}
+                  </p>
+                </div>
+                <LibraryStatusPill status={getStatus(lesson.id)} />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {filteredLessons.length > 24 && (
+          <p className="mt-5 text-center text-sm text-slate-500">
+            Mostrando 24 resultados para mantener la vista ligera.
+          </p>
+        )}
+      </div>
+
+      <PatternPanel lessons={lessons} />
+    </section>
+  );
+}
+
+function LibraryStatusPill({ status }: { status: "known" | "review" | "new" }) {
+  const label =
+    status === "known"
+      ? "Dominada"
+      : status === "review"
+        ? "Por reforzar"
+        : "Disponible";
+  const className =
+    status === "known"
+      ? "border-[#00f2ff]/40 bg-[#00f2ff]/15 text-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.35)]"
+      : status === "review"
+        ? "border-orange-300/25 bg-orange-500/10 text-orange-200"
+        : "border-white/5 bg-white/[0.04] text-slate-400";
+
+  return (
+    <span
+      className={`w-fit shrink-0 rounded-full border px-3 py-1 text-xs font-semibold ${className}`}
+    >
+      {label}
+    </span>
+  );
+}
+
+function ProgressPanel({
+  reinforcementCount,
+  stats,
+}: {
+  reinforcementCount: number;
+  stats: ReturnType<typeof getProgressStats>;
+}) {
+  return (
+    <section className="space-y-6">
+      <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+          Progreso
+        </p>
+        <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
+          Avance simple
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+          Numeros tranquilos para saber que vas avanzando sin convertirlo en una
+          lista pesada.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+        <CoachMetric label="Dominadas" value={stats.learnedPhraseCount} />
+        <CoachMetric label="Por reforzar" value={reinforcementCount} />
+        <CoachMetric label="Racha" value={`${stats.streak} dias`} />
+        <CoachMetric label="Avance" value={`${stats.totalProgress}%`} />
+      </div>
+
+      <section className="rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+        <div className="flex items-center justify-between gap-4">
+          <p className="text-sm font-bold text-white">Camino total</p>
+          <p className="text-sm font-bold text-[#00f2ff]">
+            {stats.totalProgress}%
+          </p>
+        </div>
+        <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10">
+          <div
+            className="h-full rounded-full bg-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.65)] transition-all"
+            style={{ width: `${stats.totalProgress}%` }}
+          />
+        </div>
+        <p className="mt-3 text-sm text-slate-400">
+          El objetivo no es correr. Es volver manana y seguir.
+        </p>
+      </section>
+    </section>
+  );
+}
+
+function InfoBlock({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 text-sm leading-6 text-slate-300">{value}</p>
+    </div>
   );
 }
