@@ -209,22 +209,25 @@ export default function Home() {
   return (
     <main className="min-h-screen px-4 pb-28 pt-5 sm:px-6 sm:pb-10">
       <div className="mx-auto max-w-5xl">
-        <header className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyanGlow sm:text-sm">
-            English AI Study
-          </p>
-          <h1 className="mt-3 text-3xl font-black tracking-normal text-white sm:text-4xl">
-            Mi Camino de Ingles
-          </h1>
-          <p className="mt-2 text-base font-semibold text-warm">
-            Un paso diario. Sin presion. Con direccion.
-          </p>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-            Una ruta diaria, simple y ordenada para estudiar sin confundirte:
-            abre la app, entra al siguiente dia y guarda tus dudas.
-          </p>
+        <header className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] p-6 shadow-glow sm:p-8">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyanGlow/70 to-transparent" />
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyanGlow sm:text-sm">
+              English AI Study
+            </p>
+            <h1 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
+              Mi Camino de Ingles
+            </h1>
+            <p className="mt-3 text-base font-semibold text-warm">
+              Un paso diario. Sin presion. Con direccion.
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+              Una ruta diaria y ordenada para estudiar sin saturarte: abre la
+              app, entra a tu frase del dia y guarda tus dudas.
+            </p>
+          </div>
           <button
-            className="mt-6 min-h-14 w-full rounded-lg bg-warm px-5 py-4 text-base font-black text-slate-950 shadow-glow transition hover:brightness-105 sm:w-auto"
+            className="mt-7 min-h-14 w-full rounded-xl bg-warm px-6 py-4 text-base font-black text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:brightness-105 sm:w-auto"
             onClick={() => {
               setActiveTab("learn");
               setActiveLessonId(nextLesson.id);
@@ -330,6 +333,12 @@ export default function Home() {
             />
           )}
         </div>
+
+        <footer className="py-10 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
+            Built by Aster
+          </p>
+        </footer>
       </div>
     </main>
   );
