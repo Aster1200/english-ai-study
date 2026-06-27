@@ -36,7 +36,10 @@ export default function Home() {
   );
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [dailyLessonId, setDailyLessonId] = useState<number | null>(null);
-  const [isDailyLessonComplete, setIsDailyLessonComplete] = useState(false);
+  const [dailyLearnedLessonIds, setDailyLearnedLessonIds] = useState<number[]>(
+    [],
+  );
+  const [isDayFinished, setIsDayFinished] = useState(false);
   const [progress, setProgress] = useState<StoredProgress>(defaultProgress);
   const [isReady, setIsReady] = useState(false);
 
@@ -91,6 +94,16 @@ export default function Home() {
     }));
   }
 
+  function updateLessonQuestion(lessonId: number, question: string) {
+    setProgress((current) => ({
+      ...current,
+      lessonQuestions: {
+        ...current.lessonQuestions,
+        [lessonId]: question,
+      },
+    }));
+  }
+
   function getStatus(lessonId: number) {
     if (progress.knownLessonIds.includes(lessonId)) {
       return "known";
@@ -107,7 +120,8 @@ export default function Home() {
     setCurrentSession(buildTrainingSession(progress, lessons));
     setCurrentStepIndex(0);
     setDailyLessonId(null);
-    setIsDailyLessonComplete(false);
+    setDailyLearnedLessonIds([]);
+    setIsDayFinished(false);
     setActiveTab("learn");
   }
 
@@ -139,7 +153,8 @@ export default function Home() {
     setCurrentSession(null);
     setCurrentStepIndex(0);
     setDailyLessonId(null);
-    setIsDailyLessonComplete(false);
+    setDailyLearnedLessonIds([]);
+    setIsDayFinished(false);
   }
 
   function startDailyLesson() {
@@ -147,7 +162,8 @@ export default function Home() {
 
     setCurrentSession(null);
     setCurrentStepIndex(0);
-    setIsDailyLessonComplete(false);
+    setDailyLearnedLessonIds([]);
+    setIsDayFinished(false);
     setDailyLessonId(nextPendingLesson?.id ?? null);
     setActiveTab("learn");
   }
@@ -157,12 +173,21 @@ export default function Home() {
       return;
     }
 
-    setProgress((current) =>
+    const updatedProgress =
       outcome === "remembered"
-        ? markLessonRemembered(current, dailyLesson.id)
-        : markLessonNeedsPractice(current, dailyLesson.id),
-    );
-    setIsDailyLessonComplete(true);
+        ? markLessonRemembered(progress, dailyLesson.id)
+        : markLessonNeedsPractice(progress, dailyLesson.id);
+    const nextPendingLesson = getNextPendingLesson(updatedProgress, lessons);
+
+    setProgress(updatedProgress);
+    setDailyLearnedLessonIds((current) => [
+      ...new Set([...current, dailyLesson.id]),
+    ]);
+    setDailyLessonId(nextPendingLesson?.id ?? null);
+  }
+
+  function finishDay() {
+    setIsDayFinished(true);
   }
 
   return (
@@ -277,19 +302,38 @@ export default function Home() {
                 </div>
               )}
 
-              {!currentSession && dailyLesson && !isDailyLessonComplete && (
-                <SessionLessonCard
-                  currentStepNumber={1}
-                  lesson={dailyLesson}
-                  onNeedsPractice={() => finishDailyLesson("needsPractice")}
-                  onRemembered={() => finishDailyLesson("remembered")}
-                  stepTitle="Frase de hoy"
-                  totalSteps={1}
-                />
+              {!currentSession && dailyLesson && !isDayFinished && (
+                <>
+                  <SessionLessonCard
+                    currentStepNumber={dailyLearnedLessonIds.length + 1}
+                    lesson={dailyLesson}
+                    onNeedsPractice={() => finishDailyLesson("needsPractice")}
+                    onRemembered={() => finishDailyLesson("remembered")}
+                    onQuestionChange={(question) =>
+                      updateLessonQuestion(dailyLesson.id, question)
+                    }
+                    question={progress.lessonQuestions[dailyLesson.id] ?? ""}
+                    showClarify
+                    stepTitle="Frase de hoy"
+                    totalSteps={dailyLearnedLessonIds.length + 1}
+                  />
+                  <FinishDayPanel
+                    learnedCount={dailyLearnedLessonIds.length}
+                    onFinish={finishDay}
+                  />
+                </>
               )}
 
-              {!currentSession && dailyLesson && isDailyLessonComplete && (
-                <DailyLessonClosingCard onClose={resetTrainingSession} />
+              {!currentSession && !dailyLesson && !isDayFinished && dailyLearnedLessonIds.length > 0 && (
+                <NoMoreDailyLessonsCard onFinish={finishDay} />
+              )}
+
+              {!currentSession && isDayFinished && (
+                <DailyLessonClosingCard
+                  learnedLessonIds={dailyLearnedLessonIds}
+                  lessons={lessons}
+                  onClose={resetTrainingSession}
+                />
               )}
 
               {currentSession && currentStep && currentStep.type !== "closing" && currentSessionLesson && (
@@ -373,17 +417,43 @@ function SessionLessonCard({
   currentStepNumber,
   lesson,
   onNeedsPractice,
+  onQuestionChange,
   onRemembered,
+  question = "",
+  showClarify = false,
   stepTitle,
   totalSteps,
 }: {
   currentStepNumber: number;
   lesson: (typeof lessons)[number];
   onNeedsPractice: () => void;
+  onQuestionChange?: (question: string) => void;
   onRemembered: () => void;
+  question?: string;
+  showClarify?: boolean;
   stepTitle: string;
   totalSteps: number;
 }) {
+  const [clarifyStatus, setClarifyStatus] = useState("");
+
+  async function clarifyWithTeacher() {
+    const prompt = buildClarifyPrompt(lesson, question);
+    const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
+    const openedWindow = window.open(chatGptUrl, "_blank", "noopener,noreferrer");
+
+    if (openedWindow) {
+      setClarifyStatus("Abrí ChatGPT con el contexto de esta frase.");
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(prompt);
+      setClarifyStatus("Prompt copiado. Pégalo en ChatGPT.");
+    } catch {
+      setClarifyStatus("No pude abrir ChatGPT ni copiar el prompt automáticamente.");
+    }
+  }
+
   return (
     <article className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
       <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#00f2ff]/10 blur-[80px]" />
@@ -423,6 +493,34 @@ function SessionLessonCard({
             {lesson.explanation}
           </p>
         </div>
+
+        {showClarify && (
+          <div className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+            <label className="block">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Mi duda
+              </span>
+              <textarea
+                className="mt-3 min-h-28 w-full resize-none rounded-[1rem] border border-white/5 bg-[#121212] p-4 text-sm leading-6 text-white outline-none transition placeholder:text-slate-600 focus:border-[#00f2ff]/60 focus:shadow-[0_0_24px_rgba(0,242,255,0.12)]"
+                onChange={(event) => onQuestionChange?.(event.target.value)}
+                placeholder="Ejemplo: ¿por qué aquí se usa it is?"
+                value={question}
+              />
+            </label>
+            <button
+              className="mt-4 min-h-12 w-full rounded-[1.1rem] border border-[#00f2ff]/25 bg-[#00f2ff]/10 px-4 py-3 font-black text-[#00f2ff] transition hover:-translate-y-0.5 hover:bg-[#00f2ff]/15 hover:shadow-[0_0_24px_rgba(0,242,255,0.25)]"
+              onClick={clarifyWithTeacher}
+              type="button"
+            >
+              Aclarar
+            </button>
+            {clarifyStatus && (
+              <p className="mt-3 text-sm font-semibold text-[#00f2ff]">
+                {clarifyStatus}
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <button
@@ -485,19 +583,108 @@ function SessionClosingCard({
   );
 }
 
-function DailyLessonClosingCard({ onClose }: { onClose: () => void }) {
+function FinishDayPanel({
+  learnedCount,
+  onFinish,
+}: {
+  learnedCount: number;
+  onFinish: () => void;
+}) {
+  return (
+    <section className="rounded-[1.75rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-yellow-300">
+            Control de aprendizaje
+          </p>
+          <h3 className="mt-2 text-xl font-black tracking-tight text-white">
+            Tú decides cuándo cerrar.
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-slate-400">
+            Has avanzado {learnedCount} frase{learnedCount === 1 ? "" : "s"} hoy.
+            Si quieres parar, guarda tu día aquí.
+          </p>
+        </div>
+        <button
+          className="min-h-14 rounded-[1.25rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-6 py-3 font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)]"
+          onClick={onFinish}
+          type="button"
+        >
+          Listo por hoy
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function NoMoreDailyLessonsCard({ onFinish }: { onFinish: () => void }) {
   return (
     <section className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 text-center shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
-        Frase de hoy guardada
+        Camino completo por ahora
       </p>
       <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-        Listo. Hoy ya avanzaste tu camino real.
+        No quedan frases nuevas pendientes.
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-        Si algo marco dificultad, volvera a aparecer como refuerzo dentro de
-        Camino. Sin listas pesadas.
+        Puedes cerrar tu día y mantener tu control de aprendizaje.
       </p>
+      <button
+        className="mt-8 min-h-14 w-full rounded-[1.25rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-4 py-3 font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
+        onClick={onFinish}
+        type="button"
+      >
+        Listo por hoy
+      </button>
+    </section>
+  );
+}
+
+function DailyLessonClosingCard({
+  learnedLessonIds,
+  lessons,
+  onClose,
+}: {
+  learnedLessonIds: number[];
+  lessons: (typeof import("@/data/lessons").lessons);
+  onClose: () => void;
+}) {
+  const learnedLessons = learnedLessonIds
+    .map((lessonId) => lessons.find((lesson) => lesson.id === lessonId))
+    .filter((lesson): lesson is (typeof lessons)[number] => Boolean(lesson));
+
+  return (
+    <section className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 text-center shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+        Listo por hoy
+      </p>
+      <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        Progreso guardado.
+      </h2>
+      <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
+        Estas son las frases que trabajaste hoy. Si algo marcó dificultad,
+        volverá como refuerzo dentro de Camino.
+      </p>
+      <div className="mx-auto mt-7 max-w-2xl space-y-3 text-left">
+        {learnedLessons.length > 0 ? (
+          learnedLessons.map((lesson) => (
+            <article
+              className="rounded-[1.25rem] border border-white/5 bg-[#050505] p-4"
+              key={lesson.id}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-yellow-300">
+                Día {lesson.day}
+              </p>
+              <p className="mt-2 font-bold text-white">{lesson.phrase}</p>
+              <p className="mt-1 text-sm text-slate-400">{lesson.translation}</p>
+            </article>
+          ))
+        ) : (
+          <p className="rounded-[1.25rem] border border-white/5 bg-[#050505] p-4 text-center text-sm text-slate-400">
+            Hoy cerraste sin agregar frases nuevas.
+          </p>
+        )}
+      </div>
       <button
         className="mt-8 min-h-14 w-full rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)] sm:w-auto"
         onClick={onClose}
@@ -695,4 +882,24 @@ function InfoBlock({ label, value }: { label: string; value: string }) {
       <p className="mt-2 text-sm leading-6 text-slate-300">{value}</p>
     </div>
   );
+}
+
+function buildClarifyPrompt(
+  lesson: (typeof lessons)[number],
+  question: string,
+) {
+  const cleanQuestion = question.trim();
+
+  return `Estoy estudiando inglés desde cero con una frase diaria.
+
+Frase: ${lesson.phrase}
+Traducción: ${lesson.translation}
+Pronunciación aproximada: ${lesson.pronunciation}
+Patrón: ${lesson.pattern}
+Explicación de la app: ${lesson.explanation}
+
+Mi duda:
+${cleanQuestion || "[escribe aquí tu duda]"}
+
+Explícamelo con carga cognitiva mínima: sin teoría complicada, con 3 ejemplos parecidos y una forma fácil de recordarlo.`;
 }

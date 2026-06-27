@@ -270,41 +270,32 @@ export function buildTrainingSession(
   const sessionId = `session-${createdAt}`;
   const recentLessonIds = getRecentSessionLessonIds(progress);
 
-  const warmupLesson = pickLessonAvoidingRecent(
-    availableLessons.filter((lesson) =>
-      progress.knownLessonIds.includes(lesson.id),
-    ),
+  const warmupLessons = pickLessonsAvoidingRecent(
+    availableLessons.filter((lesson) => progress.knownLessonIds.includes(lesson.id)),
     recentLessonIds,
+    3,
   );
 
-  if (warmupLesson) {
-    usedLessonIds.add(warmupLesson.id);
-    steps.push({
-      id: `${sessionId}-warmup`,
-      type: "warmup",
-      title: "Calentamiento",
-      lessonId: warmupLesson.id,
-    });
-  }
-
-  const reinforcementLesson = pickLessonAvoidingRecent(
+  const backupWarmupLessons = pickLessonsAvoidingRecent(
     availableLessons.filter(
       (lesson) =>
-      progress.reviewLessonIds.includes(lesson.id) &&
-      !usedLessonIds.has(lesson.id),
+        progress.studiedLessonIds.includes(lesson.id) &&
+        !usedLessonIds.has(lesson.id) &&
+        !progress.knownLessonIds.includes(lesson.id),
     ),
     recentLessonIds,
+    3 - warmupLessons.length,
   );
 
-  if (reinforcementLesson) {
-    usedLessonIds.add(reinforcementLesson.id);
+  [...warmupLessons, ...backupWarmupLessons].forEach((lesson, index) => {
+    usedLessonIds.add(lesson.id);
     steps.push({
-      id: `${sessionId}-reinforcement`,
-      type: "reinforcement",
-      title: "Refuerzo",
-      lessonId: reinforcementLesson.id,
+      id: `${sessionId}-warmup-${lesson.id}`,
+      type: "warmup",
+      title: index === 0 ? "Calentamiento" : "Mini evaluación",
+      lessonId: lesson.id,
     });
-  }
+  });
 
   steps.push({
     id: `${sessionId}-closing`,
@@ -426,15 +417,23 @@ function getRecentSessionLessonIds(progress: StoredProgress) {
   );
 }
 
-function pickLessonAvoidingRecent(
+function pickLessonsAvoidingRecent(
   candidates: Lesson[],
   recentLessonIds: Set<number>,
+  count: number,
 ) {
-  return (
-    candidates.find((lesson) => !recentLessonIds.has(lesson.id)) ??
-    candidates[0] ??
-    null
+  if (count <= 0) {
+    return [];
+  }
+
+  const freshCandidates = candidates.filter(
+    (lesson) => !recentLessonIds.has(lesson.id),
   );
+  const fallbackCandidates = candidates.filter((lesson) =>
+    recentLessonIds.has(lesson.id),
+  );
+
+  return [...freshCandidates, ...fallbackCandidates].slice(0, count);
 }
 
 export function getProgressStats(progress: StoredProgress) {
