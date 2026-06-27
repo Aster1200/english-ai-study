@@ -268,9 +268,13 @@ export function buildTrainingSession(
   const steps: TrainingSessionStep[] = [];
   const createdAt = new Date().toISOString();
   const sessionId = `session-${createdAt}`;
+  const recentLessonIds = getRecentSessionLessonIds(progress);
 
-  const warmupLesson = availableLessons.find((lesson) =>
-    progress.knownLessonIds.includes(lesson.id),
+  const warmupLesson = pickLessonAvoidingRecent(
+    availableLessons.filter((lesson) =>
+      progress.knownLessonIds.includes(lesson.id),
+    ),
+    recentLessonIds,
   );
 
   if (warmupLesson) {
@@ -283,10 +287,13 @@ export function buildTrainingSession(
     });
   }
 
-  const reinforcementLesson = availableLessons.find(
-    (lesson) =>
+  const reinforcementLesson = pickLessonAvoidingRecent(
+    availableLessons.filter(
+      (lesson) =>
       progress.reviewLessonIds.includes(lesson.id) &&
       !usedLessonIds.has(lesson.id),
+    ),
+    recentLessonIds,
   );
 
   if (reinforcementLesson) {
@@ -296,22 +303,6 @@ export function buildTrainingSession(
       type: "reinforcement",
       title: "Refuerzo",
       lessonId: reinforcementLesson.id,
-    });
-  }
-
-  const newLesson = availableLessons.find(
-    (lesson) =>
-      !progress.studiedLessonIds.includes(lesson.id) &&
-      !usedLessonIds.has(lesson.id),
-  );
-
-  if (newLesson) {
-    usedLessonIds.add(newLesson.id);
-    steps.push({
-      id: `${sessionId}-new`,
-      type: "new",
-      title: "Nueva frase",
-      lessonId: newLesson.id,
     });
   }
 
@@ -327,6 +318,17 @@ export function buildTrainingSession(
     createdAt,
     steps,
   };
+}
+
+export function getNextPendingLesson(
+  progress: StoredProgress,
+  availableLessons: Lesson[] = lessons,
+) {
+  return (
+    availableLessons.find(
+      (lesson) => !progress.studiedLessonIds.includes(lesson.id),
+    ) ?? null
+  );
 }
 
 export function markLessonRemembered(
@@ -414,6 +416,25 @@ function addUniqueId(ids: number[], lessonId: number) {
 
 function removeId(ids: number[], lessonId: number) {
   return ids.filter((id) => id !== lessonId);
+}
+
+function getRecentSessionLessonIds(progress: StoredProgress) {
+  return new Set(
+    (progress.sessionHistory ?? [])
+      .slice(-3)
+      .flatMap((session) => session.lessonIds),
+  );
+}
+
+function pickLessonAvoidingRecent(
+  candidates: Lesson[],
+  recentLessonIds: Set<number>,
+) {
+  return (
+    candidates.find((lesson) => !recentLessonIds.has(lesson.id)) ??
+    candidates[0] ??
+    null
+  );
 }
 
 export function getProgressStats(progress: StoredProgress) {

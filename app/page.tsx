@@ -9,6 +9,7 @@ import {
   buildTrainingSession,
   completeTrainingSession,
   defaultProgress,
+  getNextPendingLesson,
   getProgressStats,
   markLessonNeedsPractice,
   markLessonRemembered,
@@ -34,6 +35,8 @@ export default function Home() {
     null,
   );
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [dailyLessonId, setDailyLessonId] = useState<number | null>(null);
+  const [isDailyLessonComplete, setIsDailyLessonComplete] = useState(false);
   const [progress, setProgress] = useState<StoredProgress>(defaultProgress);
   const [isReady, setIsReady] = useState(false);
 
@@ -70,6 +73,9 @@ export default function Home() {
   const currentSessionLesson = currentStep?.lessonId
     ? lessons.find((lesson) => lesson.id === currentStep.lessonId) ?? null
     : null;
+  const dailyLesson = dailyLessonId
+    ? lessons.find((lesson) => lesson.id === dailyLessonId) ?? null
+    : null;
 
   function updateGeneralQuestion(question: string) {
     setProgress((current) => ({
@@ -100,6 +106,8 @@ export default function Home() {
   function startTrainingSession() {
     setCurrentSession(buildTrainingSession(progress, lessons));
     setCurrentStepIndex(0);
+    setDailyLessonId(null);
+    setIsDailyLessonComplete(false);
     setActiveTab("learn");
   }
 
@@ -130,6 +138,31 @@ export default function Home() {
   function resetTrainingSession() {
     setCurrentSession(null);
     setCurrentStepIndex(0);
+    setDailyLessonId(null);
+    setIsDailyLessonComplete(false);
+  }
+
+  function startDailyLesson() {
+    const nextPendingLesson = getNextPendingLesson(progress, lessons);
+
+    setCurrentSession(null);
+    setCurrentStepIndex(0);
+    setIsDailyLessonComplete(false);
+    setDailyLessonId(nextPendingLesson?.id ?? null);
+    setActiveTab("learn");
+  }
+
+  function finishDailyLesson(outcome: "remembered" | "needsPractice") {
+    if (!dailyLesson) {
+      return;
+    }
+
+    setProgress((current) =>
+      outcome === "remembered"
+        ? markLessonRemembered(current, dailyLesson.id)
+        : markLessonNeedsPractice(current, dailyLesson.id),
+    );
+    setIsDailyLessonComplete(true);
   }
 
   return (
@@ -212,7 +245,7 @@ export default function Home() {
         <div className="mt-8 space-y-8">
           {activeTab === "learn" && (
             <section className="space-y-8">
-              {!currentSession && (
+              {!currentSession && !dailyLesson && (
                 <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
                     Camino
@@ -244,6 +277,21 @@ export default function Home() {
                 </div>
               )}
 
+              {!currentSession && dailyLesson && !isDailyLessonComplete && (
+                <SessionLessonCard
+                  currentStepNumber={1}
+                  lesson={dailyLesson}
+                  onNeedsPractice={() => finishDailyLesson("needsPractice")}
+                  onRemembered={() => finishDailyLesson("remembered")}
+                  stepTitle="Frase de hoy"
+                  totalSteps={1}
+                />
+              )}
+
+              {!currentSession && dailyLesson && isDailyLessonComplete && (
+                <DailyLessonClosingCard onClose={resetTrainingSession} />
+              )}
+
               {currentSession && currentStep && currentStep.type !== "closing" && currentSessionLesson && (
                 <SessionLessonCard
                   currentStepNumber={currentStepIndex + 1}
@@ -259,7 +307,7 @@ export default function Home() {
 
               {currentSession && currentStep && currentStep.type === "closing" && (
                 <SessionClosingCard
-                  onClose={resetTrainingSession}
+                  onContinueToday={startDailyLesson}
                   session={currentSession}
                 />
               )}
@@ -398,10 +446,10 @@ function SessionLessonCard({
 }
 
 function SessionClosingCard({
-  onClose,
+  onContinueToday,
   session,
 }: {
-  onClose: () => void;
+  onContinueToday: () => void;
   session: TrainingSession;
 }) {
   const lessonStepCount = session.steps.filter((step) => step.lessonId).length;
@@ -415,8 +463,8 @@ function SessionClosingCard({
         Buen trabajo. Hoy avanzaste sin saturarte.
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-        La app eligio por ti y guardo tu respuesta. Las frases que aun cuestan
-        volveran a aparecer dentro de Camino.
+        La app hizo un calentamiento rapido y guardo tu respuesta. Ahora sigue
+        tu avance principal del dia.
       </p>
       <div className="mx-auto mt-7 max-w-sm rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -428,10 +476,34 @@ function SessionClosingCard({
       </div>
       <button
         className="mt-8 min-h-14 w-full rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)] sm:w-auto"
+        onClick={onContinueToday}
+        type="button"
+      >
+        Continuar con mi frase de hoy
+      </button>
+    </section>
+  );
+}
+
+function DailyLessonClosingCard({ onClose }: { onClose: () => void }) {
+  return (
+    <section className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 text-center shadow-[0_30px_100px_-55px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+        Frase de hoy guardada
+      </p>
+      <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        Listo. Hoy ya avanzaste tu camino real.
+      </h2>
+      <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
+        Si algo marco dificultad, volvera a aparecer como refuerzo dentro de
+        Camino. Sin listas pesadas.
+      </p>
+      <button
+        className="mt-8 min-h-14 w-full rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)] sm:w-auto"
         onClick={onClose}
         type="button"
       >
-        Volver al camino
+        Volver a Camino
       </button>
     </section>
   );
