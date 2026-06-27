@@ -20,11 +20,12 @@ import {
   type StoredProgress,
 } from "@/lib/progress";
 
-type TabKey = "learn" | "review" | "notebook";
+type TabKey = "learn" | "review" | "patterns" | "notebook";
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: "learn", label: "Camino" },
   { key: "review", label: "Repaso" },
+  { key: "patterns", label: "Moldes" },
   { key: "notebook", label: "Libreta" },
 ];
 
@@ -262,7 +263,7 @@ export default function Home() {
         </section>
 
         <nav className="fixed inset-x-4 bottom-4 z-20 rounded-lg border border-white/10 bg-ink/95 p-1 shadow-glow backdrop-blur sm:sticky sm:top-3 sm:mt-5">
-          <div className="grid grid-cols-3 gap-1">
+          <div className="grid grid-cols-4 gap-1">
             {tabs.map((tab) => (
               <button
                 className={`min-h-14 rounded-md px-3 py-2 text-sm font-bold transition ${
@@ -306,7 +307,6 @@ export default function Home() {
                 question={progress.lessonQuestions[activeLesson.id] ?? ""}
               />
               <WordsPanel words={activeLesson.words} />
-              <PatternPanel lessons={lessons} />
             </>
           )}
 
@@ -318,6 +318,8 @@ export default function Home() {
               onMarkReview={(lessonId) => updateLessonStatus(lessonId, "review")}
             />
           )}
+
+          {activeTab === "patterns" && <PatternPanel lessons={lessons} />}
 
           {activeTab === "notebook" && (
             <TeacherNotebook
