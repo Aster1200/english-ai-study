@@ -71,8 +71,8 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
   }
 
   return (
-    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyanGlow">
+    <section className="rounded-[1.75rem] border border-white/5 bg-[#121212] p-7 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f2ff]">
         Toolbox
       </p>
       <h2 className="mt-2 text-xl font-bold text-white">Mis Moldes</h2>
@@ -81,13 +81,13 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
         necesites.
       </p>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-6 space-y-4">
         {groupedPatterns.map((category) => {
           const isOpen = openStageIds.includes(category.stageId);
 
           return (
             <article
-              className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 backdrop-blur-md"
+              className="overflow-hidden rounded-[1.35rem] border border-white/5 bg-[#050505] backdrop-blur-xl"
               key={category.stageId}
             >
               <button
@@ -101,19 +101,19 @@ export function PatternPanel({ lessons }: PatternPanelProps) {
                     {category.description}
                   </p>
                 </div>
-                <span className="shrink-0 rounded-full border border-cyanGlow/20 bg-cyanGlow/10 px-3 py-1 text-sm font-bold text-cyanGlow">
+                <span className="shrink-0 rounded-full border border-[#00f2ff]/20 bg-[#00f2ff]/10 px-3 py-1 text-sm font-bold text-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.14)]">
                   {isOpen ? "Cerrar" : "Abrir"}
                 </span>
               </button>
 
               {isOpen && (
-                <div className="space-y-3 border-t border-white/10 p-5">
+                <div className="space-y-3 border-t border-white/5 p-5">
                   {category.patterns.map((item) => (
                     <div
-                      className="rounded-2xl border border-cyanGlow/10 bg-cyanGlow/10 p-4"
+                      className="rounded-[1.25rem] border border-[#00f2ff]/10 bg-[#00f2ff]/10 p-4"
                       key={item.pattern}
                     >
-                      <p className="font-bold text-cyanGlow">{item.pattern}</p>
+                      <p className="font-bold text-[#00f2ff]">{item.pattern}</p>
                       <p className="mt-2 text-sm text-slate-200">{item.example}</p>
                       <p className="mt-1 text-sm text-slate-400">
                         {item.translation}

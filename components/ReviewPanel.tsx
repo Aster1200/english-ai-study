@@ -15,7 +15,7 @@ export function ReviewPanel({
   onMarkReview,
 }: ReviewPanelProps) {
   return (
-    <section className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
+    <section className="rounded-[1.75rem] border border-white/5 bg-[#121212] p-7 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-review">
@@ -28,12 +28,12 @@ export function ReviewPanel({
         </div>
       </div>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-6 space-y-4">
         {lessons.map((lesson) => {
           const status = getStatus(lesson.id);
           return (
             <article
-              className="rounded-2xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-md"
+              className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5 backdrop-blur-xl"
               key={lesson.id}
             >
               <div className="flex items-start justify-between gap-3">
@@ -47,14 +47,14 @@ export function ReviewPanel({
               </div>
               <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <button
-                  className="min-h-12 rounded-2xl bg-calm px-4 py-2 font-bold text-slate-950"
+                  className="min-h-12 rounded-full bg-[#00f2ff] px-4 py-2 font-bold text-black shadow-[0_0_18px_rgba(0,242,255,0.35)]"
                   onClick={() => onMarkKnown(lesson.id)}
                   type="button"
                 >
                   Lo se
                 </button>
                 <button
-                  className="min-h-12 rounded-2xl border border-review/40 bg-review/10 px-4 py-2 font-bold text-review"
+                  className="min-h-12 rounded-full border border-orange-300/25 bg-orange-500/10 px-4 py-2 font-bold text-orange-200"
                   onClick={() => onMarkReview(lesson.id)}
                   type="button"
                 >
@@ -78,7 +78,7 @@ function StatusPill({ status }: { status: ReviewStatus | "new" }) {
         : "Pendiente";
   const className =
     status === "known"
-      ? "border-calm/30 bg-calm/10 text-calm"
+      ? "border-[#00f2ff]/40 bg-[#00f2ff]/15 text-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.35)]"
       : status === "review"
         ? "border-review/30 bg-review/10 text-review"
         : "border-warm/30 bg-warm/10 text-warm";

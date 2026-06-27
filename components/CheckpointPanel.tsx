@@ -36,8 +36,8 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
   }
 
   return (
-    <section className="rounded-2xl border border-warm/20 bg-slate-900/50 p-6 shadow-glow backdrop-blur-md">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-warm">
+    <section className="rounded-[1.75rem] border border-white/5 bg-[#121212] p-7 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-yellow-300">
         Checkpoint suave
       </p>
       <h2 className="mt-2 text-xl font-bold text-white">{checkpoint.title}</h2>
@@ -45,10 +45,10 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
         Tres preguntas rápidas. Si algo falla, lo mandamos a Repaso sin bloquearte.
       </p>
 
-      <div className="mt-5 space-y-4">
+      <div className="mt-6 space-y-4">
         {checkpoint.questions.map((question) => (
           <article
-            className="rounded-2xl border border-white/10 bg-slate-950/50 p-5 backdrop-blur-md"
+            className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5 backdrop-blur-xl"
             key={question.id}
           >
             <p className="font-bold text-white">{question.prompt}</p>
@@ -57,10 +57,10 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
                 const isSelected = answers[question.id] === option;
                 return (
                   <button
-                    className={`min-h-12 rounded-2xl border px-4 py-2 text-left text-sm font-semibold transition ${
+                    className={`min-h-12 rounded-full border px-4 py-2 text-left text-sm font-semibold transition ${
                       isSelected
-                        ? "border-cyanGlow/70 bg-cyanGlow text-slate-950"
-                        : "border-white/10 bg-white/[0.04] text-slate-200 hover:border-cyanGlow/40"
+                        ? "border-[#00f2ff]/70 bg-[#00f2ff] text-black shadow-[0_0_18px_rgba(0,242,255,0.45)]"
+                        : "border-white/5 bg-white/[0.04] text-slate-300 hover:border-[#00f2ff]/40"
                     }`}
                     key={option}
                     onClick={() =>
@@ -81,7 +81,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       </div>
 
       {result && (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+        <div className="mt-5 rounded-[1.25rem] border border-white/5 bg-[#050505] p-4">
           <p className="font-bold text-white">
             Resultado: {result.correct}/{result.total}
           </p>
@@ -94,7 +94,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       )}
 
       <button
-        className="mt-5 min-h-14 w-full rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-3 font-black text-slate-950 transition enabled:hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+        className="mt-6 min-h-14 w-full rounded-[1.25rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-4 py-3 font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition enabled:hover:-translate-y-0.5 enabled:hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         disabled={!allAnswered || Boolean(result)}
         onClick={finishCheckpoint}
         type="button"

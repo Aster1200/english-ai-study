@@ -207,28 +207,29 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen px-4 pb-32 pt-5 sm:px-6 sm:pb-12">
+    <main className="min-h-screen bg-[#050505] px-4 pb-36 pt-6 sm:px-6 sm:pb-14 sm:pt-8">
       <div className="mx-auto max-w-5xl">
-        <header className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 p-7 shadow-glow backdrop-blur-md sm:p-9">
-          <div className="absolute -right-20 -top-24 h-60 w-60 rounded-full bg-cyanGlow/10 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyanGlow/70 to-transparent" />
+        <header className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-11">
+          <div className="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#00f2ff]/10 blur-[90px]" />
+          <div className="absolute -bottom-24 left-10 h-48 w-48 rounded-full bg-yellow-500/10 blur-[80px]" />
+          <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyanGlow sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00f2ff] sm:text-sm">
               English AI Study
             </p>
-            <h1 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">
               Mi Camino de Ingles
             </h1>
-            <p className="mt-3 text-base font-semibold text-warm">
+            <p className="mt-4 text-base font-semibold text-yellow-300">
               Un paso diario. Sin presion. Con direccion.
             </p>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400">
               Una ruta diaria y ordenada para estudiar sin saturarte: abre la
               app, entra a tu frase del dia y guarda tus dudas.
             </p>
           </div>
           <button
-            className="relative mt-7 min-h-14 w-full rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-6 py-4 text-base font-black text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] sm:w-auto"
+            className="relative mt-9 min-h-16 w-full rounded-[1.35rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-4 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
             onClick={() => {
               setActiveTab("learn");
               setActiveLessonId(nextLesson.id);
@@ -239,25 +240,25 @@ export default function Home() {
           </button>
         </header>
 
-        <section className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <section className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatCard label="Progreso total" value={`${stats.totalProgress}%`} />
           <StatCard label="Frases" value={stats.learnedPhraseCount} />
           <StatCard label="Palabras" value={stats.learnedWordCount} />
           <StatCard
-            accent="text-calm"
+            accent="text-[#00f2ff]"
             label="Racha"
             value={`${stats.streak} dias`}
           />
         </section>
 
-        <section className="mt-4 rounded-2xl border border-white/10 bg-slate-900/50 p-5 shadow-glow backdrop-blur-md">
+        <section className="mt-5 rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
           <div className="flex items-center justify-between gap-4">
             <p className="text-sm font-bold text-white">Avance del camino</p>
-            <p className="text-sm font-bold text-calm">{stats.totalProgress}%</p>
+            <p className="text-sm font-bold text-[#00f2ff]">{stats.totalProgress}%</p>
           </div>
           <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-cyan-300 transition-all"
+              className="h-full rounded-full bg-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.65)] transition-all"
               style={{ width: `${stats.totalProgress}%` }}
             />
           </div>
@@ -266,14 +267,14 @@ export default function Home() {
           </p>
         </section>
 
-        <nav className="fixed bottom-4 left-4 right-4 z-20 rounded-full border border-white/10 bg-white/5 p-1.5 shadow-glow backdrop-blur-lg sm:sticky sm:top-3 sm:mt-5">
+        <nav className="fixed bottom-5 left-5 right-5 z-20 mx-auto max-w-5xl rounded-full border border-white/10 bg-white/10 p-1.5 shadow-[0_24px_80px_-35px_rgba(0,0,0,0.95)] backdrop-blur-xl">
           <div className="grid grid-cols-4 gap-1">
             {tabs.map((tab) => (
               <button
-                className={`min-h-12 rounded-full px-3 py-2 text-sm font-bold transition ${
+                className={`min-h-12 rounded-full px-3 py-2 text-sm font-bold transition duration-300 ${
                   activeTab === tab.key
-                    ? "bg-cyanGlow text-slate-950 shadow-[0_0_18px_rgba(94,216,255,0.45)]"
-                    : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                    ? "bg-[#00f2ff] text-black shadow-[0_0_24px_rgba(0,242,255,0.65)]"
+                    : "text-slate-300 hover:bg-white/[0.08] hover:text-white"
                 }`}
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
@@ -285,7 +286,7 @@ export default function Home() {
           </div>
         </nav>
 
-        <div className="mt-5 space-y-5">
+        <div className="mt-8 space-y-8">
           {activeTab === "learn" && (
             <>
               {pendingCheckpoint && (
