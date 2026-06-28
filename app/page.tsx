@@ -40,6 +40,7 @@ export default function Home() {
     [],
   );
   const [isDayFinished, setIsDayFinished] = useState(false);
+  const [isStudying, setIsStudying] = useState(false);
   const [progress, setProgress] = useState<StoredProgress>(defaultProgress);
   const [isReady, setIsReady] = useState(false);
 
@@ -122,6 +123,7 @@ export default function Home() {
     setDailyLessonId(null);
     setDailyLearnedLessonIds([]);
     setIsDayFinished(false);
+    setIsStudying(true);
     setActiveTab("learn");
   }
 
@@ -155,6 +157,7 @@ export default function Home() {
     setDailyLessonId(null);
     setDailyLearnedLessonIds([]);
     setIsDayFinished(false);
+    setIsStudying(false);
   }
 
   function startDailyLesson() {
@@ -165,6 +168,7 @@ export default function Home() {
     setDailyLearnedLessonIds([]);
     setIsDayFinished(false);
     setDailyLessonId(nextPendingLesson?.id ?? null);
+    setIsStudying(true);
     setActiveTab("learn");
   }
 
@@ -188,12 +192,20 @@ export default function Home() {
 
   function finishDay() {
     setIsDayFinished(true);
+    setIsStudying(false);
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] px-4 pb-36 pt-6 sm:px-6 sm:pb-14 sm:pt-8">
-      <div className="mx-auto max-w-5xl">
-        <header className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-11">
+    <main
+      className={`min-h-screen px-4 transition-colors duration-500 sm:px-6 ${
+        isStudying
+          ? "flex items-center justify-center bg-[#020202] py-6 sm:py-10"
+          : "bg-[#050505] pb-36 pt-6 sm:pb-14 sm:pt-8"
+      }`}
+    >
+      <div className={`mx-auto w-full max-w-5xl transition-all duration-500 ${isStudying ? "max-w-4xl" : ""}`}>
+        {!isStudying && (
+          <header className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-11">
           <div className="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#00f2ff]/10 blur-[90px]" />
           <div className="absolute -bottom-24 left-10 h-48 w-48 rounded-full bg-yellow-500/10 blur-[80px]" />
           <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -219,20 +231,24 @@ export default function Home() {
           >
             Continuar mi camino
           </button>
-        </header>
+          </header>
+        )}
 
-        <section className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatCard label="Progreso total" value={`${stats.totalProgress}%`} />
-          <StatCard label="Frases" value={stats.learnedPhraseCount} />
-          <StatCard label="Palabras" value={stats.learnedWordCount} />
-          <StatCard
-            accent="text-[#00f2ff]"
-            label="Racha"
-            value={`${stats.streak} dias`}
-          />
-        </section>
+        {!isStudying && (
+          <section className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <StatCard label="Progreso total" value={`${stats.totalProgress}%`} />
+            <StatCard label="Frases" value={stats.learnedPhraseCount} />
+            <StatCard label="Palabras" value={stats.learnedWordCount} />
+            <StatCard
+              accent="text-[#00f2ff]"
+              label="Racha"
+              value={`${stats.streak} dias`}
+            />
+          </section>
+        )}
 
-        <section className="mt-5 rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+        {!isStudying && (
+          <section className="mt-5 rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
           <div className="flex items-center justify-between gap-4">
             <p className="text-sm font-bold text-white">Avance del camino</p>
             <p className="text-sm font-bold text-[#00f2ff]">{stats.totalProgress}%</p>
@@ -246,9 +262,11 @@ export default function Home() {
           <p className="mt-3 text-sm text-slate-400">
             Repite en voz alta. No memorices todo. Entiende una frase.
           </p>
-        </section>
+          </section>
+        )}
 
-        <nav className="fixed bottom-5 left-5 right-5 z-20 mx-auto max-w-5xl rounded-full border border-white/10 bg-white/10 p-1.5 shadow-[0_24px_80px_-35px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+        {!isStudying && (
+          <nav className="fixed bottom-5 left-5 right-5 z-20 mx-auto max-w-5xl rounded-full border border-white/10 bg-white/10 p-1.5 shadow-[0_24px_80px_-35px_rgba(0,0,0,0.95)] backdrop-blur-xl">
           <div className="grid grid-cols-4 gap-1">
             {tabs.map((tab) => (
               <button
@@ -265,12 +283,13 @@ export default function Home() {
               </button>
             ))}
           </div>
-        </nav>
+          </nav>
+        )}
 
-        <div className="mt-8 space-y-8">
+        <div className={`${isStudying ? "space-y-6" : "mt-8 space-y-8"}`}>
           {activeTab === "learn" && (
             <section className="space-y-8">
-              {!currentSession && !dailyLesson && (
+              {!currentSession && !dailyLesson && !isDayFinished && !isStudying && (
                 <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
                     Camino
@@ -302,6 +321,10 @@ export default function Home() {
                 </div>
               )}
 
+              {!currentSession && !dailyLesson && !isDayFinished && isStudying && (
+                <NoMoreDailyLessonsCard onFinish={finishDay} />
+              )}
+
               {!currentSession && dailyLesson && !isDayFinished && (
                 <>
                   <SessionLessonCard
@@ -324,7 +347,7 @@ export default function Home() {
                 </>
               )}
 
-              {!currentSession && !dailyLesson && !isDayFinished && dailyLearnedLessonIds.length > 0 && (
+              {!currentSession && !dailyLesson && !isDayFinished && !isStudying && dailyLearnedLessonIds.length > 0 && (
                 <NoMoreDailyLessonsCard onFinish={finishDay} />
               )}
 
@@ -384,11 +407,13 @@ export default function Home() {
           )}
         </div>
 
-        <footer className="py-10 text-center">
+        {!isStudying && (
+          <footer className="py-10 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-slate-500">
             Built by Aster
           </p>
-        </footer>
+          </footer>
+        )}
       </div>
     </main>
   );
