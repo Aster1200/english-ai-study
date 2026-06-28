@@ -42,7 +42,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
       </p>
       <h2 className="mt-2 text-xl font-bold text-white">{checkpoint.title}</h2>
       <p className="mt-2 text-sm leading-6 text-slate-300">
-        Tres preguntas rápidas. Si algo falla, lo mandamos a Repaso sin bloquearte.
+        Tres preguntas rápidas. Si algo falla, lo mandamos a Refuerzo sin bloquearte.
       </p>
 
       <div className="mt-6 space-y-4">
@@ -88,7 +88,7 @@ export function CheckpointPanel({ checkpoint, onComplete }: CheckpointPanelProps
           <p className="mt-2 text-sm leading-6 text-slate-300">
             {result.mistakeLessonIds.length === 0
               ? "Muy bien. Puedes seguir con calma."
-              : "Listo. Las frases con error quedaron marcadas para Repaso."}
+              : "Listo. Las frases con error quedaron marcadas para Refuerzo."}
           </p>
         </div>
       )}

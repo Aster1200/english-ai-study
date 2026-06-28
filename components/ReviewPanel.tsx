@@ -19,7 +19,7 @@ export function ReviewPanel({
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-review">
-            Modo repaso
+            Modo refuerzo
           </p>
           <h2 className="mt-2 text-xl font-bold text-white">Frases anteriores</h2>
           <p className="mt-2 text-sm text-slate-400">
@@ -51,14 +51,14 @@ export function ReviewPanel({
                   onClick={() => onMarkKnown(lesson.id)}
                   type="button"
                 >
-                  Lo se
+                  Lo recuerdo
                 </button>
                 <button
                   className="min-h-12 rounded-full border border-orange-300/25 bg-orange-500/10 px-4 py-2 font-bold text-orange-200"
                   onClick={() => onMarkReview(lesson.id)}
                   type="button"
                 >
-                  Repasar
+                  Aún me cuesta
                 </button>
               </div>
             </article>
@@ -74,7 +74,7 @@ function StatusPill({ status }: { status: ReviewStatus | "new" }) {
     status === "known"
       ? "Dominado"
       : status === "review"
-        ? "En repaso"
+        ? "En refuerzo"
         : "Pendiente";
   const className =
     status === "known"

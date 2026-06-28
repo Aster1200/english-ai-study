@@ -140,14 +140,14 @@ export function LessonCard({
           onClick={() => onMarkKnown(lesson.id)}
           type="button"
         >
-          {isKnown ? "Dominado" : "Ya entiendo"}
+          {isKnown ? "Dominado" : "Lo recuerdo"}
         </button>
         <button
           className="min-h-14 rounded-[1.25rem] border border-orange-300/25 bg-orange-500/10 px-4 py-3 font-bold text-orange-200 transition hover:bg-orange-500/15"
           onClick={() => onMarkReview(lesson.id)}
           type="button"
         >
-          Necesito repasarlo
+          Aún me cuesta
         </button>
       </div>
     </section>
