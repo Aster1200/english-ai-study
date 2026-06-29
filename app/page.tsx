@@ -24,7 +24,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "learn", label: "Camino" },
   { key: "library", label: "Biblioteca" },
   { key: "progress", label: "Progreso" },
-  { key: "settings", label: "Ajustes" },
+  { key: "settings", label: "Libreta" },
 ];
 
 export default function Home() {
@@ -203,7 +203,7 @@ export default function Home() {
       }`}
     >
       <div className={`mx-auto w-full max-w-5xl transition-all duration-500 ${isStudying ? "max-w-4xl" : ""}`}>
-        {!isStudying && (
+        {!isStudying && activeTab === "learn" && (
           <header className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-11">
           <div className="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#00f2ff]/10 blur-[90px]" />
           <div className="absolute -bottom-24 left-10 h-48 w-48 rounded-full bg-yellow-500/10 blur-[80px]" />
