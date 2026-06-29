@@ -18,13 +18,12 @@ import {
   type TrainingSession,
 } from "@/lib/progress";
 
-type TabKey = "learn" | "library" | "progress" | "settings";
+type TabKey = "learn" | "library" | "settings";
 type LibraryFilter = "known" | "pending" | "review";
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: "learn", label: "Camino" },
   { key: "library", label: "Biblioteca" },
-  { key: "progress", label: "Progreso" },
   { key: "settings", label: "Libreta" },
 ];
 
@@ -227,18 +226,38 @@ export default function Home() {
           >
             Continuar mi camino
           </button>
-          <div className="relative mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <CompactStat label="Avance" value={`${stats.totalProgress}%`} />
-            <CompactStat label="Frases" value={stats.learnedPhraseCount} />
-            <CompactStat label="Por reforzar" value={reinforcementCount} />
-            <CompactStat label="Racha" value={`${stats.streak} días`} />
+          <div className="relative mt-8 rounded-[1.75rem] border border-white/5 bg-black/25 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                  Marcador tranquilo
+                </p>
+                <p className="mt-1 text-sm text-slate-400">
+                  Solo una señal de avance. Camino decide que estudiar.
+                </p>
+              </div>
+              <p className="text-2xl font-black tracking-tight text-[#00f2ff]">
+                {stats.totalProgress}%
+              </p>
+            </div>
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <CompactStat label="Dominadas" value={stats.learnedPhraseCount} />
+              <CompactStat label="Por reforzar" value={reinforcementCount} />
+              <CompactStat label="Racha" value={`${stats.streak} días`} />
+            </div>
+            <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full rounded-full bg-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.65)] transition-all"
+                style={{ width: `${stats.totalProgress}%` }}
+              />
+            </div>
           </div>
           </header>
         )}
 
         {!isStudying && (
           <nav className="fixed bottom-5 left-5 right-5 z-20 mx-auto max-w-5xl rounded-full border border-white/10 bg-white/10 p-1.5 shadow-[0_24px_80px_-35px_rgba(0,0,0,0.95)] backdrop-blur-xl">
-          <div className="grid grid-cols-4 gap-1">
+          <div className="grid grid-cols-3 gap-1">
             {tabs.map((tab) => (
               <button
                 className={`min-h-12 rounded-full px-3 py-2 text-sm font-bold transition duration-300 ${
@@ -329,13 +348,6 @@ export default function Home() {
             />
           )}
 
-          {activeTab === "progress" && (
-            <ProgressPanel
-              reinforcementCount={reinforcementCount}
-              stats={stats}
-            />
-          )}
-
           {activeTab === "settings" && (
             <TeacherNotebook
               generalQuestion={progress.generalQuestion}
@@ -355,25 +367,6 @@ export default function Home() {
         )}
       </div>
     </main>
-  );
-}
-
-function CoachMetric({
-  label,
-  value,
-}: {
-  label: string;
-  value: number | string;
-}) {
-  return (
-    <div className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-        {label}
-      </p>
-      <p className="mt-2 text-3xl font-black tracking-tight text-[#00f2ff]">
-        {value}
-      </p>
-    </div>
   );
 }
 
@@ -911,56 +904,6 @@ function LibraryStatusPill({ status }: { status: "known" | "review" | "new" }) {
     >
       {label}
     </span>
-  );
-}
-
-function ProgressPanel({
-  reinforcementCount,
-  stats,
-}: {
-  reinforcementCount: number;
-  stats: ReturnType<typeof getProgressStats>;
-}) {
-  return (
-    <section className="space-y-6">
-      <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
-          Progreso
-        </p>
-        <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
-          Avance simple
-        </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
-          Numeros tranquilos para saber que vas avanzando sin convertirlo en una
-          lista pesada.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-        <CoachMetric label="Dominadas" value={stats.learnedPhraseCount} />
-        <CoachMetric label="Por reforzar" value={reinforcementCount} />
-        <CoachMetric label="Racha" value={`${stats.streak} dias`} />
-        <CoachMetric label="Avance" value={`${stats.totalProgress}%`} />
-      </div>
-
-      <section className="rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-bold text-white">Camino total</p>
-          <p className="text-sm font-bold text-[#00f2ff]">
-            {stats.totalProgress}%
-          </p>
-        </div>
-        <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10">
-          <div
-            className="h-full rounded-full bg-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.65)] transition-all"
-            style={{ width: `${stats.totalProgress}%` }}
-          />
-        </div>
-        <p className="mt-3 text-sm text-slate-400">
-          El objetivo no es correr. Es volver manana y seguir.
-        </p>
-      </section>
-    </section>
   );
 }
 
