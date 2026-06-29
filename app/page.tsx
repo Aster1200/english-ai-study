@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { PatternPanel } from "@/components/PatternPanel";
-import { StatCard } from "@/components/StatCard";
 import { TeacherNotebook } from "@/components/TeacherNotebook";
 import { lessons } from "@/data/lessons";
 import {
@@ -214,14 +213,10 @@ export default function Home() {
               English AI Study
             </p>
             <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">
-              Tu coach de ingles diario
+              Hola, Aster. Vamos por tu paso de hoy.
             </h1>
             <p className="mt-4 text-base font-semibold text-yellow-300">
-              Entra, presiona un boton y deja que la app te guie.
-            </p>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400">
-              No tienes que decidir que estudiar. Camino mezcla una frase facil,
-              una de refuerzo y una nueva cuando esten disponibles.
+              Una sesión breve. Una decisión clara. Sin saturarte.
             </p>
           </div>
           <button
@@ -231,38 +226,13 @@ export default function Home() {
           >
             Continuar mi camino
           </button>
+          <div className="relative mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <CompactStat label="Avance" value={`${stats.totalProgress}%`} />
+            <CompactStat label="Frases" value={stats.learnedPhraseCount} />
+            <CompactStat label="Por reforzar" value={reinforcementCount} />
+            <CompactStat label="Racha" value={`${stats.streak} días`} />
+          </div>
           </header>
-        )}
-
-        {!isStudying && (
-          <section className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <StatCard label="Progreso total" value={`${stats.totalProgress}%`} />
-            <StatCard label="Frases" value={stats.learnedPhraseCount} />
-            <StatCard label="Palabras" value={stats.learnedWordCount} />
-            <StatCard
-              accent="text-[#00f2ff]"
-              label="Racha"
-              value={`${stats.streak} dias`}
-            />
-          </section>
-        )}
-
-        {!isStudying && (
-          <section className="mt-5 rounded-[1.5rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl">
-          <div className="flex items-center justify-between gap-4">
-            <p className="text-sm font-bold text-white">Avance del camino</p>
-            <p className="text-sm font-bold text-[#00f2ff]">{stats.totalProgress}%</p>
-          </div>
-          <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10">
-            <div
-              className="h-full rounded-full bg-[#00f2ff] shadow-[0_0_18px_rgba(0,242,255,0.65)] transition-all"
-              style={{ width: `${stats.totalProgress}%` }}
-            />
-          </div>
-          <p className="mt-3 text-sm text-slate-400">
-            Repite en voz alta. No memorices todo. Entiende una frase.
-          </p>
-          </section>
         )}
 
         {!isStudying && (
@@ -289,38 +259,6 @@ export default function Home() {
         <div className={`${isStudying ? "space-y-6" : "mt-8 space-y-8"}`}>
           {activeTab === "learn" && (
             <section className="space-y-8">
-              {!currentSession && !dailyLesson && !isDayFinished && !isStudying && (
-                <div className="rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
-                    Camino
-                  </p>
-                  <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
-                    Tu coach de ingles diario
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
-                    La app decide el orden por ti. Tu solo respondes si lo
-                    recuerdas o si aun te cuesta.
-                  </p>
-
-                  <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                    <CoachMetric
-                      label="Dominadas"
-                      value={stats.learnedPhraseCount}
-                    />
-                    <CoachMetric label="Por reforzar" value={reinforcementCount} />
-                    <CoachMetric label="Racha" value={`${stats.streak} dias`} />
-                  </div>
-
-                  <button
-                    className="mt-8 min-h-16 w-full rounded-[1.35rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-4 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
-                    onClick={startTrainingSession}
-                    type="button"
-                  >
-                    Continuar mi camino
-                  </button>
-                </div>
-              )}
-
               {!currentSession && !dailyLesson && !isDayFinished && isStudying && (
                 <NoMoreDailyLessonsCard onFinish={finishDay} />
               )}
@@ -432,6 +370,25 @@ function CoachMetric({
         {label}
       </p>
       <p className="mt-2 text-3xl font-black tracking-tight text-[#00f2ff]">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function CompactStat({
+  label,
+  value,
+}: {
+  label: string;
+  value: number | string;
+}) {
+  return (
+    <div className="rounded-full border border-white/5 bg-black/25 px-4 py-3 backdrop-blur-xl">
+      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-1 text-lg font-black tracking-tight text-[#00f2ff]">
         {value}
       </p>
     </div>
