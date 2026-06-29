@@ -19,6 +19,7 @@ import {
 } from "@/lib/progress";
 
 type TabKey = "learn" | "library" | "progress" | "settings";
+type LibraryFilter = "known" | "pending" | "review";
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: "learn", label: "Camino" },
@@ -689,8 +690,10 @@ function LibraryPanel({
   query: string;
   setQuery: (query: string) => void;
 }) {
+  const [activeFilter, setActiveFilter] = useState<LibraryFilter>("pending");
+  const [visibleCount, setVisibleCount] = useState(7);
   const cleanQuery = query.trim().toLowerCase();
-  const filteredLessons = cleanQuery
+  const searchedLessons = cleanQuery
     ? lessons.filter((lesson) => {
         const searchableText = [
           lesson.phrase,
@@ -704,6 +707,61 @@ function LibraryPanel({
         return searchableText.includes(cleanQuery);
       })
     : lessons;
+  const filteredLessons = searchedLessons.filter((lesson) => {
+    const status = getStatus(lesson.id);
+
+    if (activeFilter === "known") {
+      return status === "known";
+    }
+
+    if (activeFilter === "review") {
+      return status === "review";
+    }
+
+    return status === "new";
+  });
+  const visibleLessons = filteredLessons.slice(0, visibleCount);
+  const libraryFilters: {
+    key: LibraryFilter;
+    label: string;
+    helper: string;
+  }[] = [
+    {
+      key: "known",
+      label: "Dominadas",
+      helper: "Ya las recuerdas.",
+    },
+    {
+      key: "pending",
+      label: "Pendientes",
+      helper: "Aun no entran al camino.",
+    },
+    {
+      key: "review",
+      label: "Repasar",
+      helper: "Necesitan refuerzo.",
+    },
+  ];
+
+  useEffect(() => {
+    setVisibleCount(7);
+  }, [activeFilter, query]);
+
+  function countLessonsByFilter(filter: LibraryFilter) {
+    return searchedLessons.filter((lesson) => {
+      const status = getStatus(lesson.id);
+
+      if (filter === "known") {
+        return status === "known";
+      }
+
+      if (filter === "review") {
+        return status === "review";
+      }
+
+      return status === "new";
+    }).length;
+  }
 
   return (
     <section className="space-y-8">
@@ -737,7 +795,7 @@ function LibraryPanel({
               Frases
             </p>
             <h3 className="mt-2 text-xl font-bold text-white">
-              {filteredLessons.length} disponibles
+              {filteredLessons.length} en {libraryFilters.find((filter) => filter.key === activeFilter)?.label.toLowerCase()}
             </h3>
           </div>
           <p className="text-sm text-slate-500">
@@ -745,8 +803,41 @@ function LibraryPanel({
           </p>
         </div>
 
+        <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
+          {libraryFilters.map((filter) => {
+            const isActive = activeFilter === filter.key;
+
+            return (
+              <button
+                className={`rounded-[1.25rem] border p-4 text-left transition ${
+                  isActive
+                    ? "border-[#00f2ff]/40 bg-[#00f2ff]/15 shadow-[0_0_24px_rgba(0,242,255,0.22)]"
+                    : "border-white/5 bg-[#050505] hover:border-white/10 hover:bg-white/[0.03]"
+                }`}
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                type="button"
+              >
+                <span
+                  className={`text-sm font-black ${
+                    isActive ? "text-[#00f2ff]" : "text-white"
+                  }`}
+                >
+                  {filter.label}
+                </span>
+                <span className="mt-1 block text-2xl font-black text-white">
+                  {countLessonsByFilter(filter.key)}
+                </span>
+                <span className="mt-1 block text-xs text-slate-500">
+                  {filter.helper}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         <div className="mt-6 grid grid-cols-1 gap-3">
-          {filteredLessons.slice(0, 24).map((lesson) => (
+          {visibleLessons.map((lesson) => (
             <article
               className="rounded-[1.35rem] border border-white/5 bg-[#050505] p-5"
               key={lesson.id}
@@ -770,10 +861,28 @@ function LibraryPanel({
           ))}
         </div>
 
-        {filteredLessons.length > 24 && (
-          <p className="mt-5 text-center text-sm text-slate-500">
-            Mostrando 24 resultados para mantener la vista ligera.
-          </p>
+        {visibleLessons.length === 0 && (
+          <div className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-6 text-center">
+            <p className="font-bold text-white">No hay frases en esta categoria.</p>
+            <p className="mt-2 text-sm text-slate-500">
+              Prueba otra pestaña o cambia la busqueda.
+            </p>
+          </div>
+        )}
+
+        {visibleCount < filteredLessons.length && (
+          <div className="mt-6 text-center">
+            <button
+              className="min-h-12 rounded-full border border-[#00f2ff]/25 bg-[#00f2ff]/10 px-6 text-sm font-black text-[#00f2ff] shadow-[0_0_20px_rgba(0,242,255,0.12)] transition hover:-translate-y-0.5 hover:border-[#00f2ff]/45 hover:shadow-[0_0_28px_rgba(0,242,255,0.22)]"
+              onClick={() => setVisibleCount((count) => count + 7)}
+              type="button"
+            >
+              Cargar más
+            </button>
+            <p className="mt-3 text-xs text-slate-500">
+              Mostrando {visibleLessons.length} de {filteredLessons.length}.
+            </p>
+          </div>
         )}
       </div>
 
