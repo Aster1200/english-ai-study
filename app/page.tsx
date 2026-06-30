@@ -233,14 +233,14 @@ export default function Home() {
                   Marcador tranquilo
                 </p>
                 <p className="mt-1 text-sm text-slate-400">
-                  Solo una señal de avance. Camino decide que estudiar.
+                  Solo una señal de avance. Camino decide qué estudiar.
                 </p>
               </div>
               <p className="text-2xl font-black tracking-tight text-[#00f2ff]">
                 {stats.totalProgress}%
               </p>
             </div>
-            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
               <CompactStat label="Dominadas" value={stats.learnedPhraseCount} />
               <CompactStat label="Por reforzar" value={reinforcementCount} />
               <CompactStat label="Racha" value={`${stats.streak} días`} />
@@ -378,11 +378,11 @@ function CompactStat({
   value: number | string;
 }) {
   return (
-    <div className="rounded-full border border-white/5 bg-black/25 px-4 py-3 backdrop-blur-xl">
+    <div className="rounded-[1.1rem] border border-white/5 bg-white/[0.03] px-4 py-3 backdrop-blur-xl">
       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
         {label}
       </p>
-      <p className="mt-1 text-lg font-black tracking-tight text-[#00f2ff]">
+      <p className="mt-1 text-base font-black tracking-tight text-slate-200">
         {value}
       </p>
     </div>
@@ -456,18 +456,21 @@ function SessionLessonCard({
           </p>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <InfoBlock label="Pronunciacion" value={lesson.pronunciation} />
-          <InfoBlock label="Patron" value={lesson.pattern} />
-        </div>
-
-        <div className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Explicacion simple
-          </p>
-          <p className="mt-2 text-sm leading-7 text-slate-300">
-            {lesson.explanation}
-          </p>
+        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <button
+            className="min-h-14 rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)]"
+            onClick={onRemembered}
+            type="button"
+          >
+            Lo recuerdo
+          </button>
+          <button
+            className="min-h-14 rounded-[1.25rem] border border-orange-300/25 bg-orange-500/10 px-4 py-3 font-bold text-orange-200 transition hover:bg-orange-500/15"
+            onClick={onNeedsPractice}
+            type="button"
+          >
+            Aún me cuesta
+          </button>
         </div>
 
         {showClarify && (
@@ -488,7 +491,7 @@ function SessionLessonCard({
               onClick={clarifyWithTeacher}
               type="button"
             >
-              Aclarar
+              Tengo una duda
             </button>
             {clarifyStatus && (
               <p className="mt-3 text-sm font-semibold text-[#00f2ff]">
@@ -498,22 +501,27 @@ function SessionLessonCard({
           </div>
         )}
 
-        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <button
-            className="min-h-14 rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)]"
-            onClick={onRemembered}
-            type="button"
-          >
-            Lo recuerdo
-          </button>
-          <button
-            className="min-h-14 rounded-[1.25rem] border border-orange-300/25 bg-orange-500/10 px-4 py-3 font-bold text-orange-200 transition hover:bg-orange-500/15"
-            onClick={onNeedsPractice}
-            type="button"
-          >
-            Aún me cuesta
-          </button>
-        </div>
+        <details className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+          <summary className="cursor-pointer list-none text-sm font-black text-slate-300 transition hover:text-white">
+            Detalles de apoyo
+            <span className="ml-2 text-xs font-semibold text-slate-500">
+              pronunciación, patrón y explicación
+            </span>
+          </summary>
+          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <InfoBlock label="Pronunciación" value={lesson.pronunciation} />
+            <InfoBlock label="Patrón" value={lesson.pattern} />
+          </div>
+          <div className="mt-4 rounded-[1.1rem] border border-white/5 bg-[#121212] p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Explicación simple
+            </p>
+            <p className="mt-2 text-sm leading-7 text-slate-300">
+              {lesson.explanation}
+            </p>
+          </div>
+        </details>
+
       </div>
     </article>
   );
