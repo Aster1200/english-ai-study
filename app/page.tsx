@@ -419,7 +419,7 @@ function SessionLessonCard({
     setSuccessMessage("Excelente. Hoy aprendiste una nueva forma de decirlo.");
     window.setTimeout(() => {
       onRemembered();
-    }, 650);
+    }, 1000);
   }
 
   async function clarifyWithTeacher() {
@@ -466,16 +466,18 @@ function SessionLessonCard({
           </p>
         </div>
 
-        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mt-8 space-y-3">
           <button
-            className="min-h-14 rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)]"
+            className="min-h-14 w-full rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_34px_rgba(0,242,255,0.55)] disabled:cursor-default disabled:opacity-70"
+            disabled={Boolean(successMessage)}
             onClick={handleRemembered}
             type="button"
           >
             Lo recuerdo
           </button>
           <button
-            className="min-h-14 rounded-[1.25rem] border border-orange-300/25 bg-orange-500/10 px-4 py-3 font-bold text-orange-200 transition hover:bg-orange-500/15"
+            className="min-h-12 w-full rounded-[1.15rem] border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-bold text-slate-400 transition duration-300 hover:scale-[1.02] hover:bg-white/[0.04] hover:text-slate-200 disabled:cursor-default disabled:opacity-50"
+            disabled={Boolean(successMessage)}
             onClick={onNeedsPractice}
             type="button"
           >
@@ -484,9 +486,16 @@ function SessionLessonCard({
         </div>
 
         {successMessage && (
-          <p className="mt-4 rounded-full border border-[#00f2ff]/20 bg-[#00f2ff]/10 px-4 py-3 text-center text-sm font-bold text-[#00f2ff]">
-            {successMessage}
-          </p>
+          <div className="mt-5 rounded-[1.35rem] border border-[#00f2ff]/20 bg-[#00f2ff]/10 p-5 text-center opacity-100 transition duration-300 scale-[1.02]">
+            <p className="text-2xl font-black text-[#00f2ff]">✓ Muy bien</p>
+            <p className="mt-2 text-sm text-slate-300">Hoy ya sabes decir:</p>
+            <p className="mt-2 text-lg font-black tracking-tight text-white">
+              “{lesson.phrase}”
+            </p>
+            <p className="mt-3 text-sm font-bold text-[#00f2ff]">
+              +1 frase comprendida · Continuar →
+            </p>
+          </div>
         )}
 
         <button
