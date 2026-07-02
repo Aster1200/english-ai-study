@@ -204,29 +204,29 @@ export default function Home() {
     >
       <div className={`mx-auto w-full max-w-5xl transition-all duration-500 ${isStudying ? "max-w-4xl" : ""}`}>
         {!isStudying && activeTab === "learn" && (
-          <header className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#121212] p-8 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-11">
-          <div className="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#00f2ff]/10 blur-[90px]" />
-          <div className="absolute -bottom-24 left-10 h-48 w-48 rounded-full bg-yellow-500/10 blur-[80px]" />
+          <header className="relative overflow-hidden rounded-[1.75rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-8">
+          <div className="absolute -right-24 -top-28 h-64 w-64 rounded-full bg-[#00f2ff]/10 blur-[90px]" />
+          <div className="absolute -bottom-24 left-10 h-40 w-40 rounded-full bg-yellow-500/10 blur-[80px]" />
           <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00f2ff] sm:text-sm">
               English AI Study
             </p>
-            <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">
+            <h1 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
               Hola, Aster. Vamos por tu paso de hoy.
             </h1>
-            <p className="mt-4 text-base font-semibold text-yellow-300">
+            <p className="mt-3 text-sm font-semibold text-yellow-300 sm:text-base">
               Una sesión breve. Una decisión clara. Sin saturarte.
             </p>
           </div>
           <button
-            className="relative mt-9 min-h-16 w-full rounded-[1.35rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-4 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
+            className="relative mt-6 min-h-14 w-full rounded-[1.25rem] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-3 text-base font-black tracking-tight text-black shadow-[0_10px_30px_-10px_rgba(234,179,8,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_-12px_rgba(234,179,8,0.75)] sm:w-auto"
             onClick={startTrainingSession}
             type="button"
           >
             Continuar mi camino
           </button>
-          <div className="relative mt-8 rounded-[1.75rem] border border-white/5 bg-black/25 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl">
+          <div className="relative mt-5 rounded-[1.35rem] border border-white/5 bg-black/20 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
@@ -236,11 +236,11 @@ export default function Home() {
                   Solo una señal de avance. Camino decide qué estudiar.
                 </p>
               </div>
-              <p className="text-2xl font-black tracking-tight text-[#00f2ff]">
+              <p className="text-xl font-black tracking-tight text-[#00f2ff]">
                 {stats.totalProgress}%
               </p>
             </div>
-            <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <div className="mt-3 grid grid-cols-3 gap-2">
               <CompactStat label="Dominadas" value={stats.learnedPhraseCount} />
               <CompactStat label="Por reforzar" value={reinforcementCount} />
               <CompactStat label="Racha" value={`${stats.streak} días`} />
@@ -360,9 +360,10 @@ export default function Home() {
 
         {!isStudying && (
           <footer className="py-10 text-center">
-          <p className="text-xs font-medium uppercase tracking-widest text-slate-500">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-slate-600">
             Built by Aster
           </p>
+          <div className="mx-auto mt-3 h-px w-20 bg-gradient-to-r from-transparent via-[#00f2ff]/30 to-transparent" />
           </footer>
         )}
       </div>
@@ -411,6 +412,15 @@ function SessionLessonCard({
   totalSteps: number;
 }) {
   const [clarifyStatus, setClarifyStatus] = useState("");
+  const [showHelp, setShowHelp] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  function handleRemembered() {
+    setSuccessMessage("Excelente. Hoy aprendiste una nueva forma de decirlo.");
+    window.setTimeout(() => {
+      onRemembered();
+    }, 650);
+  }
 
   async function clarifyWithTeacher() {
     const prompt = buildClarifyPrompt(lesson, question);
@@ -459,7 +469,7 @@ function SessionLessonCard({
         <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <button
             className="min-h-14 rounded-[1.25rem] bg-[#00f2ff] px-4 py-3 font-black text-black shadow-[0_0_24px_rgba(0,242,255,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(0,242,255,0.55)]"
-            onClick={onRemembered}
+            onClick={handleRemembered}
             type="button"
           >
             Lo recuerdo
@@ -473,41 +483,28 @@ function SessionLessonCard({
           </button>
         </div>
 
-        {showClarify && (
-          <div className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
-            <label className="block">
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Mi duda
-              </span>
-              <textarea
-                className="mt-3 min-h-28 w-full resize-none rounded-[1rem] border border-white/5 bg-[#121212] p-4 text-sm leading-6 text-white outline-none transition placeholder:text-slate-600 focus:border-[#00f2ff]/60 focus:shadow-[0_0_24px_rgba(0,242,255,0.12)]"
-                onChange={(event) => onQuestionChange?.(event.target.value)}
-                placeholder="Ejemplo: ¿por qué aquí se usa it is?"
-                value={question}
-              />
-            </label>
-            <button
-              className="mt-4 min-h-12 w-full rounded-[1.1rem] border border-[#00f2ff]/25 bg-[#00f2ff]/10 px-4 py-3 font-black text-[#00f2ff] transition hover:-translate-y-0.5 hover:bg-[#00f2ff]/15 hover:shadow-[0_0_24px_rgba(0,242,255,0.25)]"
-              onClick={clarifyWithTeacher}
-              type="button"
-            >
-              Tengo una duda
-            </button>
-            {clarifyStatus && (
-              <p className="mt-3 text-sm font-semibold text-[#00f2ff]">
-                {clarifyStatus}
-              </p>
-            )}
-          </div>
+        {successMessage && (
+          <p className="mt-4 rounded-full border border-[#00f2ff]/20 bg-[#00f2ff]/10 px-4 py-3 text-center text-sm font-bold text-[#00f2ff]">
+            {successMessage}
+          </p>
         )}
 
-        <details className="mt-6 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
-          <summary className="cursor-pointer list-none text-sm font-black text-slate-300 transition hover:text-white">
-            Detalles de apoyo
+        <button
+          className="mt-5 min-h-12 w-full rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-black text-slate-300 transition hover:border-[#00f2ff]/30 hover:bg-[#00f2ff]/10 hover:text-[#00f2ff]"
+          onClick={() => setShowHelp((current) => !current)}
+          type="button"
+        >
+          {showHelp ? "Ocultar pista" : "Necesito una pista"}
+        </button>
+
+        {showHelp && (
+          <div className="mt-5 rounded-[1.35rem] border border-white/5 bg-[#050505] p-5">
+          <p className="text-sm font-black text-slate-300">
+            Pista de apoyo
             <span className="ml-2 text-xs font-semibold text-slate-500">
-              pronunciación, patrón y explicación
+              mira solo lo que necesites
             </span>
-          </summary>
+          </p>
           <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <InfoBlock label="Pronunciación" value={lesson.pronunciation} />
             <InfoBlock label="Patrón" value={lesson.pattern} />
@@ -520,7 +517,35 @@ function SessionLessonCard({
               {lesson.explanation}
             </p>
           </div>
-        </details>
+          {showClarify && (
+            <div className="mt-4 rounded-[1.1rem] border border-white/5 bg-[#121212] p-5">
+              <label className="block">
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Mi duda
+                </span>
+                <textarea
+                  className="mt-3 min-h-24 w-full resize-none rounded-[1rem] border border-white/5 bg-[#050505] p-4 text-sm leading-6 text-white outline-none transition placeholder:text-slate-600 focus:border-[#00f2ff]/60 focus:shadow-[0_0_24px_rgba(0,242,255,0.12)]"
+                  onChange={(event) => onQuestionChange?.(event.target.value)}
+                  placeholder="Ejemplo: ¿por qué aquí se usa it is?"
+                  value={question}
+                />
+              </label>
+              <button
+                className="mt-4 min-h-12 w-full rounded-[1.1rem] border border-[#00f2ff]/25 bg-[#00f2ff]/10 px-4 py-3 font-black text-[#00f2ff] transition hover:-translate-y-0.5 hover:bg-[#00f2ff]/15 hover:shadow-[0_0_24px_rgba(0,242,255,0.25)]"
+                onClick={clarifyWithTeacher}
+                type="button"
+              >
+                Tengo una duda
+              </button>
+              {clarifyStatus && (
+                <p className="mt-3 text-sm font-semibold text-[#00f2ff]">
+                  {clarifyStatus}
+                </p>
+              )}
+            </div>
+          )}
+          </div>
+        )}
 
       </div>
     </article>
@@ -887,7 +912,22 @@ function LibraryPanel({
         )}
       </div>
 
-      <PatternPanel lessons={lessons} />
+      <details className="rounded-[2rem] border border-white/5 bg-[#121212] p-6 shadow-[0_24px_80px_-55px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-8">
+        <summary className="cursor-pointer list-none">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+            Consulta secundaria
+          </p>
+          <h3 className="mt-2 text-2xl font-black tracking-tight text-white">
+            Mis Moldes
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-slate-500">
+            Ábrelo solo cuando quieras revisar patrones. Camino sigue siendo el lugar para estudiar.
+          </p>
+        </summary>
+        <div className="mt-6">
+          <PatternPanel lessons={lessons} />
+        </div>
+      </details>
     </section>
   );
 }
