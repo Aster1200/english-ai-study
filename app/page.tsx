@@ -295,6 +295,7 @@ export default function Home() {
                     }
                     question={progress.lessonQuestions[dailyLesson.id] ?? ""}
                     showClarify
+                    showReward
                     stepTitle="Frase de hoy"
                     totalSteps={dailyLearnedLessonIds.length + 1}
                   />
@@ -398,6 +399,7 @@ function SessionLessonCard({
   onRemembered,
   question = "",
   showClarify = false,
+  showReward = false,
   stepTitle,
   totalSteps,
 }: {
@@ -408,6 +410,7 @@ function SessionLessonCard({
   onRemembered: () => void;
   question?: string;
   showClarify?: boolean;
+  showReward?: boolean;
   stepTitle: string;
   totalSteps: number;
 }) {
@@ -416,10 +419,15 @@ function SessionLessonCard({
   const [successMessage, setSuccessMessage] = useState("");
 
   function handleRemembered() {
+    if (!showReward) {
+      onRemembered();
+      return;
+    }
+
     setSuccessMessage("Excelente. Hoy aprendiste una nueva forma de decirlo.");
     window.setTimeout(() => {
       onRemembered();
-    }, 1000);
+    }, 850);
   }
 
   async function clarifyWithTeacher() {
