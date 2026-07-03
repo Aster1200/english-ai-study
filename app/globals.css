@@ -4,6 +4,18 @@
 
 :root {
   color-scheme: dark;
+  --surface-0: #080a0a;
+  --surface-1: #101414;
+  --surface-2: #171d1d;
+  --surface-3: #202929;
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --radius-button: 0.9rem;
+  --radius-input: 1rem;
+  --radius-card: 1.5rem;
+  --radius-panel: 1.85rem;
+  --radius-pill: 999px;
+  --motion-soft: 180ms ease-out;
 }
 
 * {
@@ -12,7 +24,7 @@
 
 body {
   margin: 0;
-  background: #050505;
+  background: var(--surface-0);
   background-attachment: fixed;
   color: #f5f7fb;
   font-family:
@@ -33,4 +45,37 @@ textarea {
 
 ::selection {
   background: rgba(77, 220, 255, 0.28);
+}
+
+.soft-layer {
+  transition:
+    opacity var(--motion-soft),
+    transform var(--motion-soft),
+    border-color var(--motion-soft),
+    background-color var(--motion-soft),
+    box-shadow var(--motion-soft);
+}
+
+.soft-enter {
+  animation: soft-enter 220ms ease-out both;
+}
+
+@keyframes soft-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-layer,
+  .soft-enter {
+    animation: none;
+    transition: none;
+  }
 }
