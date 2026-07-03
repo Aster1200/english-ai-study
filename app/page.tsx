@@ -199,12 +199,12 @@ export default function Home() {
       className={`min-h-screen px-4 transition-colors duration-300 sm:px-6 ${
         isStudying
           ? "flex items-center justify-center bg-[var(--surface-0)] py-6 sm:py-10"
-          : "bg-[var(--surface-0)] pb-28 pt-5 sm:pb-12 sm:pt-7"
+          : "bg-[var(--surface-0)] pb-24 pt-4 sm:pb-10 sm:pt-5"
       }`}
     >
-      <div className={`mx-auto w-full max-w-5xl transition-[max-width,opacity,transform] duration-300 ease-out ${isStudying ? "max-w-4xl" : ""}`}>
+      <div className={`mx-auto w-full transition-[max-width,opacity,transform] duration-300 ease-out ${isStudying ? "max-w-4xl" : "max-w-5xl"}`}>
         {!isStudying && activeTab === "learn" && (
-          <header className="soft-enter relative overflow-hidden rounded-[var(--radius-panel)] border border-[var(--border-soft)] bg-[var(--surface-1)] p-5 shadow-[0_22px_70px_-55px_rgba(0,0,0,0.9)] sm:p-7">
+          <header className="soft-enter relative mx-auto max-w-4xl overflow-hidden rounded-[var(--radius-panel)] border border-[var(--border-soft)] bg-[var(--surface-1)] p-5 shadow-[0_22px_70px_-55px_rgba(0,0,0,0.9)] sm:p-6">
           <div className="absolute -right-28 -top-32 h-52 w-52 rounded-full bg-[#00f2ff]/[0.055] blur-[74px]" />
           <div className="absolute -bottom-24 left-8 h-32 w-32 rounded-full bg-yellow-500/[0.07] blur-[66px]" />
           <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -212,10 +212,10 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00f2ff]">
               ENGLISH AI STUDY
             </p>
-            <h1 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
+            <h1 className="mt-2.5 text-3xl font-black tracking-tight text-white sm:text-[2.35rem]">
               Tu siguiente paso.
             </h1>
-            <p className="mt-2 text-sm font-semibold leading-6 text-yellow-300 sm:text-base">
+            <p className="mt-1.5 text-sm font-semibold leading-6 text-yellow-300 sm:text-[0.95rem]">
               Una frase.
               <br />
               Una decisión.
@@ -224,13 +224,13 @@ export default function Home() {
             </p>
           </div>
           <button
-            className="soft-layer relative mt-7 min-h-14 w-full rounded-[var(--radius-button)] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-3 text-base font-black tracking-tight text-black shadow-[0_10px_28px_-16px_rgba(234,179,8,0.72)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-18px_rgba(234,179,8,0.82)] active:scale-[0.99] sm:w-auto"
+            className="soft-layer relative mt-6 min-h-[3.25rem] w-full rounded-[var(--radius-button)] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-7 py-3 text-base font-black tracking-tight text-black shadow-[0_10px_28px_-16px_rgba(234,179,8,0.72)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-18px_rgba(234,179,8,0.82)] active:scale-[0.99] sm:w-auto"
             onClick={startTrainingSession}
             type="button"
           >
             Continuar mi camino
           </button>
-          <div className="relative mt-4 rounded-[var(--radius-card)] border border-[var(--border-soft)] bg-[var(--surface-2)]/70 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)] sm:p-4">
+          <div className="relative mt-4 rounded-[var(--radius-card)] border border-[var(--border-soft)] bg-[var(--surface-2)]/70 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
@@ -363,11 +363,14 @@ export default function Home() {
         </div>
 
         {!isStudying && (
-          <footer className="py-6 text-center">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-slate-600">
-            Built by Aster
-          </p>
-          <div className="mx-auto mt-2 h-px w-20 bg-gradient-to-r from-transparent via-[#00f2ff]/30 to-transparent" />
+          <footer className="py-4 text-center">
+          <div className="relative inline-flex flex-col items-center">
+            <div className="absolute top-1/2 h-8 w-44 -translate-y-1/2 rounded-full bg-[#00f2ff]/10 blur-2xl" />
+            <p className="relative text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-slate-500 [text-shadow:0_0_18px_rgba(0,242,255,0.24)]">
+              Built by Aster
+            </p>
+            <div className="relative mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-[#00f2ff]/45 to-transparent shadow-[0_0_14px_rgba(0,242,255,0.24)]" />
+          </div>
           </footer>
         )}
       </div>
@@ -383,7 +386,7 @@ function CompactStat({
   value: number | string;
 }) {
   return (
-    <div className="rounded-[var(--radius-input)] border border-[var(--border-soft)] bg-[var(--surface-1)] px-3 py-2">
+    <div className="rounded-[var(--radius-input)] border border-[var(--border-soft)] bg-[var(--surface-1)] px-3 py-1.5">
       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
         {label}
       </p>
