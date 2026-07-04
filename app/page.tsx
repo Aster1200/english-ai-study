@@ -609,7 +609,7 @@ function SessionClosingCard({
         onClick={onContinueToday}
         type="button"
       >
-        Continuar con mi frase de hoy
+        Continuar mi camino
       </button>
     </section>
   );
