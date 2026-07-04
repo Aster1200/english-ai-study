@@ -15,7 +15,7 @@
   --radius-card: 1.5rem;
   --radius-panel: 1.85rem;
   --radius-pill: 999px;
-  --motion-soft: 180ms ease-out;
+  --motion-soft: 140ms ease-out;
 }
 
 * {
@@ -57,7 +57,7 @@ textarea {
 }
 
 .soft-enter {
-  animation: soft-enter 220ms ease-out both;
+  animation: soft-enter 160ms ease-out both;
 }
 
 @keyframes soft-enter {

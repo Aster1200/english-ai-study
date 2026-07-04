@@ -171,6 +171,17 @@ export default function Home() {
     setActiveTab("learn");
   }
 
+  function continueDailyPath() {
+    const nextPendingLesson = getNextPendingLesson(progress, lessons);
+
+    setCurrentSession(null);
+    setCurrentStepIndex(0);
+    setIsDayFinished(false);
+    setDailyLessonId(nextPendingLesson?.id ?? null);
+    setIsStudying(true);
+    setActiveTab("learn");
+  }
+
   function finishDailyLesson(outcome: "remembered" | "needsPractice") {
     if (!dailyLesson) {
       return;
@@ -281,7 +292,7 @@ export default function Home() {
               {!currentSession && !dailyLesson && !isDayFinished && isStudying && dailyLearnedLessonIds.length > 0 && (
                 <DailyContinuePanel
                   learnedCount={dailyLearnedLessonIds.length}
-                  onContinue={startDailyLesson}
+                  onContinue={continueDailyPath}
                   onFinish={finishDay}
                 />
               )}
@@ -439,7 +450,7 @@ function SessionLessonCard({
     setSuccessMessage("Excelente. Hoy aprendiste una nueva forma de decirlo.");
     window.setTimeout(() => {
       onRemembered();
-    }, 650);
+    }, 420);
   }
 
   async function clarifyWithTeacher() {
@@ -564,7 +575,7 @@ function SessionLessonCard({
                 onClick={clarifyWithTeacher}
                 type="button"
               >
-                Tengo una duda
+                Resolver
               </button>
               {clarifyStatus && (
                 <p className="mt-3 text-sm font-semibold text-[#00f2ff]">
