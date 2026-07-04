@@ -180,13 +180,11 @@ export default function Home() {
       outcome === "remembered"
         ? markLessonRemembered(progress, dailyLesson.id)
         : markLessonNeedsPractice(progress, dailyLesson.id);
-    const nextPendingLesson = getNextPendingLesson(updatedProgress, lessons);
-
     setProgress(updatedProgress);
     setDailyLearnedLessonIds((current) => [
       ...new Set([...current, dailyLesson.id]),
     ]);
-    setDailyLessonId(nextPendingLesson?.id ?? null);
+    setDailyLessonId(null);
   }
 
   function finishDay() {
@@ -280,7 +278,15 @@ export default function Home() {
         <div className={`${isStudying ? "space-y-6" : "mt-6 space-y-8"}`}>
           {activeTab === "learn" && (
             <section className="space-y-8">
-              {!currentSession && !dailyLesson && !isDayFinished && isStudying && (
+              {!currentSession && !dailyLesson && !isDayFinished && isStudying && dailyLearnedLessonIds.length > 0 && (
+                <DailyContinuePanel
+                  learnedCount={dailyLearnedLessonIds.length}
+                  onContinue={startDailyLesson}
+                  onFinish={finishDay}
+                />
+              )}
+
+              {!currentSession && !dailyLesson && !isDayFinished && isStudying && dailyLearnedLessonIds.length === 0 && (
                 <NoMoreDailyLessonsCard onFinish={finishDay} />
               )}
 
@@ -433,7 +439,7 @@ function SessionLessonCard({
     setSuccessMessage("Excelente. Hoy aprendiste una nueva forma de decirlo.");
     window.setTimeout(() => {
       onRemembered();
-    }, 850);
+    }, 650);
   }
 
   async function clarifyWithTeacher() {
@@ -639,6 +645,47 @@ function FinishDayPanel({
         </div>
         <button
           className="soft-layer min-h-14 rounded-[var(--radius-button)] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-6 py-3 font-black tracking-tight text-black shadow-[0_10px_28px_-16px_rgba(234,179,8,0.72)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-18px_rgba(234,179,8,0.82)] active:scale-[0.99]"
+          onClick={onFinish}
+          type="button"
+        >
+          Listo por hoy
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function DailyContinuePanel({
+  learnedCount,
+  onContinue,
+  onFinish,
+}: {
+  learnedCount: number;
+  onContinue: () => void;
+  onFinish: () => void;
+}) {
+  return (
+    <section className="soft-enter rounded-[var(--radius-panel)] border border-[var(--border-soft)] bg-[var(--surface-1)] p-7 text-center shadow-[0_22px_72px_-58px_rgba(0,0,0,0.95)] sm:p-9">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00f2ff]">
+        Paso guardado
+      </p>
+      <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+        Bien. Avanzaste sin saturarte.
+      </h2>
+      <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-slate-400">
+        Hoy llevas {learnedCount} frase{learnedCount === 1 ? "" : "s"} trabajada
+        {learnedCount === 1 ? "" : "s"}.
+      </p>
+      <div className="mx-auto mt-7 flex max-w-md flex-col gap-3">
+        <button
+          className="soft-layer min-h-14 rounded-[var(--radius-button)] bg-gradient-to-br from-yellow-300 via-yellow-500 to-orange-500 px-6 py-3 font-black tracking-tight text-black shadow-[0_10px_28px_-16px_rgba(234,179,8,0.72)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-18px_rgba(234,179,8,0.82)] active:scale-[0.99]"
+          onClick={onContinue}
+          type="button"
+        >
+          Continuar mi camino
+        </button>
+        <button
+          className="soft-layer min-h-12 rounded-[var(--radius-button)] border border-[var(--border-soft)] bg-[var(--surface-2)] px-4 py-3 text-sm font-bold text-slate-400 hover:bg-[var(--surface-3)] hover:text-slate-200 active:scale-[0.99]"
           onClick={onFinish}
           type="button"
         >
